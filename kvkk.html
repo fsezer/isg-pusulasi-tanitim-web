@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KVKK Aydınlatma — İSG Pusulası</title>
+    <meta name="description" content="İSG Pusulası KVKK aydınlatma metni (özet)." />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/main.css" />
+  </head>
+  <body class="bg-paper font-sans text-ink antialiased">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6">
+        <a href="/" class="flex items-center gap-2 font-semibold text-navy">
+          <img src="/img/app_logo.png" alt="" width="32" height="32" class="h-8 w-8 object-contain" />
+          İSG Pusulası
+        </a>
+        <a href="/" class="text-sm font-medium text-sky hover:underline">Ana sayfa</a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+      <h1 class="text-3xl font-bold tracking-tight text-navy">KVKK Aydınlatma Metni</h1>
+      <p class="mt-2 text-sm text-muted">Özet bilgilendirme — güncel tam metin yakında yayınlanacaktır.</p>
+
+      <div class="soft-card mt-8 space-y-4 p-6 text-sm leading-relaxed text-ink/90 sm:p-8">
+        <p>
+          İstiklal Yazılım olarak, İSG Pusulası tanıtım sitesi üzerinden ilettiğiniz üyelik / demo
+          başvurularındaki kişisel verilerinizi (ad soyad, e-posta, telefon, şehir ve mesaj içeriği)
+          yalnızca başvuru değerlendirme ve sizinle iletişim kurma amaçlarıyla işleriz.
+        </p>
+        <p>
+          Veriler, Firebase / Google Cloud altyapısında saklanabilir. Yasal saklama süreleri ve
+          talepleriniz doğrultusunda silme / düzeltme haklarınız için
+          <a class="font-medium text-sky hover:underline" href="mailto:info@istiklalyazilim.com">info@istiklalyazilim.com</a>
+          adresine yazabilirsiniz.
+        </p>
+        <p>
+          Bu sayfa kısa bir stub’tur. Resmî aydınlatma, gizlilik ve hesap silme metinleri kurumsal
+          sitede ayrıca yayımlanır.
+        </p>
+      </div>
+
+      <p class="mt-8">
+        <a href="/" class="btn-amber">Ana sayfaya dön</a>
+      </p>
+    </main>
+
+    <footer class="border-t border-slate-200 py-8 text-center text-sm text-muted">
+      © <span data-year>2026</span> İstiklal Yazılım · İSG Pusulası
+    </footer>
+    <script type="module">
+      import '/src/css/main.css'
+      const el = document.querySelector('[data-year]')
+      if (el) el.textContent = String(new Date().getFullYear())
+    </script>
+  </body>
+</html>
