@@ -1,4 +1,5 @@
 import './firebase-apply.js'
+import './firebase-downloads.js'
 
 const INTRO_KEY = 'isg-intro'
 const BRAND = 'İSG Pusulası'
