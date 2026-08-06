@@ -13,9 +13,10 @@ const firebaseConfig = {
 const FALLBACK = {
   windowsUrl: '/downloads/ornek-isg-agent.zip',
   androidUrl: '/downloads/ornek-isg.apk',
+  iosUrl: '',
   playStoreUrl: '',
   appStoreUrl: '',
-  notes: 'Şu an örnek paketler gösteriliyor. Gerçek Agent/APK admin panelden yüklenecek.',
+  notes: 'Şu an örnek paketler gösteriliyor. Gerçek Agent/APK/IPA admin panelden yüklenecek.',
 }
 
 function applyLink(id, url, labelWhenReady) {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       cfg = {
         windowsUrl: d.windowsUrl || FALLBACK.windowsUrl,
         androidUrl: d.androidUrl || FALLBACK.androidUrl,
+        iosUrl: d.iosUrl || '',
         playStoreUrl: d.playStoreUrl || '',
         appStoreUrl: d.appStoreUrl || '',
         notes: d.notes || FALLBACK.notes,
@@ -56,8 +58,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.warn('indirme_paketleri okunamadı, örnek paketler kullanılıyor', err)
   }
 
-  applyLink('download-windows', cfg.windowsUrl)
-  applyLink('download-android', cfg.androidUrl)
+  // Pass URLs to email gate so it can redirect after successful claim
+  if (typeof window._setDownloadUrls === 'function') window._setDownloadUrls(cfg)
+
   applyLink('store-play', cfg.playStoreUrl, 'Google Play')
   applyLink('store-apple', cfg.appStoreUrl, 'App Store')
 
