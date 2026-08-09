@@ -66,4 +66,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const note = document.getElementById('download-notes')
   if (note) note.textContent = cfg.notes || FALLBACK.notes
+
+  // OS / sürüm rozetleri — API updates/check
+  const API = 'https://isg-pusulasi-api-kvfsvqx7na-ew.a.run.app'
+  const badge = (text) => {
+    const span = document.createElement('span')
+    span.className = 'inline-flex rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold text-slate-200'
+    span.textContent = text
+    return span
+  }
+  const fillOs = async (platform, elId) => {
+    const host = document.getElementById(elId)
+    if (!host) return
+    try {
+      const resp = await fetch(`${API}/v1/updates/check?platform=${platform}&current_code=0`)
+      const data = await resp.json()
+      const latest = data.latest
+      if (!latest) return
+      host.innerHTML = ''
+      if (latest.version_name) host.appendChild(badge('v' + latest.version_name))
+      if (latest.min_os) host.appendChild(badge(latest.min_os))
+      else if (latest.os_family) host.appendChild(badge(latest.os_family))
+    } catch (_) { /* sessiz */ }
+  }
+  fillOs('windows', 'os-badge-windows')
+  fillOs('android', 'os-badge-android')
+  fillOs('ios', 'os-badge-ios')
 })

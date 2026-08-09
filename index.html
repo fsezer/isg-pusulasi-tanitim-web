@@ -268,12 +268,14 @@
             <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur" data-reveal>
               <h3 class="text-lg font-bold">Windows Agent</h3>
               <p class="mt-2 text-sm text-slate-300">Kurulum paketi (.zip). Canlı paket admin'den gelir.</p>
+              <div id="os-badge-windows" class="mt-3 flex flex-wrap gap-2"></div>
               <button id="download-windows" onclick="openEmailGate('windows')" type="button" class="btn-amber mt-6 inline-flex">Windows Agent İndir</button>
             </div>
             <!-- Android -->
             <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur" data-reveal>
               <h3 class="text-lg font-bold">Android APK</h3>
               <p class="mt-2 text-sm text-slate-300">Doğrudan APK veya Google Play. Yakında mağazada.</p>
+              <div id="os-badge-android" class="mt-3 flex flex-wrap gap-2"></div>
               <button id="download-android" onclick="openEmailGate('android')" type="button" class="btn-ghost-light mt-6 inline-flex">Android APK İndir</button>
               <div class="mt-5 flex flex-wrap gap-3">
                 <a id="store-play" href="#" class="store-btn" aria-label="Google Play">
@@ -300,6 +302,7 @@
               </div>
               <h3 class="text-lg font-bold">iPhone / iPad</h3>
               <p class="mt-2 text-sm text-slate-300">App Store veya doğrudan IPA. Yakında yayında.</p>
+              <div id="os-badge-ios" class="mt-3 flex flex-wrap gap-2"></div>
               <button id="download-ios" onclick="openEmailGate('ios')" type="button" class="btn-ghost-light mt-6 inline-flex">iOS İndir</button>
             </div>
           </div>
@@ -396,6 +399,14 @@
               <p class="mt-3 text-lg text-muted">
                 Demo veya üyelik için formu doldurun. Ekibimiz kısa sürede dönüş yapar.
               </p>
+              <div class="mt-5 rounded-xl border border-navy/10 bg-navy/[0.03] p-4 text-sm text-ink/80 leading-relaxed">
+                <p class="font-semibold text-navy">Üyelik — cihaz kurulumu</p>
+                <p class="mt-1.5">
+                  Üyelik paketine <strong>3 PC kurulum hakkı</strong> dahildir (SQL veritabanı + şablon senkronu maliyeti nedeniyle).
+                  Ek cihaz için kotayı yönetici artırır. Bu, aşağıdaki tanıtım indirme e-posta limitinden
+                  (<em>3 indirme hakkı</em>) tamamen ayrıdır.
+                </p>
+              </div>
             </div>
 
             <form id="apply-form" class="soft-card p-6 sm:p-8" data-reveal="right" novalidate>
