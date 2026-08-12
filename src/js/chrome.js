@@ -7,7 +7,6 @@ const PAGES = [
   { id: 'mobile', href: '/mobil.html', key: 'nav.mobile' },
   { id: 'download', href: '/indir.html', key: 'nav.download' },
   { id: 'faq', href: '/sss.html', key: 'nav.faq' },
-  { id: 'apply', href: '/basvuru.html', key: 'nav.apply' },
   { id: 'contact', href: '/iletisim.html', key: 'nav.contact' },
 ]
 
@@ -47,7 +46,6 @@ export function mountChrome() {
       <div class="site-intro-haze" aria-hidden="true"></div>
       <div class="site-intro-stage">
         <img class="site-intro-logo" src="/img/app_logo.png" width="96" height="96" alt="" />
-        <p class="site-intro-eyebrow" data-intro-eyebrow data-i18n="intro.eyebrow">İstiklal Yazılım</p>
         <div class="site-intro-title-wrap" data-intro-title>
           <p class="site-intro-title" aria-label="İSG Pusulası">
             <span data-intro-typed></span><span class="intro-caret" data-intro-caret aria-hidden="true"></span>
@@ -109,12 +107,18 @@ export function mountChrome() {
   if (footer) {
     footer.innerHTML = `
       <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:flex-row sm:items-start sm:justify-between sm:px-6 lg:px-8">
-        <div class="flex items-start gap-3">
-          <img src="/img/istiklal_logo.png" alt="İstiklal Yazılım" width="44" height="44" class="h-11 w-11 object-contain" />
+        <div class="flex items-start gap-4">
+          <a class="footer-brand" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" aria-label="İstiklal Yazılım">
+            <picture>
+              <source srcset="/img/istiklal.webp" type="image/webp" />
+              <img src="/img/istiklal_logo.png" alt="İstiklal Yazılım" width="72" height="72" class="footer-brand-logo" />
+            </picture>
+          </a>
           <div>
-            <p class="font-display text-lg font-extrabold text-navy" data-i18n="common.company">İstiklal Yazılım</p>
+            <a class="font-display text-lg font-bold text-navy hover:text-sky" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" data-i18n="common.company">İstiklal Yazılım</a>
             <p class="mt-1 text-sm text-muted" data-i18n="footer.tag">Türkiye'nin İSG yazılımı</p>
             <p class="mt-2 text-sm text-muted">© <span data-year></span> <span data-i18n="common.brand">İSG Pusulası</span> · <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+            <a class="mt-2 inline-flex text-sm font-semibold text-sky hover:underline" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer">istiklalyazilim.com</a>
           </div>
         </div>
         <div class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm font-semibold text-muted sm:grid-cols-3">
@@ -126,6 +130,7 @@ export function mountChrome() {
           <a class="hover:text-navy" href="/basvuru.html" data-i18n="nav.apply">Başvuru</a>
           <a class="hover:text-navy" href="/iletisim.html" data-i18n="nav.contact">İletişim</a>
           <a class="hover:text-navy" href="/kvkk.html" data-i18n="footer.kvkk">KVKK Aydınlatma</a>
+          <a class="hover:text-navy" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" data-i18n="contact.web">Kurumsal</a>
           <a class="hover:text-navy" href="mailto:info@istiklalyazilim.com">info@istiklalyazilim.com</a>
         </div>
       </div>

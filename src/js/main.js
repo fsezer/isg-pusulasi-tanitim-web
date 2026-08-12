@@ -48,37 +48,38 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeNav()
 })
 
-/* Intro — once per tab session; ?intro forces replay */
+/* Intro — Sanas timing: once per tab; ?intro forces replay */
 if (intro) {
   const force = new URLSearchParams(location.search).has('intro')
   const seen = sessionStorage.getItem('isg-intro') === '1'
   if (!force && seen) {
     intro.remove()
   } else {
+    body.classList.add('is-introing')
     intro.classList.add('is-enabled')
     const titleWrap = intro.querySelector('[data-intro-title]')
     const typedEl = intro.querySelector('[data-intro-typed]')
     const caretEl = intro.querySelector('[data-intro-caret]')
-    const eyebrowEl = intro.querySelector('[data-intro-eyebrow]')
     const fullTitle = t(detectLocale(), 'intro.title') || 'İSG Pusulası'
     const wait = (ms) => new Promise((r) => setTimeout(r, ms))
     setLocked(true)
     ;(async () => {
       titleWrap?.classList.add('is-revealing')
-      eyebrowEl?.classList.add('is-on')
-      await wait(420)
+      await wait(500)
+      const charMs = 125
       for (let i = 1; i <= fullTitle.length; i += 1) {
         if (typedEl) typedEl.textContent = fullTitle.slice(0, i)
-        await wait(70)
+        await wait(charMs)
       }
       caretEl?.classList.add('is-done')
       titleWrap?.classList.add('is-settled')
       titleWrap?.classList.remove('is-revealing')
-      await wait(1100)
+      await wait(1400)
       intro.classList.add('is-done')
       sessionStorage.setItem('isg-intro', '1')
       await wait(850)
       intro.remove()
+      body.classList.remove('is-introing')
       setLocked(false)
     })()
   }
