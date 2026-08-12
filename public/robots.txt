@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/sitemap.xml

@@ -27,10 +27,11 @@ function setStatus(el, message, ok) {
     : 'mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800'
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function bindApplyForm() {
   const form = document.querySelector('#apply-form')
   const status = document.querySelector('#apply-status')
-  if (!form) return
+  if (!form || form.dataset.bound === '1') return
+  form.dataset.bound = '1'
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -78,4 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn) btn.disabled = false
     }
   })
-})
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bindApplyForm)
+} else {
+  bindApplyForm()
+}

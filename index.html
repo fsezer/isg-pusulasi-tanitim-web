@@ -2,468 +2,201 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const v = localStorage.getItem("isg-lang");
+          if (v && ["tr","en","de","fr","ar","ru"].includes(v)) {
+            document.documentElement.lang = v;
+            if (v === "ar") document.documentElement.dir = "rtl";
+          }
+        } catch (_) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>İSG Pusulası — Windows Agent & Android Mobil</title>
-    <meta
-      name="description"
-      content="İSG uzmanları için Windows Agent ve Android mobil: saha denetim, risk, eğitim, bulut senkron ve Uzman AI."
-    />
+    <title>İSG Pusulası — Türkiye'nin En Büyük İSG Yazılımı</title>
+    <meta name="description" content="Windows Agent + Android mobil İSG yazılımı." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İSG Pusulası" />
+    <meta property="og:title" content="İSG Pusulası — Türkiye'nin En Büyük İSG Yazılımı" />
+    <meta property="og:description" content="Windows Agent + Android mobil İSG yazılımı." />
+    <meta property="og:url" content="https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/" />
+    <meta property="og:image" content="https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/img/app_logo.png" />
+    <meta name="theme-color" content="#06101f" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/css/main.css" />
+    
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "İSG Pusulası",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows, Android",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+        "publisher": { "@type": "Organization", "name": "İstiklal Yazılım", "url": "https://istiklalyazilim.com" }
+      }
+    </script>
+
   </head>
-  <body class="bg-paper font-sans text-ink antialiased">
-    <!-- Intro -->
-    <div class="site-intro" role="dialog" aria-label="İSG Pusulası açılış" aria-hidden="false">
-      <div class="site-intro__inner">
-        <img
-          class="site-intro__logo"
-          data-intro-mark
-          src="/img/app_logo.png"
-          width="88"
-          height="88"
-          alt=""
-        />
-        <p class="site-intro__word" data-intro-word aria-live="polite"></p>
-      </div>
-    </div>
+  <body class="antialiased" data-page="home">
+    <div data-site-chrome></div>
+    <main>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 border-b border-white/10 bg-hero/90 backdrop-blur-md">
-      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="#top" class="flex items-center gap-2.5 text-white">
-          <img src="/img/app_logo.png" alt="" width="36" height="36" class="h-9 w-9 rounded-lg object-contain" />
-          <span class="text-sm font-bold tracking-tight sm:text-base">İSG Pusulası</span>
-        </a>
-
-        <nav class="hidden items-center gap-7 text-sm font-medium text-slate-200 md:flex" aria-label="Ana menü">
-          <a href="#urun" class="hover:text-amber transition-colors">Ürün</a>
-          <a href="#ozellikler" class="hover:text-amber transition-colors">Özellikler</a>
-          <a href="#gereksinim" class="hover:text-amber transition-colors">Gereksinimler</a>
-          <a href="#indir" class="hover:text-amber transition-colors">İndir</a>
-          <a href="#basvuru" class="hover:text-amber transition-colors">Başvuru</a>
-        </nav>
-
-        <div class="flex items-center gap-2">
-          <a href="#basvuru" class="btn-amber hidden px-4 py-2 text-sm sm:inline-flex">Üyelik başvurusu</a>
-          <button
-            type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white md:hidden"
-            data-nav-toggle
-            aria-expanded="false"
-            aria-controls="mobile-nav"
-            aria-label="Menüyü aç"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div id="mobile-nav" class="hidden border-t border-white/10 bg-hero px-4 py-3 md:hidden" data-nav-panel>
-        <nav class="flex flex-col gap-3 text-sm font-medium text-slate-200" aria-label="Mobil menü">
-          <a href="#urun">Ürün</a>
-          <a href="#ozellikler">Özellikler</a>
-          <a href="#indir">İndir</a>
-          <a href="#basvuru">Başvuru</a>
-          <a href="#basvuru" class="btn-amber mt-1 text-center text-sm">Üyelik başvurusu</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="top">
-      <!-- Hero -->
-      <section class="home-hero" aria-labelledby="hero-title">
-        <div class="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-24">
+      <section class="home-hero" data-home-hero aria-labelledby="hero-title">
+        <div class="hero-orb hero-orb--a" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb--b" aria-hidden="true"></div>
+        <div class="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-28">
           <div data-reveal>
-            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-sky-soft">İstiklal Yazılım</p>
-            <h1 id="hero-title" class="text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
-              İSG Pusulası
-            </h1>
-            <p class="mt-5 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-              İSG uzmanları için Windows Agent ve Android mobil — saha, risk, eğitim ve bulut senkron tek pusulada.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#basvuru" class="btn-amber">Üyelik başvurusu</a>
-              <a href="#indir" class="btn-ghost-light">İndir</a>
+            <p class="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-soft" data-i18n="home.eyebrow"></p>
+            <h1 id="hero-title" class="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl" data-i18n="home.headline">İSG Pusulası</h1>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl" data-i18n="home.sub"></p>
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a href="/basvuru.html" class="btn-amber" data-i18n="home.ctaPrimary"></a>
+              <a href="/indir.html" class="btn-ghost-light" data-i18n="home.ctaSecondary"></a>
             </div>
-            <div class="mt-10 flex flex-wrap gap-2.5" aria-label="Öne çıkanlar">
-              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-amber"></span>Windows Agent</span>
-              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-sky-soft"></span>Android</span>
-              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Bulut Sync</span>
-              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-amber-bright"></span>Uzman AI</span>
+            <div class="mt-10 flex flex-wrap gap-2.5">
+              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-amber"></span><span data-i18n="home.chip1"></span></span>
+              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-sky-soft"></span><span data-i18n="home.chip2"></span></span>
+              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="home.chip3"></span></span>
+              <span class="float-chip"><span class="h-1.5 w-1.5 rounded-full bg-amber-bright"></span><span data-i18n="home.chip4"></span></span>
             </div>
           </div>
-
-          <div class="relative hidden justify-end lg:flex" data-reveal="right">
-            <div class="relative w-full max-w-md">
-              <div class="absolute -inset-6 rounded-[2rem] bg-sky/20 blur-3xl" aria-hidden="true"></div>
-              <div class="soft-card relative overflow-hidden bg-white/95 p-8">
-                <img
-                  src="/img/app_logo.png"
-                  alt="İSG Pusulası uygulaması"
-                  class="mx-auto h-40 w-40 object-contain"
-                  width="160"
-                  height="160"
-                />
-                <p class="mt-6 text-center text-sm font-semibold text-navy">Agent · Mobil · Bulut</p>
-                <p class="mt-2 text-center text-sm text-muted">
-                  Offline SQLite, saha denetim ve uzaktan güncelleme ile sahada güvenle çalışın.
-                </p>
+          <div class="relative hidden lg:block" data-reveal="right">
+            <div class="showcase-panel">
+              <div class="media-frame mb-6">
+                <span class="ring"></span><span class="ring ring-2"></span>
+                <img src="/img/app_logo.png" alt="İSG Pusulası" width="160" height="160" />
               </div>
+              <p class="relative text-center font-display text-xl font-extrabold" data-i18n="home.showcaseTitle"></p>
+              <p class="relative mt-2 text-center text-sm text-muted" data-i18n="home.showcaseText"></p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Ürün -->
-      <section id="urun" class="scroll-mt-20 bg-paper py-20 sm:py-24" aria-labelledby="urun-title">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <section class="bg-navy py-16 text-white sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 class="font-display text-3xl font-extrabold" data-reveal data-i18n="home.statsTitle"></h2>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="stat-card" data-reveal><p class="font-display text-3xl font-extrabold text-amber-bright" data-i18n="home.stat1n"></p><p class="mt-1 text-sm text-slate-300" data-i18n="home.stat1d"></p></div><div class="stat-card" data-reveal><p class="font-display text-3xl font-extrabold text-amber-bright" data-i18n="home.stat2n"></p><p class="mt-1 text-sm text-slate-300" data-i18n="home.stat2d"></p></div><div class="stat-card" data-reveal><p class="font-display text-3xl font-extrabold text-amber-bright" data-i18n="home.stat3n"></p><p class="mt-1 text-sm text-slate-300" data-i18n="home.stat3d"></p></div><div class="stat-card" data-reveal><p class="font-display text-3xl font-extrabold text-amber-bright" data-i18n="home.stat4n"></p><p class="mt-1 text-sm text-slate-300" data-i18n="home.stat4d"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="max-w-2xl" data-reveal>
-            <h2 id="urun-title" class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Ürün</h2>
-            <p class="mt-3 text-lg text-muted">
-              Masaüstü güç ile saha mobilitesi — aynı veri modeli, aynı yetki, aynı İSG dili.
-            </p>
+            <h2 class="font-display text-3xl font-extrabold text-navy sm:text-4xl" data-i18n="home.pillarsTitle"></h2>
+            <p class="mt-3 text-lg text-muted" data-i18n="home.pillarsSub"></p>
           </div>
-
-          <div class="mt-12 grid gap-6 md:grid-cols-2">
-            <article class="soft-card p-7 sm:p-8" data-reveal>
-              <div class="mb-4 inline-flex rounded-xl bg-navy/5 px-3 py-1 text-xs font-bold uppercase tracking-wide text-navy">
-                Windows
-              </div>
-              <h3 class="text-xl font-bold text-navy">Windows Agent</h3>
-              <p class="mt-3 text-muted leading-relaxed">
-                Firma ve personel, Word/Excel çıktı, arşiv, eğitim materyali ve LocalDB/SQLite ile ofiste tam kontrol.
-                Uzaktan güncelleme ile sürümler yönetilir.
-              </p>
-              <ul class="mt-5 space-y-2 text-sm text-ink/80">
-                <li>· Şablon çıktı ve uyarı raporları</li>
-                <li>· Saha / galeri / evrak klasörleri</li>
-                <li>· Bulut senkron ve lisans kontrolü</li>
-              </ul>
+          <div class="mt-10 grid gap-5 lg:grid-cols-3">
+            <article class="pillar-card pillar-card--sky" data-reveal>
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-sky-soft">01</p>
+              <h3 class="mt-3 font-display text-2xl font-extrabold" data-i18n="home.p1t"></h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300" data-i18n="home.p1d"></p>
+              <a href="/windows.html" class="mt-6 inline-flex text-sm font-bold text-amber-bright" data-i18n="common.learnMore"></a>
             </article>
-
-            <article class="soft-card p-7 sm:p-8" data-reveal>
-              <div class="mb-4 inline-flex rounded-xl bg-sky/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sky">
-                Android
-              </div>
-              <h3 class="text-xl font-bold text-navy">Mobil Uygulama</h3>
-              <p class="mt-3 text-muted leading-relaxed">
-                Saha denetim, fotoğraf ve hızlı kayıt. Google ile giriş, yetkili e-posta modeli, offline-first yaklaşım.
-              </p>
-              <ul class="mt-5 space-y-2 text-sm text-ink/80">
-                <li>· Saha denetim akışları</li>
-                <li>· APK / Play üzerinden güncelleme</li>
-                <li>· KVKK uyumlu hesap silme</li>
-              </ul>
+            <article class="pillar-card pillar-card--amber" data-reveal>
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-amber-bright">02</p>
+              <h3 class="mt-3 font-display text-2xl font-extrabold" data-i18n="home.p2t"></h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300" data-i18n="home.p2d"></p>
+              <a href="/mobil.html" class="mt-6 inline-flex text-sm font-bold text-amber-bright" data-i18n="common.learnMore"></a>
+            </article>
+            <article class="pillar-card pillar-card--mint" data-reveal>
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">03</p>
+              <h3 class="mt-3 font-display text-2xl font-extrabold" data-i18n="home.p3t"></h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300" data-i18n="home.p3d"></p>
+              <a href="/ozellikler.html" class="mt-6 inline-flex text-sm font-bold text-amber-bright" data-i18n="common.learnMore"></a>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- Özellikler -->
-      <section id="ozellikler" class="scroll-mt-20 bg-white py-20 sm:py-24" aria-labelledby="ozellik-title">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <section class="bg-white py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="max-w-2xl" data-reveal>
-            <h2 id="ozellik-title" class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Özellikler</h2>
-            <p class="mt-3 text-lg text-muted">Sahadan ofise kadar ihtiyaç duyduğunuz İSG araç seti.</p>
+            <h2 class="font-display text-3xl font-extrabold text-navy sm:text-4xl" data-i18n="home.featGridTitle"></h2>
+            <p class="mt-3 text-lg text-muted" data-i18n="home.featGridSub"></p>
           </div>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f1t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f1d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f2t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f2d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f3t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f3d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f4t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f4d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f5t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f5d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f6t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f6d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f7t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f7d"></p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span>
+              <h3 class="font-bold text-navy" data-i18n="home.f8t"></h3>
+              <p class="mt-2 text-sm text-muted" data-i18n="home.f8d"></p>
+            </article>
 
-          <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Bulut sync</h3>
-              <p class="mt-2 text-sm text-muted">Agent ve mobil arasında güvenli senkron.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Offline SQLite</h3>
-              <p class="mt-2 text-sm text-muted">İnternet yokken de çalışmaya devam.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Saha denetim</h3>
-              <p class="mt-2 text-sm text-muted">Fotoğraf, bulgu ve takip sahada.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Risk yönetimi</h3>
-              <p class="mt-2 text-sm text-muted">Risk kayıtları ve çıktı süreçleri.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Eğitim</h3>
-              <p class="mt-2 text-sm text-muted">Materyal ve eğitim süreç desteği.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Uzman AI</h3>
-              <p class="mt-2 text-sm text-muted">İSG bağlamında yardımcı yapay zeka.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">Uzaktan güncelleme</h3>
-              <p class="mt-2 text-sm text-muted">Windows zip ve Android APK kanalları.</p>
-            </article>
-            <article class="feature-tile" data-reveal>
-              <h3 class="font-bold text-navy">KVKK</h3>
-              <p class="mt-2 text-sm text-muted">Aydınlatma, gizlilik ve hesap silme.</p>
-            </article>
           </div>
-        </div>
-      </section>
-
-
-      <!-- Microsoft Office Gereksinimi -->
-      <section id="gereksinim" class="scroll-mt-20 bg-paper py-14 sm:py-16" aria-labelledby="office-title">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          <div class="rounded-2xl border-2 border-amber-400/30 bg-amber-50 p-6 sm:p-8" data-reveal>
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 text-3xl" aria-hidden="true">⚠️</div>
-              <div>
-                <h2 id="office-title" class="text-xl font-bold text-navy sm:text-2xl">Microsoft Office Gereksinimi (Windows Agent)</h2>
-                <p class="mt-3 text-muted leading-relaxed">
-                  Windows Agent; Word ve Excel çıktıları için <strong>Microsoft Office 2016 veya üstü</strong> ya da <strong>Microsoft 365</strong> gerektirir.
-                </p>
-                <ul class="mt-4 space-y-2 text-sm text-ink/80">
-                  <li class="flex items-center gap-2">
-                    <svg class="h-4 w-4 flex-shrink-0 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                    Microsoft Office 2016 / 2019 / 2021 / LTSC 2024
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="h-4 w-4 flex-shrink-0 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                    Microsoft 365 (Office 365) — önerilen
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="h-4 w-4 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                    LibreOffice desteklenmez
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="h-4 w-4 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                    Microsoft Office ücretsiz tam sürümü bulunmamaktadır
-                  </li>
-                </ul>
-                <p class="mt-4 text-sm text-muted">
-                  Word / Excel çıktı motoru yüklü bir Office kurulumu olmadan çalışmaz. 
-                  Office 365 aboneliği veya tek seferlik lisans seçenekleri için 
-                  <a href="https://www.microsoft.com/tr-tr/microsoft-365" target="_blank" rel="noopener" class="font-medium text-navy underline hover:text-amber">microsoft.com</a> adresine bakabilirsiniz.
-                </p>
-              </div>
-            </div>
+          <div class="mt-10" data-reveal>
+            <a href="/ozellikler.html" class="btn-amber" data-i18n="common.ctaFeatures"></a>
           </div>
         </div>
       </section>
 
-      <!-- İndir -->
-      <section id="indir" class="scroll-mt-20 bg-navy py-20 text-white sm:py-24" aria-labelledby="indir-title">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <section class="py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="max-w-2xl" data-reveal>
-            <h2 id="indir-title" class="text-3xl font-bold tracking-tight sm:text-4xl">İndir</h2>
-            <p id="download-notes" class="mt-3 text-lg text-slate-300">
-              Örnek paketler hazır. Gerçek Agent / APK / IPA admin panelden yüklenecek.
-            </p>
+            <h2 class="font-display text-3xl font-extrabold text-navy" data-i18n="home.flowTitle"></h2>
+            <p class="mt-3 text-lg text-muted" data-i18n="home.flowSub"></p>
           </div>
-
-          <div class="mt-12 grid gap-6 md:grid-cols-3">
-            <!-- Windows -->
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur" data-reveal>
-              <h3 class="text-lg font-bold">Windows Agent</h3>
-              <p class="mt-2 text-sm text-slate-300">Kurulum paketi (.zip). Canlı paket admin'den gelir.</p>
-              <div id="os-badge-windows" class="mt-3 flex flex-wrap gap-2"></div>
-              <button id="download-windows" onclick="openEmailGate('windows')" type="button" class="btn-amber mt-6 inline-flex">Windows Agent İndir</button>
-            </div>
-            <!-- Android -->
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur" data-reveal>
-              <h3 class="text-lg font-bold">Android APK</h3>
-              <p class="mt-2 text-sm text-slate-300">Doğrudan APK veya Google Play. Yakında mağazada.</p>
-              <div id="os-badge-android" class="mt-3 flex flex-wrap gap-2"></div>
-              <button id="download-android" onclick="openEmailGate('android')" type="button" class="btn-ghost-light mt-6 inline-flex">Android APK İndir</button>
-              <div class="mt-5 flex flex-wrap gap-3">
-                <a id="store-play" href="#" class="store-btn" aria-label="Google Play">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.4.2-.6.6-.6 1.1v17.2c0 .5.2.9.6 1.1l.1.1 9.6-9.6v-.3L3.7 2.2l-.1.1zm12.1 7L12.5 12l3.2 2.7 3.8-2.2c.7-.4.7-1.1 0-1.5l-3.8-2.7zM12.1 12.5l-9.7 9.7c.2.1.4.1.6.1.3 0 .6-.1.9-.3l10.7-6.2-2.5-3.3zm2.5-5.1L4 2.2C3.7 2 3.4 2 3.1 2c-.2 0-.4 0-.6.1l9.6 9.6 2.5-2.3z"/></svg>
-                  <span class="text-left leading-tight">
-                    <span class="block text-[10px] uppercase opacity-70">Google Play</span>
-                    <span class="block text-sm font-semibold" data-store-label>Yakında</span>
-                  </span>
-                </a>
-                <a id="store-apple" href="#" class="store-btn" aria-label="App Store">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.7 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.7zM15.8 5.5c.6-.8 1.1-1.8.9-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.3z"/></svg>
-                  <span class="text-left leading-tight">
-                    <span class="block text-[10px] uppercase opacity-70">App Store</span>
-                    <span class="block text-sm font-semibold" data-store-label>Yakında</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <!-- iOS -->
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur" data-reveal>
-              <div class="mb-3 flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="opacity-70" aria-hidden="true"><path d="M18.7 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.7zM15.8 5.5c.6-.8 1.1-1.8.9-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.3z"/></svg>
-                <span class="text-xs font-bold uppercase tracking-wider opacity-60">iOS</span>
-              </div>
-              <h3 class="text-lg font-bold">iPhone / iPad</h3>
-              <p class="mt-2 text-sm text-slate-300">App Store veya doğrudan IPA. Yakında yayında.</p>
-              <div id="os-badge-ios" class="mt-3 flex flex-wrap gap-2"></div>
-              <button id="download-ios" onclick="openEmailGate('ios')" type="button" class="btn-ghost-light mt-6 inline-flex">iOS İndir</button>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="flow-step" data-reveal><span>1</span><p data-i18n="home.flow1"></p></div><div class="flow-step" data-reveal><span>2</span><p data-i18n="home.flow2"></p></div><div class="flow-step" data-reveal><span>3</span><p data-i18n="home.flow3"></p></div><div class="flow-step" data-reveal><span>4</span><p data-i18n="home.flow4"></p></div>
+          </div>
+          <div class="cta-band mt-14" data-reveal>
+            <h2 class="font-display text-2xl font-extrabold sm:text-3xl" data-i18n="home.ctaBandTitle"></h2>
+            <p class="mt-3 max-w-2xl text-slate-300" data-i18n="home.ctaBandText"></p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href="/basvuru.html" class="btn-amber" data-i18n="common.ctaApply"></a>
+              <a href="/indir.html" class="btn-ghost-light" data-i18n="common.ctaDownload"></a>
             </div>
           </div>
-
-          <p class="mt-8 text-center text-sm text-slate-400" data-reveal>
-            İndirmek için e-posta adresinizi paylaşmanız yeterli — her adres için 3 indirme hakkı.
-          </p>
         </div>
       </section>
 
-      <!-- E-posta İndirme Kapısı -->
-      <div id="email-gate-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;" role="dialog" aria-modal="true" aria-labelledby="email-gate-title">
-        <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:32px;width:min(420px,92vw);box-shadow:0 24px 80px rgba(0,0,0,0.5);">
-          <h2 id="email-gate-title" style="font-size:20px;font-weight:800;color:#f8fafc;margin-bottom:8px;">İndirme Bağlantısı</h2>
-          <p style="font-size:14px;color:#94a3b8;margin-bottom:20px;">E-posta adresinizi girin — her adres için 3 indirme hakkı.</p>
-          <input type="email" id="gate-email" placeholder="ornek@firma.com"
-            style="width:100%;padding:12px 14px;background:#1e293b;border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#f8fafc;font-size:14px;box-sizing:border-box;margin-bottom:12px;font-family:inherit;"
-            autocomplete="email" />
-          <div id="gate-msg" style="font-size:13px;color:#f59e0b;min-height:20px;margin-bottom:12px;"></div>
-          <div style="display:flex;gap:10px;justify-content:flex-end;">
-            <button onclick="closeEmailGate()" type="button" style="padding:10px 18px;border-radius:10px;background:#1e293b;border:1px solid rgba(255,255,255,0.12);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Vazgeç</button>
-            <button id="gate-btn" onclick="submitEmailGate()" type="button" style="padding:10px 20px;border-radius:10px;background:#f59e0b;border:none;color:#0a0e1a;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">İndir</button>
-          </div>
-        </div>
-      </div>
-      <script>
-      (function() {
-        const API = 'https://isg-pusulasi-api-kvfsvqx7na-ew.a.run.app';
-        let _gatePlatform = 'windows';
-        let _gateUrls = {};
-        document.addEventListener('DOMContentLoaded', () => {
-          document.getElementById('gate-email')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitEmailGate(); });
-          document.getElementById('email-gate-overlay')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeEmailGate(); });
-        });
-        window._setDownloadUrls = (urls) => { _gateUrls = urls; };
-        window.openEmailGate = (platform) => {
-          _gatePlatform = platform;
-          const overlay = document.getElementById('email-gate-overlay');
-          if (!overlay) return;
-          overlay.style.display = 'flex';
-          document.getElementById('gate-msg').textContent = '';
-          document.getElementById('gate-email').value = '';
-          setTimeout(() => document.getElementById('gate-email')?.focus(), 50);
-        };
-        window.closeEmailGate = () => {
-          const overlay = document.getElementById('email-gate-overlay');
-          if (overlay) overlay.style.display = 'none';
-        };
-        window.submitEmailGate = async () => {
-          const email = (document.getElementById('gate-email')?.value || '').trim();
-          const msg = document.getElementById('gate-msg');
-          const btn = document.getElementById('gate-btn');
-          if (!email || !email.includes('@')) { msg.textContent = 'Geçerli bir e-posta girin.'; msg.style.color = '#ef4444'; return; }
-          btn.disabled = true; btn.textContent = '...';
-          try {
-            const resp = await fetch(API + '/v1/downloads/claim', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email, platform: _gatePlatform })
-            });
-            const data = await resp.json();
-            if (resp.status === 429) {
-              msg.textContent = 'İndirme limitinize ulaştınız (3/3). Farklı bir e-posta deneyebilirsiniz.';
-              msg.style.color = '#ef4444';
-              btn.disabled = false; btn.textContent = 'İndir';
-              return;
-            }
-            if (!resp.ok) throw new Error(data.error || 'Hata');
-            closeEmailGate();
-            const urlKey = _gatePlatform === 'windows' ? 'windowsUrl' : _gatePlatform === 'ios' ? 'iosUrl' : 'androidUrl';
-            const url = _gateUrls[urlKey] || '';
-            if (url && url !== '#' && !url.includes('ornek')) {
-              const a = document.createElement('a'); a.href = url; a.download = ''; a.target = '_blank';
-              document.body.appendChild(a); a.click(); document.body.removeChild(a);
-            } else {
-              alert('İndirme linki henüz hazır değil. Kısa sürede yayınlanacak.');
-            }
-          } catch (e) {
-            msg.textContent = 'Bir hata oluştu: ' + (e.message || 'tekrar deneyin');
-            msg.style.color = '#ef4444';
-          } finally {
-            btn.disabled = false; btn.textContent = 'İndir';
-          }
-        };
-      })();
-      </script>
-
-      <!-- Başvuru -->
-      <section id="basvuru" class="scroll-mt-20 bg-paper py-20 sm:py-24" aria-labelledby="basvuru-title">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div data-reveal="left">
-              <h2 id="basvuru-title" class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Üyelik başvurusu</h2>
-              <p class="mt-3 text-lg text-muted">
-                Demo veya üyelik için formu doldurun. Ekibimiz kısa sürede dönüş yapar.
-              </p>
-              <div class="mt-5 rounded-xl border border-navy/10 bg-navy/[0.03] p-4 text-sm text-ink/80 leading-relaxed">
-                <p class="font-semibold text-navy">Üyelik — cihaz kurulumu</p>
-                <p class="mt-1.5">
-                  Üyelik paketine <strong>3 PC kurulum hakkı</strong> dahildir (SQL veritabanı + şablon senkronu maliyeti nedeniyle).
-                  Ek cihaz için kotayı yönetici artırır. Bu, aşağıdaki tanıtım indirme e-posta limitinden
-                  (<em>3 indirme hakkı</em>) tamamen ayrıdır.
-                </p>
-              </div>
-            </div>
-
-            <form id="apply-form" class="soft-card p-6 sm:p-8" data-reveal="right" novalidate>
-              <div class="grid gap-4 sm:grid-cols-2">
-                <label class="block sm:col-span-2">
-                  <span class="mb-1.5 block text-sm font-medium text-navy">Ad soyad</span>
-                  <input class="form-input" name="adSoyad" type="text" autocomplete="name" required placeholder="Adınız Soyadınız" />
-                </label>
-                <label class="block">
-                  <span class="mb-1.5 block text-sm font-medium text-navy">E-posta</span>
-                  <input class="form-input" name="email" type="email" autocomplete="email" required placeholder="ornek@firma.com" />
-                </label>
-                <label class="block">
-                  <span class="mb-1.5 block text-sm font-medium text-navy">Telefon</span>
-                  <input class="form-input" name="telefon" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx" />
-                </label>
-                <label class="block">
-                  <span class="mb-1.5 block text-sm font-medium text-navy">Şehir</span>
-                  <input class="form-input" name="sehir" type="text" autocomplete="address-level2" placeholder="İstanbul" />
-                </label>
-                <label class="block">
-                  <span class="mb-1.5 block text-sm font-medium text-navy">Platform</span>
-                  <select class="form-input" name="platform">
-                    <option value="both">Windows + Android</option>
-                    <option value="windows">Windows Agent</option>
-                    <option value="android">Android</option>
-                  </select>
-                </label>
-                <label class="block sm:col-span-2">
-                  <span class="mb-1.5 block text-sm font-medium text-navy">Mesaj</span>
-                  <textarea class="form-input min-h-28 resize-y" name="mesaj" rows="4" placeholder="Kısaca ihtiyacınızı yazın"></textarea>
-                </label>
-              </div>
-              <button type="submit" class="btn-amber mt-6 w-full sm:w-auto">Başvuruyu gönder</button>
-              <p id="apply-status" class="mt-4" hidden role="status" aria-live="polite"></p>
-            </form>
-          </div>
-        </div>
-      </section>
     </main>
-
-    <footer class="border-t border-slate-200 bg-white py-10">
-      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div class="flex items-center gap-3">
-          <img src="/img/istiklal_logo.png" alt="İstiklal Yazılım" width="40" height="40" class="h-10 w-10 object-contain" />
-          <div>
-            <p class="font-semibold text-navy">İstiklal Yazılım</p>
-            <p class="text-sm text-muted">© <span data-year>2026</span> İSG Pusulası</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-muted">
-          <a href="/kvkk.html" class="hover:text-navy">KVKK Aydınlatma</a>
-          <a href="mailto:info@istiklalyazilim.com" class="hover:text-navy">info@istiklalyazilim.com</a>
-        </div>
-      </div>
-    </footer>
-
+    <footer class="site-footer" data-site-footer></footer>
+    
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

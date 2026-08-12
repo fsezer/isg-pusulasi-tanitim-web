@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const v = localStorage.getItem("isg-lang");
+          if (v && ["tr","en","de","fr","ar","ru"].includes(v)) {
+            document.documentElement.lang = v;
+            if (v === "ar") document.documentElement.dir = "rtl";
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İletişim — İstiklal Yazılım</title>
+    <meta name="description" content="İSG Pusulası iletişim." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/iletisim.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İSG Pusulası" />
+    <meta property="og:title" content="İletişim — İstiklal Yazılım" />
+    <meta property="og:description" content="İSG Pusulası iletişim." />
+    <meta property="og:url" content="https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/iletisim.html" />
+    <meta property="og:image" content="https://isg-tanitim-web-kvfsvqx7na-ew.a.run.app/img/app_logo.png" />
+    <meta name="theme-color" content="#06101f" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+    
+  </head>
+  <body class="antialiased" data-page="contact">
+    <div data-site-chrome></div>
+    <main>
+
+      <section class="page-hero">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky-soft" data-i18n="contact.eyebrow"></p>
+          <h1 class="mt-3 font-display text-4xl font-extrabold sm:text-5xl" data-i18n="contact.title"></h1>
+          <p class="mt-4 max-w-2xl text-lg text-slate-300" data-i18n="contact.sub"></p>
+        </div>
+      </section>
+
+      <section class="py-16 sm:py-20">
+        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8">
+          <a class="feature-card" href="mailto:info@istiklalyazilim.com" data-reveal>
+            <h3 class="font-bold text-navy" data-i18n="contact.email"></h3>
+            <p class="mt-2 text-sm text-sky">info@istiklalyazilim.com</p>
+          </a>
+          <a class="feature-card" href="https://istiklalyazilim.com" target="_blank" rel="noopener" data-reveal>
+            <h3 class="font-bold text-navy" data-i18n="contact.web"></h3>
+            <p class="mt-2 text-sm text-muted">istiklalyazilim.com</p>
+          </a>
+          <a class="feature-card" href="/ozellikler.html" data-reveal>
+            <h3 class="font-bold text-navy" data-i18n="contact.product"></h3>
+            <p class="mt-2 text-sm text-muted" data-i18n="nav.features"></p>
+          </a>
+          <a class="feature-card" href="/kvkk.html" data-reveal>
+            <h3 class="font-bold text-navy" data-i18n="contact.legal"></h3>
+            <p class="mt-2 text-sm text-muted" data-i18n="footer.kvkk"></p>
+          </a>
+        </div>
+      </section>
+
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

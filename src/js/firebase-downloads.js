@@ -37,7 +37,9 @@ function applyLink(id, url, labelWhenReady) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+async function loadDownloads() {
+  if (!document.getElementById('download-windows') && !document.getElementById('store-play')) return
+
   let cfg = { ...FALLBACK }
   try {
     const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig)
@@ -58,16 +60,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.warn('indirme_paketleri okunamadı, örnek paketler kullanılıyor', err)
   }
 
-  // Pass URLs to email gate so it can redirect after successful claim
   if (typeof window._setDownloadUrls === 'function') window._setDownloadUrls(cfg)
 
   applyLink('store-play', cfg.playStoreUrl, 'Google Play')
   applyLink('store-apple', cfg.appStoreUrl, 'App Store')
 
   const note = document.getElementById('download-notes')
-  if (note) note.textContent = cfg.notes || FALLBACK.notes
+  if (note && cfg.notes) note.textContent = cfg.notes
 
-  // OS / sürüm rozetleri — API updates/check
   const API = 'https://isg-pusulasi-api-kvfsvqx7na-ew.a.run.app'
   const badge = (text) => {
     const span = document.createElement('span')
@@ -92,4 +92,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   fillOs('windows', 'os-badge-windows')
   fillOs('android', 'os-badge-android')
   fillOs('ios', 'os-badge-ios')
-})
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    void loadDownloads()
+  })
+} else {
+  void loadDownloads()
+}
