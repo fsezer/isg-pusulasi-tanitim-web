@@ -47,7 +47,7 @@ export function mountChrome() {
       <div class="site-intro-stage">
         <img class="site-intro-logo" src="/img/app_logo.png" width="96" height="96" alt="" />
         <div class="site-intro-title-wrap" data-intro-title>
-          <p class="site-intro-title" aria-label="İSG Pusulası">
+          <p class="site-intro-title" aria-label="İSG Atlası">
             <span data-intro-typed></span><span class="intro-caret" data-intro-caret aria-hidden="true"></span>
           </p>
           <span class="site-intro-rule" aria-hidden="true"></span>
@@ -59,9 +59,9 @@ export function mountChrome() {
 
     <header class="site-header" data-site-header>
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <a href="/index.html" class="brand-mark" aria-label="İSG Pusulası">
+        <a href="/index.html" class="brand-mark" aria-label="İSG Atlası">
           <img src="/img/app_logo.png" alt="" width="36" height="36" class="h-9 w-9 rounded-lg object-contain" />
-          <span class="brand-text" data-i18n="common.brand">İSG Pusulası</span>
+          <span class="brand-text" data-i18n="common.brand">İSG Atlası</span>
         </a>
         <div class="flex items-center gap-3">
           <nav class="hidden items-center gap-5 lg:flex" data-i18n-aria="nav.menu" aria-label="Ana menü">
@@ -117,7 +117,7 @@ export function mountChrome() {
           <div>
             <a class="font-display text-lg font-bold text-navy hover:text-sky" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" data-i18n="common.company">İstiklal Yazılım</a>
             <p class="mt-1 text-sm text-muted" data-i18n="footer.tag">Türkiye'nin İSG yazılımı</p>
-            <p class="mt-2 text-sm text-muted">© <span data-year></span> <span data-i18n="common.brand">İSG Pusulası</span> · <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+            <p class="mt-2 text-sm text-muted">© <span data-year></span> <span data-i18n="common.brand">İSG Atlası</span> · <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
             <a class="mt-2 inline-flex text-sm font-semibold text-sky hover:underline" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer">istiklalyazilim.com</a>
           </div>
         </div>

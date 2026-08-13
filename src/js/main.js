@@ -60,7 +60,7 @@ if (intro) {
     const titleWrap = intro.querySelector('[data-intro-title]')
     const typedEl = intro.querySelector('[data-intro-typed]')
     const caretEl = intro.querySelector('[data-intro-caret]')
-    const fullTitle = t(detectLocale(), 'intro.title') || 'İSG Pusulası'
+    const fullTitle = t(detectLocale(), 'intro.title') || 'İSG Atlası'
     const wait = (ms) => new Promise((r) => setTimeout(r, ms))
     setLocked(true)
     ;(async () => {

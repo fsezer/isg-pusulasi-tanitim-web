@@ -1,24 +1,24 @@
 export const MESSAGES = {
   "tr": {
     "meta": {
-      "homeTitle": "İSG Pusulası — Türkiye'nin En Büyük İSG Yazılımı",
+      "homeTitle": "İSG Atlası — Türkiye'nin En Büyük İSG Yazılımı",
       "homeDescription": "Windows Agent + Android mobil: tag’li Word/Excel şablon, e-Devlet Excel aktarımı, sesli saha denetim, AI foto analiz, bulut sync, arşiv, ajanda ve FCM.",
-      "featuresTitle": "Özellikler — İSG Pusulası",
+      "featuresTitle": "Özellikler — İSG Atlası",
       "featuresDescription": "Şablon motoru, saha denetimi, AI, senkronizasyon, arşiv, ajanda, çift cihaz ve FCM — tüm özellikler.",
       "windowsTitle": "Windows Agent — İSG Atlası",
       "windowsDescription": "Ofiste güç: tag’li şablonlarla tek tıkda Word/Excel, e-Devlet Excel’den firma/personel, arşiv, ajanda ve bulut senkron.",
       "mobileTitle": "Mobil — Saha Denetimi",
       "mobileDescription": "Klavye yok: sesli saha denetim, AI foto inceleme, anlık belge gönderimi, FCM bildirim ve offline sync.",
       "downloadTitle": "İndir — Windows, Android, iOS",
-      "downloadDescription": "İSG Pusulası Windows Agent, Android APK ve App Store indirme.",
-      "faqTitle": "Sıkça Sorulan Sorular — İSG Pusulası",
+      "downloadDescription": "İSG Atlası Windows Agent, Android APK ve App Store indirme.",
+      "faqTitle": "Sıkça Sorulan Sorular — İSG Atlası",
       "faqDescription": "Lisans, Office gereksinimi, sync, mobil, güvenlik ve üyelik hakkında SSS.",
-      "applyTitle": "Üyelik Başvurusu — İSG Pusulası",
+      "applyTitle": "Üyelik Başvurusu — İSG Atlası",
       "applyDescription": "Demo veya üyelik için başvurun. 3 PC kurulum hakkı dahil.",
       "contactTitle": "İletişim — İstiklal Yazılım",
-      "contactDescription": "İSG Pusulası destek ve satış iletişimi.",
-      "kvkkTitle": "KVKK Aydınlatma — İSG Pusulası",
-      "kvkkDescription": "İSG Pusulası tanıtım sitesi KVKK aydınlatma metni."
+      "contactDescription": "İSG Atlası destek ve satış iletişimi.",
+      "kvkkTitle": "KVKK Aydınlatma — İSG Atlası",
+      "kvkkDescription": "İSG Atlası tanıtım sitesi KVKK aydınlatma metni."
     },
     "nav": {
       "home": "Ana Sayfa",
@@ -37,7 +37,7 @@ export const MESSAGES = {
       "chooseLang": "Dil Seçin"
     },
     "common": {
-      "brand": "İSG Pusulası",
+      "brand": "İSG Atlası",
       "company": "İstiklal Yazılım",
       "ctaApply": "Üyelik Başvurusu",
       "ctaDownload": "İndir",
@@ -49,11 +49,11 @@ export const MESSAGES = {
     },
     "intro": {
       "eyebrow": "İstiklal Yazılım",
-      "title": "İSG Pusulası"
+      "title": "İSG Atlası"
     },
     "home": {
       "eyebrow": "Türkiye'nin İSG Operasyon Platformu",
-      "headline": "İSG Pusulası",
+      "headline": "İSG Atlası",
       "sub": "Windows Agent + Android mobil. Tag’li şablon, e-Devlet Excel aktarımı, sesli saha, AI foto, bulut sync — Türkiye’nin İSG yazılımı.",
       "ctaPrimary": "Üyelik Başvurusu",
       "ctaSecondary": "İndir",
@@ -63,7 +63,7 @@ export const MESSAGES = {
       "chip4": "AI + Ses",
       "showcaseTitle": "Agent · Mobil · Bulut",
       "showcaseText": "Ofisten sahaya aynı veri, aynı yetki, aynı hız.",
-      "statsTitle": "Neden İSG Pusulası?",
+      "statsTitle": "Neden İSG Atlası?",
       "stat1n": "Şablon çıktı",
       "stat1d": "Tag ile Word / Excel üretimi",
       "stat2n": "Sesli saha",
@@ -200,7 +200,7 @@ export const MESSAGES = {
       "eyebrow": "Yardım",
       "title": "Sıkça Sorulan Sorular",
       "sub": "Lisans, teknik ve kullanım.",
-      "q1": "İSG Pusulası nedir?",
+      "q1": "İSG Atlası nedir?",
       "a1": "İSG uzmanları için Windows Agent + Android mobil ekosistemidir. Şablon, saha, sync, arşiv ve AI tek ürün ailesinde.",
       "q2": "Windows’ta Office şart mı?",
       "a2": "Evet. Word/Excel çıktı motoru Microsoft Office 2016+ veya Microsoft 365 ister. LibreOffice çalışmaz.",
@@ -255,7 +255,7 @@ export const MESSAGES = {
     "kvkk": {
       "title": "KVKK Aydınlatma Metni",
       "sub": "Özet bilgilendirme — güncel tam metin kurumsal sitede.",
-      "p1": "İstiklal Yazılım olarak, İSG Pusulası tanıtım sitesi üzerinden ilettiğiniz üyelik / demo başvurularındaki kişisel verilerinizi (ad soyad, e-posta, telefon, şehir ve mesaj) yalnızca başvuru değerlendirme ve iletişim amaçlarıyla işleriz.",
+      "p1": "İstiklal Yazılım olarak, İSG Atlası tanıtım sitesi üzerinden ilettiğiniz üyelik / demo başvurularındaki kişisel verilerinizi (ad soyad, e-posta, telefon, şehir ve mesaj) yalnızca başvuru değerlendirme ve iletişim amaçlarıyla işleriz.",
       "p2": "Veriler Firebase / Google Cloud altyapısında saklanabilir. Silme / düzeltme talepleri için info@istiklalyazilim.com adresine yazabilirsiniz.",
       "p3": "Resmî aydınlatma, gizlilik ve hesap silme metinleri istiklalyazilim.com üzerinde yayımlanır."
     },
@@ -267,24 +267,24 @@ export const MESSAGES = {
   },
   "en": {
     "meta": {
-      "homeTitle": "ISG Pusulasi — Türkiye's Leading OHS Software",
+      "homeTitle": "ISG Atlasi — Türkiye's Leading OHS Software",
       "homeDescription": "Windows Agent + Android: tagged Word/Excel templates, e-Devlet Excel import, voice field audits, AI photo review, cloud sync, archive, agenda and FCM.",
-      "featuresTitle": "Features — ISG Pusulasi",
+      "featuresTitle": "Features — ISG Atlasi",
       "featuresDescription": "Template engine, field audits, AI, sync, archive, agenda, dual-device and FCM — full feature set.",
       "windowsTitle": "Windows Agent — ISG Atlasi",
       "windowsDescription": "Office power: tagged templates, one-click Word/Excel, e-Devlet Excel firm/staff import, archive, agenda and cloud sync.",
       "mobileTitle": "Mobile — Field Audits",
       "mobileDescription": "Hands-free: voice field audits, AI photo review, instant documents, FCM and offline sync.",
       "downloadTitle": "Download — Windows, Android, iOS",
-      "downloadDescription": "Download ISG Pusulasi Windows Agent, Android APK and App Store.",
-      "faqTitle": "FAQ — ISG Pusulasi",
+      "downloadDescription": "Download ISG Atlasi Windows Agent, Android APK and App Store.",
+      "faqTitle": "FAQ — ISG Atlasi",
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
-      "applyTitle": "Membership Application — ISG Pusulasi",
+      "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
       "contactTitle": "Contact — Istiklal Yazilim",
-      "contactDescription": "ISG Pusulasi support and sales contact.",
-      "kvkkTitle": "Privacy Notice — ISG Pusulasi",
-      "kvkkDescription": "ISG Pusulasi marketing site privacy notice."
+      "contactDescription": "ISG Atlasi support and sales contact.",
+      "kvkkTitle": "Privacy Notice — ISG Atlasi",
+      "kvkkDescription": "ISG Atlasi marketing site privacy notice."
     },
     "nav": {
       "home": "Home",
@@ -303,7 +303,7 @@ export const MESSAGES = {
       "chooseLang": "Choose Language"
     },
     "common": {
-      "brand": "ISG Pusulasi",
+      "brand": "ISG Atlasi",
       "company": "Istiklal Yazilim",
       "ctaApply": "Apply for Membership",
       "ctaDownload": "Download",
@@ -315,11 +315,11 @@ export const MESSAGES = {
     },
     "intro": {
       "eyebrow": "Istiklal Yazilim",
-      "title": "ISG Pusulasi"
+      "title": "ISG Atlasi"
     },
     "home": {
       "eyebrow": "Türkiye's OHS Operations Platform",
-      "headline": "ISG Pusulasi",
+      "headline": "ISG Atlasi",
       "sub": "Windows Agent + Android. Tagged templates, e-Devlet Excel import, voice field work, AI photos, cloud sync — Türkiye's OHS software.",
       "ctaPrimary": "Apply for Membership",
       "ctaSecondary": "Download",
@@ -329,7 +329,7 @@ export const MESSAGES = {
       "chip4": "AI + Voice",
       "showcaseTitle": "Agent · Mobile · Cloud",
       "showcaseText": "Same data, same permissions, same speed — office to field.",
-      "statsTitle": "Why ISG Pusulasi?",
+      "statsTitle": "Why ISG Atlasi?",
       "stat1n": "Templates",
       "stat1d": "Tagged Word / Excel output",
       "stat2n": "Voice field",
@@ -466,7 +466,7 @@ export const MESSAGES = {
       "eyebrow": "Help",
       "title": "Frequently Asked Questions",
       "sub": "License, technical and usage.",
-      "q1": "What is ISG Pusulasi?",
+      "q1": "What is ISG Atlasi?",
       "a1": "A Windows Agent + Android ecosystem for OHS specialists. Templates, field, sync, archive and AI in one product family.",
       "q2": "Is Office required on Windows?",
       "a2": "Yes. The Word/Excel engine requires Microsoft Office 2016+ or Microsoft 365. LibreOffice does not work.",
@@ -521,7 +521,7 @@ export const MESSAGES = {
     "kvkk": {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
-      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Pusulasi site (name, email, phone, city, message) only for evaluation and communication.",
+      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
       "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
@@ -533,24 +533,24 @@ export const MESSAGES = {
   },
   "de": {
     "meta": {
-      "homeTitle": "ISG Pusulasi — Türkiye's Leading OHS Software",
+      "homeTitle": "ISG Atlasi — Türkiye's Leading OHS Software",
       "homeDescription": "Windows Agent + Android: tagged Word/Excel templates, e-Devlet Excel import, voice field audits, AI photo review, cloud sync, archive, agenda and FCM.",
-      "featuresTitle": "Features — ISG Pusulasi",
+      "featuresTitle": "Features — ISG Atlasi",
       "featuresDescription": "Template engine, field audits, AI, sync, archive, agenda, dual-device and FCM — full feature set.",
       "windowsTitle": "Windows Agent — ISG Atlasi",
       "windowsDescription": "Office power: tagged templates, one-click Word/Excel, e-Devlet Excel firm/staff import, archive, agenda and cloud sync.",
       "mobileTitle": "Mobile — Field Audits",
       "mobileDescription": "Hands-free: voice field audits, AI photo review, instant documents, FCM and offline sync.",
       "downloadTitle": "Download — Windows, Android, iOS",
-      "downloadDescription": "Download ISG Pusulasi Windows Agent, Android APK and App Store.",
-      "faqTitle": "FAQ — ISG Pusulasi",
+      "downloadDescription": "Download ISG Atlasi Windows Agent, Android APK and App Store.",
+      "faqTitle": "FAQ — ISG Atlasi",
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
-      "applyTitle": "Membership Application — ISG Pusulasi",
+      "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
       "contactTitle": "Contact — Istiklal Yazilim",
-      "contactDescription": "ISG Pusulasi support and sales contact.",
-      "kvkkTitle": "Privacy Notice — ISG Pusulasi",
-      "kvkkDescription": "ISG Pusulasi marketing site privacy notice."
+      "contactDescription": "ISG Atlasi support and sales contact.",
+      "kvkkTitle": "Privacy Notice — ISG Atlasi",
+      "kvkkDescription": "ISG Atlasi marketing site privacy notice."
     },
     "nav": {
       "home": "Startseite",
@@ -569,7 +569,7 @@ export const MESSAGES = {
       "chooseLang": "Sprache wählen"
     },
     "common": {
-      "brand": "ISG Pusulasi",
+      "brand": "ISG Atlasi",
       "company": "Istiklal Yazilim",
       "ctaApply": "Mitgliedschaft beantragen",
       "ctaDownload": "Download",
@@ -581,11 +581,11 @@ export const MESSAGES = {
     },
     "intro": {
       "eyebrow": "Istiklal Yazilim",
-      "title": "ISG Pusulasi"
+      "title": "ISG Atlasi"
     },
     "home": {
       "eyebrow": "Türkiyes OHS-Betriebsplattform",
-      "headline": "ISG Pusulasi",
+      "headline": "ISG Atlasi",
       "sub": "Windows Agent + Android. Tagged templates, e-Devlet Excel import, voice field work, AI photos, cloud sync — Türkiye's OHS software.",
       "ctaPrimary": "Mitgliedschaft",
       "ctaSecondary": "Download",
@@ -595,7 +595,7 @@ export const MESSAGES = {
       "chip4": "KI + Sprache",
       "showcaseTitle": "Agent · Mobil · Cloud",
       "showcaseText": "Dieselben Daten, Rechte und Tempo — Büro bis Feld.",
-      "statsTitle": "Warum ISG Pusulasi?",
+      "statsTitle": "Warum ISG Atlasi?",
       "stat1n": "Vorlagen",
       "stat1d": "Word / Excel mit Tags",
       "stat2n": "Sprach-Feld",
@@ -732,7 +732,7 @@ export const MESSAGES = {
       "eyebrow": "Hilfe",
       "title": "Häufige Fragen",
       "sub": "Lizenz, Technik, Nutzung.",
-      "q1": "What is ISG Pusulasi?",
+      "q1": "What is ISG Atlasi?",
       "a1": "A Windows Agent + Android ecosystem for OHS specialists. Templates, field, sync, archive and AI in one product family.",
       "q2": "Is Office required on Windows?",
       "a2": "Yes. The Word/Excel engine requires Microsoft Office 2016+ or Microsoft 365. LibreOffice does not work.",
@@ -787,7 +787,7 @@ export const MESSAGES = {
     "kvkk": {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
-      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Pusulasi site (name, email, phone, city, message) only for evaluation and communication.",
+      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
       "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
@@ -799,24 +799,24 @@ export const MESSAGES = {
   },
   "fr": {
     "meta": {
-      "homeTitle": "ISG Pusulasi — Türkiye's Leading OHS Software",
+      "homeTitle": "ISG Atlasi — Türkiye's Leading OHS Software",
       "homeDescription": "Windows Agent + Android: tagged Word/Excel templates, e-Devlet Excel import, voice field audits, AI photo review, cloud sync, archive, agenda and FCM.",
-      "featuresTitle": "Features — ISG Pusulasi",
+      "featuresTitle": "Features — ISG Atlasi",
       "featuresDescription": "Template engine, field audits, AI, sync, archive, agenda, dual-device and FCM — full feature set.",
       "windowsTitle": "Windows Agent — ISG Atlasi",
       "windowsDescription": "Office power: tagged templates, one-click Word/Excel, e-Devlet Excel firm/staff import, archive, agenda and cloud sync.",
       "mobileTitle": "Mobile — Field Audits",
       "mobileDescription": "Hands-free: voice field audits, AI photo review, instant documents, FCM and offline sync.",
       "downloadTitle": "Download — Windows, Android, iOS",
-      "downloadDescription": "Download ISG Pusulasi Windows Agent, Android APK and App Store.",
-      "faqTitle": "FAQ — ISG Pusulasi",
+      "downloadDescription": "Download ISG Atlasi Windows Agent, Android APK and App Store.",
+      "faqTitle": "FAQ — ISG Atlasi",
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
-      "applyTitle": "Membership Application — ISG Pusulasi",
+      "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
       "contactTitle": "Contact — Istiklal Yazilim",
-      "contactDescription": "ISG Pusulasi support and sales contact.",
-      "kvkkTitle": "Privacy Notice — ISG Pusulasi",
-      "kvkkDescription": "ISG Pusulasi marketing site privacy notice."
+      "contactDescription": "ISG Atlasi support and sales contact.",
+      "kvkkTitle": "Privacy Notice — ISG Atlasi",
+      "kvkkDescription": "ISG Atlasi marketing site privacy notice."
     },
     "nav": {
       "home": "Accueil",
@@ -835,7 +835,7 @@ export const MESSAGES = {
       "chooseLang": "Choisir la langue"
     },
     "common": {
-      "brand": "ISG Pusulasi",
+      "brand": "ISG Atlasi",
       "company": "Istiklal Yazilim",
       "ctaApply": "Demande d'adhésion",
       "ctaDownload": "Télécharger",
@@ -847,11 +847,11 @@ export const MESSAGES = {
     },
     "intro": {
       "eyebrow": "Istiklal Yazilim",
-      "title": "ISG Pusulasi"
+      "title": "ISG Atlasi"
     },
     "home": {
       "eyebrow": "Plateforme OHS de Türkiye",
-      "headline": "ISG Pusulasi",
+      "headline": "ISG Atlasi",
       "sub": "Windows Agent + Android. Tagged templates, e-Devlet Excel import, voice field work, AI photos, cloud sync — Türkiye's OHS software.",
       "ctaPrimary": "Adhésion",
       "ctaSecondary": "Télécharger",
@@ -861,7 +861,7 @@ export const MESSAGES = {
       "chip4": "IA + Voix",
       "showcaseTitle": "Agent · Mobile · Cloud",
       "showcaseText": "Mêmes données, mêmes droits, même vitesse.",
-      "statsTitle": "Pourquoi ISG Pusulasi?",
+      "statsTitle": "Pourquoi ISG Atlasi?",
       "stat1n": "Modèles",
       "stat1d": "Sortie Word / Excel par tags",
       "stat2n": "Terrain vocal",
@@ -998,7 +998,7 @@ export const MESSAGES = {
       "eyebrow": "Help",
       "title": "Questions fréquentes",
       "sub": "Licence, technique, usage.",
-      "q1": "What is ISG Pusulasi?",
+      "q1": "What is ISG Atlasi?",
       "a1": "A Windows Agent + Android ecosystem for OHS specialists. Templates, field, sync, archive and AI in one product family.",
       "q2": "Is Office required on Windows?",
       "a2": "Yes. The Word/Excel engine requires Microsoft Office 2016+ or Microsoft 365. LibreOffice does not work.",
@@ -1053,7 +1053,7 @@ export const MESSAGES = {
     "kvkk": {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
-      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Pusulasi site (name, email, phone, city, message) only for evaluation and communication.",
+      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
       "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
@@ -1065,24 +1065,24 @@ export const MESSAGES = {
   },
   "ar": {
     "meta": {
-      "homeTitle": "ISG Pusulasi — Türkiye's Leading OHS Software",
+      "homeTitle": "ISG Atlasi — Türkiye's Leading OHS Software",
       "homeDescription": "Windows Agent + Android: tagged Word/Excel templates, e-Devlet Excel import, voice field audits, AI photo review, cloud sync, archive, agenda and FCM.",
-      "featuresTitle": "Features — ISG Pusulasi",
+      "featuresTitle": "Features — ISG Atlasi",
       "featuresDescription": "Template engine, field audits, AI, sync, archive, agenda, dual-device and FCM — full feature set.",
       "windowsTitle": "Windows Agent — ISG Atlasi",
       "windowsDescription": "Office power: tagged templates, one-click Word/Excel, e-Devlet Excel firm/staff import, archive, agenda and cloud sync.",
       "mobileTitle": "Mobile — Field Audits",
       "mobileDescription": "Hands-free: voice field audits, AI photo review, instant documents, FCM and offline sync.",
       "downloadTitle": "Download — Windows, Android, iOS",
-      "downloadDescription": "Download ISG Pusulasi Windows Agent, Android APK and App Store.",
-      "faqTitle": "FAQ — ISG Pusulasi",
+      "downloadDescription": "Download ISG Atlasi Windows Agent, Android APK and App Store.",
+      "faqTitle": "FAQ — ISG Atlasi",
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
-      "applyTitle": "Membership Application — ISG Pusulasi",
+      "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
       "contactTitle": "Contact — Istiklal Yazilim",
-      "contactDescription": "ISG Pusulasi support and sales contact.",
-      "kvkkTitle": "Privacy Notice — ISG Pusulasi",
-      "kvkkDescription": "ISG Pusulasi marketing site privacy notice."
+      "contactDescription": "ISG Atlasi support and sales contact.",
+      "kvkkTitle": "Privacy Notice — ISG Atlasi",
+      "kvkkDescription": "ISG Atlasi marketing site privacy notice."
     },
     "nav": {
       "home": "الرئيسية",
@@ -1264,7 +1264,7 @@ export const MESSAGES = {
       "eyebrow": "Help",
       "title": "الأسئلة الشائعة",
       "sub": "License, technical and usage.",
-      "q1": "What is ISG Pusulasi?",
+      "q1": "What is ISG Atlasi?",
       "a1": "A Windows Agent + Android ecosystem for OHS specialists. Templates, field, sync, archive and AI in one product family.",
       "q2": "Is Office required on Windows?",
       "a2": "Yes. The Word/Excel engine requires Microsoft Office 2016+ or Microsoft 365. LibreOffice does not work.",
@@ -1319,7 +1319,7 @@ export const MESSAGES = {
     "kvkk": {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
-      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Pusulasi site (name, email, phone, city, message) only for evaluation and communication.",
+      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
       "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
@@ -1331,24 +1331,24 @@ export const MESSAGES = {
   },
   "ru": {
     "meta": {
-      "homeTitle": "ISG Pusulasi — Türkiye's Leading OHS Software",
+      "homeTitle": "ISG Atlasi — Türkiye's Leading OHS Software",
       "homeDescription": "Windows Agent + Android: tagged Word/Excel templates, e-Devlet Excel import, voice field audits, AI photo review, cloud sync, archive, agenda and FCM.",
-      "featuresTitle": "Features — ISG Pusulasi",
+      "featuresTitle": "Features — ISG Atlasi",
       "featuresDescription": "Template engine, field audits, AI, sync, archive, agenda, dual-device and FCM — full feature set.",
       "windowsTitle": "Windows Agent — ISG Atlasi",
       "windowsDescription": "Office power: tagged templates, one-click Word/Excel, e-Devlet Excel firm/staff import, archive, agenda and cloud sync.",
       "mobileTitle": "Mobile — Field Audits",
       "mobileDescription": "Hands-free: voice field audits, AI photo review, instant documents, FCM and offline sync.",
       "downloadTitle": "Download — Windows, Android, iOS",
-      "downloadDescription": "Download ISG Pusulasi Windows Agent, Android APK and App Store.",
-      "faqTitle": "FAQ — ISG Pusulasi",
+      "downloadDescription": "Download ISG Atlasi Windows Agent, Android APK and App Store.",
+      "faqTitle": "FAQ — ISG Atlasi",
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
-      "applyTitle": "Membership Application — ISG Pusulasi",
+      "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
       "contactTitle": "Contact — Istiklal Yazilim",
-      "contactDescription": "ISG Pusulasi support and sales contact.",
-      "kvkkTitle": "Privacy Notice — ISG Pusulasi",
-      "kvkkDescription": "ISG Pusulasi marketing site privacy notice."
+      "contactDescription": "ISG Atlasi support and sales contact.",
+      "kvkkTitle": "Privacy Notice — ISG Atlasi",
+      "kvkkDescription": "ISG Atlasi marketing site privacy notice."
     },
     "nav": {
       "home": "Главная",
@@ -1367,7 +1367,7 @@ export const MESSAGES = {
       "chooseLang": "Выберите язык"
     },
     "common": {
-      "brand": "ISG Pusulasi",
+      "brand": "ISG Atlasi",
       "company": "Istiklal Yazilim",
       "ctaApply": "Заявка на членство",
       "ctaDownload": "Скачать",
@@ -1379,11 +1379,11 @@ export const MESSAGES = {
     },
     "intro": {
       "eyebrow": "Istiklal Yazilim",
-      "title": "ISG Pusulasi"
+      "title": "ISG Atlasi"
     },
     "home": {
       "eyebrow": "Платформа охраны труда",
-      "headline": "ISG Pusulasi",
+      "headline": "ISG Atlasi",
       "sub": "Windows Agent + Android. Tagged templates, e-Devlet Excel import, voice field work, AI photos, cloud sync — Türkiye's OHS software.",
       "ctaPrimary": "Членство",
       "ctaSecondary": "Скачать",
@@ -1393,7 +1393,7 @@ export const MESSAGES = {
       "chip4": "ИИ + голос",
       "showcaseTitle": "Agent · Mobile · Cloud",
       "showcaseText": "Те же данные, права и скорость — от офиса до поля.",
-      "statsTitle": "Почему ISG Pusulasi?",
+      "statsTitle": "Почему ISG Atlasi?",
       "stat1n": "Шаблоны",
       "stat1d": "Word / Excel по тегам",
       "stat2n": "Голосовое поле",
@@ -1530,7 +1530,7 @@ export const MESSAGES = {
       "eyebrow": "Help",
       "title": "Частые вопросы",
       "sub": "License, technical and usage.",
-      "q1": "What is ISG Pusulasi?",
+      "q1": "What is ISG Atlasi?",
       "a1": "A Windows Agent + Android ecosystem for OHS specialists. Templates, field, sync, archive and AI in one product family.",
       "q2": "Is Office required on Windows?",
       "a2": "Yes. The Word/Excel engine requires Microsoft Office 2016+ or Microsoft 365. LibreOffice does not work.",
@@ -1585,7 +1585,7 @@ export const MESSAGES = {
     "kvkk": {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
-      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Pusulasi site (name, email, phone, city, message) only for evaluation and communication.",
+      "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
       "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
