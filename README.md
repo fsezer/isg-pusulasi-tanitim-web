@@ -1,4 +1,4 @@
-# İSG Pusulası — Tanıtım Web
+# İSG Atlası — Tanıtım Web
 
 Vite 7 + Tailwind CSS v4 çok sayfalı pazarlama sitesi. 6 dil (TR/EN/DE/FR/AR/RU), Sanas tarzı intro + dil modalı, SEO sayfaları.
 

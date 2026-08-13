@@ -1101,7 +1101,7 @@ export const MESSAGES = {
       "chooseLang": "اختر اللغة"
     },
     "common": {
-      "brand": "بوصلة İSG",
+      "brand": "أطلس İSG",
       "company": "استقلال يازليم",
       "ctaApply": "طلب عضوية",
       "ctaDownload": "تحميل",
@@ -1113,11 +1113,11 @@ export const MESSAGES = {
     },
     "intro": {
       "eyebrow": "استقلال يازليم",
-      "title": "بوصلة İSG"
+      "title": "أطلس İSG"
     },
     "home": {
       "eyebrow": "منصة تشغيل السلامة المهنية",
-      "headline": "بوصلة İSG",
+      "headline": "أطلس İSG",
       "sub": "Windows Agent + Android. Tagged templates, e-Devlet Excel import, voice field work, AI photos, cloud sync — Türkiye's OHS software.",
       "ctaPrimary": "عضوية",
       "ctaSecondary": "تحميل",
@@ -1127,7 +1127,7 @@ export const MESSAGES = {
       "chip4": "ذكاء + صوت",
       "showcaseTitle": "وكيل · جوال · سحابة",
       "showcaseText": "نفس البيانات والصلاحيات والسرعة.",
-      "statsTitle": "لماذا بوصلة İSG؟",
+      "statsTitle": "لماذا أطلس İSG؟",
       "stat1n": "قوالب",
       "stat1d": "إنتاج Word / Excel بالوسوم",
       "stat2n": "ميدان صوتي",

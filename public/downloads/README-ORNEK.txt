@@ -1,4 +1,4 @@
-Bu dosya, İSG Pusulası tanıtım sitesindeki indirme bağlantıları için örnek / yer tutucu bir pakettir.
+Bu dosya, İSG Atlası tanıtım sitesindeki indirme bağlantıları için örnek / yer tutucu bir pakettir.
 
 Gerçek Windows Agent (.zip) ve Android (.apk) dosyaları Admin paneli üzerinden
 (Sürüm & Güncelleme) yayınlanacaktır. Bu klasördeki ornek-isg-agent.zip ve
