@@ -256,7 +256,7 @@ export const MESSAGES = {
       "title": "KVKK Aydınlatma Metni",
       "sub": "Özet bilgilendirme — güncel tam metin kurumsal sitede.",
       "p1": "İstiklal Yazılım olarak, İSG Atlası tanıtım sitesi üzerinden ilettiğiniz üyelik / demo başvurularındaki kişisel verilerinizi (ad soyad, e-posta, telefon, şehir ve mesaj) yalnızca başvuru değerlendirme ve iletişim amaçlarıyla işleriz.",
-      "p2": "Veriler Firebase / Google Cloud altyapısında saklanabilir. Silme / düzeltme talepleri için info@istiklalyazilim.com adresine yazabilirsiniz.",
+      "p2": "Veriler Firebase / Google Cloud altyapısında saklanabilir. Silme / düzeltme talepleri için info@isgatlasi.com adresine yazabilirsiniz.",
       "p3": "Resmî aydınlatma, gizlilik ve hesap silme metinleri istiklalyazilim.com üzerinde yayımlanır."
     },
     "footer": {
@@ -522,7 +522,7 @@ export const MESSAGES = {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
       "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
-      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
+      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@isgatlasi.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
     "footer": {
@@ -788,7 +788,7 @@ export const MESSAGES = {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
       "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
-      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
+      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@isgatlasi.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
     "footer": {
@@ -1054,7 +1054,7 @@ export const MESSAGES = {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
       "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
-      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
+      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@isgatlasi.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
     "footer": {
@@ -1320,7 +1320,7 @@ export const MESSAGES = {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
       "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
-      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
+      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@isgatlasi.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
     "footer": {
@@ -1586,7 +1586,7 @@ export const MESSAGES = {
       "title": "Privacy Notice",
       "sub": "Summary notice — full text on the corporate site.",
       "p1": "As Istiklal Yazilim, we process personal data from membership/demo applications on the ISG Atlasi site (name, email, phone, city, message) only for evaluation and communication.",
-      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@istiklalyazilim.com.",
+      "p2": "Data may be stored on Firebase / Google Cloud. For deletion/correction write to info@isgatlasi.com.",
       "p3": "Official privacy and account-deletion texts are published on istiklalyazilim.com."
     },
     "footer": {

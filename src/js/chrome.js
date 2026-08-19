@@ -131,7 +131,8 @@ export function mountChrome() {
           <a class="hover:text-navy" href="/iletisim.html" data-i18n="nav.contact">İletişim</a>
           <a class="hover:text-navy" href="/kvkk.html" data-i18n="footer.kvkk">KVKK Aydınlatma</a>
           <a class="hover:text-navy" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" data-i18n="contact.web">Kurumsal</a>
-          <a class="hover:text-navy" href="mailto:info@istiklalyazilim.com">info@istiklalyazilim.com</a>
+          <a class="hover:text-navy" href="mailto:info@isgatlasi.com">info@isgatlasi.com</a>
+          <a class="hover:text-navy" href="mailto:destek@isgatlasi.com">destek@isgatlasi.com</a>
         </div>
       </div>
     `

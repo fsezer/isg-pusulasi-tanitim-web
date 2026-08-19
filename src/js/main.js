@@ -1,9 +1,11 @@
 import '../css/main.css'
 import { initI18n, LOCALES, t, detectLocale } from './i18n.js'
 import { mountChrome } from './chrome.js'
+import { initAnalytics } from './analytics.js'
 import './firebase-apply.js'
 import './firebase-downloads.js'
 
+initAnalytics()
 mountChrome()
 const locale = initI18n()
 
