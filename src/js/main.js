@@ -63,24 +63,39 @@ if (intro) {
     const titleWrap = intro.querySelector('[data-intro-title]')
     const typedEl = intro.querySelector('[data-intro-typed]')
     const caretEl = intro.querySelector('[data-intro-caret]')
-    const fullTitle = t(detectLocale(), 'intro.title') || 'İSG Atlası'
+    const eyebrowEl = intro.querySelector('[data-intro-eyebrow]')
+    const locale = detectLocale()
+    const fullTitle = t(locale, 'intro.title') || 'İSG Atlası'
+    if (eyebrowEl) eyebrowEl.textContent = t(locale, 'intro.eyebrow') || ''
     const wait = (ms) => new Promise((r) => setTimeout(r, ms))
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     setLocked(true)
     ;(async () => {
       titleWrap?.classList.add('is-revealing')
-      await wait(500)
-      const charMs = 125
-      for (let i = 1; i <= fullTitle.length; i += 1) {
-        if (typedEl) typedEl.textContent = fullTitle.slice(0, i)
-        await wait(charMs)
+      if (reduce) {
+        if (typedEl) typedEl.textContent = fullTitle
+        caretEl?.classList.add('is-done')
+        titleWrap?.classList.add('is-settled')
+        titleWrap?.classList.remove('is-revealing')
+        eyebrowEl?.classList.add('is-on')
+        await wait(900)
+      } else {
+        await wait(480)
+        const charMs = 145
+        for (let i = 1; i <= fullTitle.length; i += 1) {
+          if (typedEl) typedEl.textContent = fullTitle.slice(0, i)
+          await wait(charMs)
+        }
+        await wait(380)
+        caretEl?.classList.add('is-done')
+        titleWrap?.classList.add('is-settled')
+        titleWrap?.classList.remove('is-revealing')
+        eyebrowEl?.classList.add('is-on')
+        await wait(2400)
       }
-      caretEl?.classList.add('is-done')
-      titleWrap?.classList.add('is-settled')
-      titleWrap?.classList.remove('is-revealing')
-      await wait(1400)
       intro.classList.add('is-done')
       sessionStorage.setItem('isg-intro', '1')
-      await wait(850)
+      await wait(900)
       intro.remove()
       body.classList.remove('is-introing')
       setLocked(false)

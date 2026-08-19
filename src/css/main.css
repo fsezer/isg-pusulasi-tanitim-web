@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
   --color-hero: #06101f;
   --color-navy: #0b2744;
   --color-navy-deep: #030b14;
@@ -88,55 +88,71 @@ body.is-introing .site-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.45rem;
   padding: 2rem;
   text-align: center;
 }
 
 .site-intro-logo {
-  width: 96px;
-  height: 96px;
+  width: 148px;
+  height: 148px;
   object-fit: contain;
-  filter: drop-shadow(0 12px 36px rgba(14, 165, 233, 0.35));
-  animation: introPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  background: transparent;
+  filter: drop-shadow(0 10px 28px rgba(14, 165, 233, 0.32)) drop-shadow(0 6px 18px rgba(245, 158, 11, 0.22));
+  animation: introPop 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-intro-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .site-intro-eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.65);
+  color: rgba(186, 230, 253, 0.72);
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease, text-shadow 0.7s ease;
 }
 
 .site-intro-eyebrow.is-on {
   opacity: 1;
   transform: translateY(0);
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
 }
 
 .site-intro-title {
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 5.5vw, 3.1rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #fff;
+  font-size: clamp(2.35rem, 6.4vw, 3.85rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fff7e8;
   min-height: 1.25em;
-  line-height: 1.2;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  line-height: 1.15;
+  text-shadow:
+    0 0 10px rgba(251, 191, 36, 0.28),
+    0 2px 22px rgba(0, 0, 0, 0.45);
+}
+
+.site-intro-title-wrap.is-settled .site-intro-title {
+  animation: introNeonGlow 2.2s ease-in-out infinite;
 }
 
 .intro-caret {
   display: inline-block;
   width: 3px;
-  height: 0.9em;
-  margin-inline-start: 3px;
-  vertical-align: -0.08em;
-  background: var(--color-amber);
+  height: 0.86em;
+  margin-inline-start: 4px;
+  vertical-align: -0.06em;
+  background: var(--color-amber-bright);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.9);
   opacity: 0;
-  animation: caretBlink 0.9s steps(1) infinite;
+  animation: caretBlink 0.85s steps(1) infinite;
 }
 
 .site-intro-title-wrap.is-revealing .intro-caret {
@@ -150,12 +166,30 @@ body.is-introing .site-footer {
 
 .site-intro-rule {
   display: block;
-  width: min(18rem, 70vw);
-  height: 2px;
+  width: min(20rem, 72vw);
+  height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, var(--color-sky-soft), var(--color-amber), transparent);
-  box-shadow: 0 0 18px rgba(14, 165, 233, 0.45);
-  animation: rulePulse 1.4s ease-in-out infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #38bdf8 22%,
+    #fbbf24 50%,
+    #38bdf8 78%,
+    transparent
+  );
+  box-shadow:
+    0 0 14px rgba(251, 191, 36, 0.55),
+    0 0 28px rgba(14, 165, 233, 0.4);
+  animation: neonBar 1.65s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-intro-logo,
+  .site-intro-rule,
+  .site-intro-title-wrap.is-settled .site-intro-title,
+  .intro-caret {
+    animation: none;
+  }
 }
 
 /* —— Header / nav —— */
@@ -944,9 +978,32 @@ main {
   to { opacity: 1; }
 }
 
-@keyframes rulePulse {
-  0%, 100% { opacity: 0.7; transform: scaleX(0.92); }
-  50% { opacity: 1; transform: scaleX(1); }
+@keyframes introNeonGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(251, 191, 36, 0.32),
+      0 0 24px rgba(14, 165, 233, 0.18),
+      0 2px 22px rgba(0, 0, 0, 0.45);
+  }
+  50% {
+    text-shadow:
+      0 0 18px rgba(251, 191, 36, 0.82),
+      0 0 42px rgba(14, 165, 233, 0.38),
+      0 0 8px rgba(255, 255, 255, 0.35);
+  }
+}
+
+@keyframes neonBar {
+  0%, 100% {
+    opacity: 0.42;
+    transform: scaleX(0.88);
+    filter: brightness(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+    filter: brightness(1.28);
+  }
 }
 
 @keyframes floatSoft {

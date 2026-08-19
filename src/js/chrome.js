@@ -46,12 +46,13 @@ export function mountChrome() {
     <div class="site-intro" data-site-intro aria-hidden="true">
       <div class="site-intro-haze" aria-hidden="true"></div>
       <div class="site-intro-stage">
-        <img class="site-intro-logo" src="/img/app_logo.png" width="96" height="96" alt="" />
+        <img class="site-intro-logo" src="/img/app_logo.png" width="148" height="148" alt="" />
         <div class="site-intro-title-wrap" data-intro-title>
           <p class="site-intro-title" aria-label="İSG Atlası">
             <span data-intro-typed></span><span class="intro-caret" data-intro-caret aria-hidden="true"></span>
           </p>
           <span class="site-intro-rule" aria-hidden="true"></span>
+          <p class="site-intro-eyebrow" data-intro-eyebrow></p>
         </div>
       </div>
     </div>
@@ -61,7 +62,7 @@ export function mountChrome() {
     <header class="site-header" data-site-header>
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <a href="/index.html" class="brand-mark" aria-label="İSG Atlası">
-          <img src="/img/app_logo.png" alt="" width="36" height="36" class="h-9 w-9 rounded-lg object-contain" />
+          <img src="/img/app_logo.png" alt="" width="40" height="40" class="h-10 w-10 object-contain" />
           <span class="brand-text" data-i18n="common.brand">İSG Atlası</span>
         </a>
         <div class="flex items-center gap-3">
