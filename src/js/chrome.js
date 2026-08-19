@@ -6,6 +6,7 @@ const PAGES = [
   { id: 'windows', href: '/windows.html', key: 'nav.windows' },
   { id: 'mobile', href: '/mobil.html', key: 'nav.mobile' },
   { id: 'download', href: '/indir.html', key: 'nav.download' },
+  { id: 'pricing', href: '/fiyatlar.html', key: 'nav.pricing' },
   { id: 'faq', href: '/sss.html', key: 'nav.faq' },
   { id: 'contact', href: '/iletisim.html', key: 'nav.contact' },
 ]

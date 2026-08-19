@@ -4,6 +4,7 @@ import { mountChrome } from './chrome.js'
 import { initAnalytics } from './analytics.js'
 import './firebase-apply.js'
 import './firebase-downloads.js'
+import './pricing-calculator.js'
 
 initAnalytics()
 mountChrome()

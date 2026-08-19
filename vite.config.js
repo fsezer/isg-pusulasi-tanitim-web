@@ -8,7 +8,7 @@ import {
 } from './src/js/site-config.js'
 
 const pages = [
-  'index', 'ozellikler', 'windows', 'mobil', 'indir', 'sss', 'basvuru', 'iletisim', 'kvkk',
+  'index', 'ozellikler', 'windows', 'mobil', 'indir', 'fiyatlar', 'sss', 'basvuru', 'iletisim', 'kvkk',
 ]
 
 function seoHeadInject(pageName) {

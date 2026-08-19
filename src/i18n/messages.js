@@ -15,6 +15,8 @@ export const MESSAGES = {
       "faqDescription": "Lisans, Office gereksinimi, sync, mobil, güvenlik ve üyelik hakkında SSS.",
       "applyTitle": "Üyelik Başvurusu — İSG Atlası",
       "applyDescription": "Demo veya üyelik için başvurun. 3 PC kurulum hakkı dahil.",
+      "pricingTitle": "Fiyatlandırma — İSG Atlası Bireysel Lisans",
+      "pricingDescription": "Normal, Pro ve Max bireysel lisans paketleri. İndirimli teklif hesaplama robotu.",
       "contactTitle": "İletişim — İstiklal Yazılım",
       "contactDescription": "İSG Atlası destek ve satış iletişimi.",
       "kvkkTitle": "KVKK Aydınlatma — İSG Atlası",
@@ -26,6 +28,7 @@ export const MESSAGES = {
       "windows": "Windows",
       "mobile": "Mobil",
       "download": "İndir",
+      "pricing": "Fiyatlar",
       "faq": "SSS",
       "apply": "Başvuru",
       "contact": "İletişim",
@@ -243,6 +246,11 @@ export const MESSAGES = {
       "errService": "Başvuru servisi şu an kullanılamıyor.",
       "errSend": "Başvuru gönderilemedi. Tekrar deneyin."
     },
+    "pricing": {
+      "eyebrow": "Bireysel Lisans",
+      "title": "Fiyatlandırma",
+      "sub": "Normal, Pro ve Max bireysel lisans paketleri. Güncel yıllık liste fiyatları."
+    },
     "contact": {
       "eyebrow": "Bize ulaşın",
       "title": "İletişim",
@@ -281,6 +289,8 @@ export const MESSAGES = {
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
       "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
+      "pricingTitle": "Pricing — ISG Atlasi Individual License",
+      "pricingDescription": "Normal, Pro and Max individual license packages. Quote calculator with discounts.",
       "contactTitle": "Contact — Istiklal Yazilim",
       "contactDescription": "ISG Atlasi support and sales contact.",
       "kvkkTitle": "Privacy Notice — ISG Atlasi",
@@ -292,6 +302,7 @@ export const MESSAGES = {
       "windows": "Windows",
       "mobile": "Mobile",
       "download": "Download",
+      "pricing": "Pricing",
       "faq": "FAQ",
       "apply": "Apply",
       "contact": "Contact",
@@ -509,6 +520,11 @@ export const MESSAGES = {
       "errService": "Application service is unavailable right now.",
       "errSend": "Could not send application. Try again."
     },
+    "pricing": {
+      "eyebrow": "Individual License",
+      "title": "Pricing & Quote Calculator",
+      "sub": "Normal, Pro and Max packages. Instant quotes with discount, VAT and multi-year savings."
+    },
     "contact": {
       "eyebrow": "Reach us",
       "title": "Contact",
@@ -547,6 +563,8 @@ export const MESSAGES = {
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
       "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
+      "pricingTitle": "Pricing — ISG Atlasi Individual License",
+      "pricingDescription": "Normal, Pro and Max individual license packages. Quote calculator with discounts.",
       "contactTitle": "Contact — Istiklal Yazilim",
       "contactDescription": "ISG Atlasi support and sales contact.",
       "kvkkTitle": "Privacy Notice — ISG Atlasi",
@@ -558,6 +576,7 @@ export const MESSAGES = {
       "windows": "Windows",
       "mobile": "Mobil",
       "download": "Download",
+      "pricing": "Preise",
       "faq": "FAQ",
       "apply": "Antrag",
       "contact": "Kontakt",
@@ -775,6 +794,11 @@ export const MESSAGES = {
       "errService": "Application service is unavailable right now.",
       "errSend": "Could not send application. Try again."
     },
+    "pricing": {
+      "eyebrow": "Individual License",
+      "title": "Pricing & Quote Calculator",
+      "sub": "Normal, Pro and Max packages. Instant quotes with discount, VAT and multi-year savings."
+    },
     "contact": {
       "eyebrow": "Kontakt",
       "title": "Kontakt",
@@ -813,6 +837,8 @@ export const MESSAGES = {
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
       "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
+      "pricingTitle": "Pricing — ISG Atlasi Individual License",
+      "pricingDescription": "Normal, Pro and Max individual license packages. Quote calculator with discounts.",
       "contactTitle": "Contact — Istiklal Yazilim",
       "contactDescription": "ISG Atlasi support and sales contact.",
       "kvkkTitle": "Privacy Notice — ISG Atlasi",
@@ -824,6 +850,7 @@ export const MESSAGES = {
       "windows": "Windows",
       "mobile": "Mobile",
       "download": "Télécharger",
+      "pricing": "Tarifs",
       "faq": "FAQ",
       "apply": "Candidature",
       "contact": "Contact",
@@ -1041,6 +1068,11 @@ export const MESSAGES = {
       "errService": "Application service is unavailable right now.",
       "errSend": "Could not send application. Try again."
     },
+    "pricing": {
+      "eyebrow": "Individual License",
+      "title": "Pricing & Quote Calculator",
+      "sub": "Normal, Pro and Max packages. Instant quotes with discount, VAT and multi-year savings."
+    },
     "contact": {
       "eyebrow": "Reach us",
       "title": "Contact",
@@ -1079,6 +1111,8 @@ export const MESSAGES = {
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
       "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
+      "pricingTitle": "Pricing — ISG Atlasi Individual License",
+      "pricingDescription": "Normal, Pro and Max individual license packages. Quote calculator with discounts.",
       "contactTitle": "Contact — Istiklal Yazilim",
       "contactDescription": "ISG Atlasi support and sales contact.",
       "kvkkTitle": "Privacy Notice — ISG Atlasi",
@@ -1090,6 +1124,7 @@ export const MESSAGES = {
       "windows": "ويندوز",
       "mobile": "الجوال",
       "download": "تحميل",
+      "pricing": "الأسعار",
       "faq": "أسئلة",
       "apply": "طلب عضوية",
       "contact": "تواصل",
@@ -1307,6 +1342,11 @@ export const MESSAGES = {
       "errService": "Application service is unavailable right now.",
       "errSend": "Could not send application. Try again."
     },
+    "pricing": {
+      "eyebrow": "Individual License",
+      "title": "Pricing & Quote Calculator",
+      "sub": "Normal, Pro and Max packages. Instant quotes with discount, VAT and multi-year savings."
+    },
     "contact": {
       "eyebrow": "Reach us",
       "title": "تواصل",
@@ -1345,6 +1385,8 @@ export const MESSAGES = {
       "faqDescription": "FAQ on license, Office requirements, sync, mobile, security and membership.",
       "applyTitle": "Membership Application — ISG Atlasi",
       "applyDescription": "Apply for demo or membership. Includes 3 PC seats.",
+      "pricingTitle": "Pricing — ISG Atlasi Individual License",
+      "pricingDescription": "Normal, Pro and Max individual license packages. Quote calculator with discounts.",
       "contactTitle": "Contact — Istiklal Yazilim",
       "contactDescription": "ISG Atlasi support and sales contact.",
       "kvkkTitle": "Privacy Notice — ISG Atlasi",
@@ -1356,6 +1398,7 @@ export const MESSAGES = {
       "windows": "Windows",
       "mobile": "Мобильное",
       "download": "Скачать",
+      "pricing": "Цены",
       "faq": "FAQ",
       "apply": "Заявка",
       "contact": "Контакты",
@@ -1572,6 +1615,11 @@ export const MESSAGES = {
       "errRequired": "Please fill name and email.",
       "errService": "Application service is unavailable right now.",
       "errSend": "Could not send application. Try again."
+    },
+    "pricing": {
+      "eyebrow": "Individual License",
+      "title": "Pricing & Quote Calculator",
+      "sub": "Normal, Pro and Max packages. Instant quotes with discount, VAT and multi-year savings."
     },
     "contact": {
       "eyebrow": "Reach us",
