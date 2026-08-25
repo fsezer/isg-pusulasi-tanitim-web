@@ -1,14 +1,4 @@
-import { initializeApp, getApps } from 'firebase/app'
-import { getFirestore, doc, getDoc } from 'firebase/firestore'
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyB0-AXpS6ZLv5p303lW1-73r9_f4yTUPHQ',
-  authDomain: 'isg-pusulasi.firebaseapp.com',
-  projectId: 'isg-pusulasi',
-  storageBucket: 'isg-pusulasi.firebasestorage.app',
-  messagingSenderId: '585271991526',
-  appId: '1:585271991526:web:4412eb38bcfd0f52fbaf27',
-}
+import { API_BASE } from './site-config.js'
 
 const FALLBACK = {
   windowsUrl: '/downloads/ornek-isg-agent.zip',
@@ -42,18 +32,18 @@ async function loadDownloads() {
 
   let cfg = { ...FALLBACK }
   try {
-    const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig)
-    const db = getFirestore(app)
-    const snap = await getDoc(doc(db, 'sistem_ayarlari', 'indirme_paketleri'))
-    if (snap.exists()) {
-      const d = snap.data()
-      cfg = {
-        windowsUrl: d.windowsUrl || FALLBACK.windowsUrl,
-        androidUrl: d.androidUrl || FALLBACK.androidUrl,
-        iosUrl: d.iosUrl || '',
-        playStoreUrl: d.playStoreUrl || '',
-        appStoreUrl: d.appStoreUrl || '',
-        notes: d.notes || FALLBACK.notes,
+    const res = await fetch(`${API_BASE}/v1/site-settings/indirme_paketleri`)
+    if (res.ok) {
+      const d = await res.json()
+      if (d && typeof d === 'object' && (d.windowsUrl || d.androidUrl || d.playStoreUrl)) {
+        cfg = {
+          windowsUrl: d.windowsUrl || FALLBACK.windowsUrl,
+          androidUrl: d.androidUrl || FALLBACK.androidUrl,
+          iosUrl: d.iosUrl || '',
+          playStoreUrl: d.playStoreUrl || '',
+          appStoreUrl: d.appStoreUrl || '',
+          notes: d.notes || FALLBACK.notes,
+        }
       }
     }
   } catch (err) {
@@ -68,7 +58,7 @@ async function loadDownloads() {
   const note = document.getElementById('download-notes')
   if (note && cfg.notes) note.textContent = cfg.notes
 
-  const API = 'https://isg-pusulasi-api-kvfsvqx7na-ew.a.run.app'
+  const API = API_BASE
   const badge = (text) => {
     const span = document.createElement('span')
     span.className = 'inline-flex rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold text-slate-200'

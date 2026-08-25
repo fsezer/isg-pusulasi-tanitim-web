@@ -1,4 +1,14 @@
 import { LOCALES } from './i18n.js'
+import {
+  COMPANY_NAME,
+  COMPANY_URL,
+  COMPANY_PHONE,
+  COMPANY_PHONE_DISPLAY,
+  COMPANY_ADDRESS_LINE,
+  SUPPORT_EMAIL,
+  SUPPORT_EMAIL_ALT,
+  SITE_NAME,
+} from './site-config.js'
 
 const PAGES = [
   { id: 'home', href: '/index.html', key: 'nav.home' },
@@ -60,21 +70,23 @@ export function mountChrome() {
     <div class="nav-backdrop" data-nav-backdrop></div>
 
     <header class="site-header" data-site-header>
-      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <div class="site-header-bar">
         <a href="/index.html" class="brand-mark" aria-label="İSG Atlası">
           <img src="/img/app_logo.png" alt="" width="40" height="40" class="h-10 w-10 object-contain" />
           <span class="brand-text" data-i18n="common.brand">İSG Atlası</span>
         </a>
-        <div class="flex items-center gap-3">
-          <nav class="hidden items-center gap-5 lg:flex" data-i18n-aria="nav.menu" aria-label="Ana menü">
-            ${navLinks(page)}
-          </nav>
+
+        <nav class="site-header-nav" data-i18n-aria="nav.menu" aria-label="Ana menü">
+          ${navLinks(page)}
+        </nav>
+
+        <div class="site-header-actions">
+          <a href="/basvuru.html" class="btn-amber site-header-cta" data-i18n="common.ctaApply">Üyelik Başvurusu</a>
           <button type="button" class="lang-trigger" data-lang-trigger aria-haspopup="dialog" data-i18n-aria="nav.lang">
             <span data-lang-current-flag aria-hidden="true">🇹🇷</span>
             <span data-lang-current-code>TR</span>
           </button>
-          <a href="/basvuru.html" class="btn-amber hidden px-3.5 py-2 text-sm sm:inline-flex" data-i18n="common.ctaApply">Üyelik Başvurusu</a>
-          <button type="button" class="icon-btn lg:hidden" data-nav-toggle aria-expanded="false" aria-controls="site-nav" data-i18n-aria="nav.menuOpen">
+          <button type="button" class="icon-btn site-header-menu-btn" data-nav-toggle aria-expanded="false" aria-controls="site-nav" data-i18n-aria="nav.menuOpen">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
         </div>
@@ -108,33 +120,61 @@ export function mountChrome() {
   const footer = document.querySelector('[data-site-footer]')
   if (footer) {
     footer.innerHTML = `
-      <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:flex-row sm:items-start sm:justify-between sm:px-6 lg:px-8">
-        <div class="flex items-start gap-4">
-          <a class="footer-brand" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" aria-label="İstiklal Yazılım">
-            <picture>
-              <source srcset="/img/istiklal.webp" type="image/webp" />
-              <img src="/img/istiklal_logo.png" alt="İstiklal Yazılım" width="72" height="72" class="footer-brand-logo" />
-            </picture>
-          </a>
-          <div>
-            <a class="font-display text-lg font-bold text-navy hover:text-sky" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" data-i18n="common.company">İstiklal Yazılım</a>
-            <p class="mt-1 text-sm text-muted" data-i18n="footer.tag">Türkiye'nin İSG yazılımı</p>
-            <p class="mt-2 text-sm text-muted">© <span data-year></span> <span data-i18n="common.brand">İSG Atlası</span> · <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
-            <a class="mt-2 inline-flex text-sm font-semibold text-sky hover:underline" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer">istiklalyazilim.com</a>
+      <div class="site-footer-inner">
+        <div class="site-footer-rule" aria-hidden="true"></div>
+        <div class="site-footer-grid">
+          <div class="site-footer-brand">
+            <a href="/index.html" class="site-footer-product" aria-label="${SITE_NAME}">
+              <img src="/img/app_logo.png" alt="" width="48" height="48" class="site-footer-product-logo" loading="lazy" />
+              <span class="site-footer-product-name" data-i18n="common.brand">${SITE_NAME}</span>
+            </a>
+            <p class="site-footer-tagline" data-i18n="footer.tag">Türkiye'nin İSG yazılımı</p>
+            <p class="site-footer-blurb">Windows Agent + Android mobil — saha denetimi, şablon motoru ve bulut sync tek platformda.</p>
+          </div>
+
+          <div class="site-footer-col">
+            <h3 class="site-footer-heading" data-i18n="footer.explore">Keşfet</h3>
+            <div class="site-footer-links">
+              <a href="/ozellikler.html" data-i18n="nav.features">Özellikler</a>
+              <a href="/windows.html" data-i18n="nav.windows">Windows</a>
+              <a href="/mobil.html" data-i18n="nav.mobile">Mobil</a>
+              <a href="/indir.html" data-i18n="nav.download">İndir</a>
+              <a href="/fiyatlar.html" data-i18n="nav.pricing">Fiyatlar</a>
+              <a href="/sss.html" data-i18n="nav.faq">SSS</a>
+              <a href="/basvuru.html" data-i18n="nav.apply">Başvuru</a>
+              <a href="/iletisim.html" data-i18n="nav.contact">İletişim</a>
+            </div>
+          </div>
+
+          <div class="site-footer-col site-footer-contact">
+            <h3 class="site-footer-heading" data-i18n="nav.contact">İletişim</h3>
+            <ul class="site-footer-contact-list">
+              <li>
+                <span class="site-footer-ico" aria-hidden="true">📍</span>
+                <span>${COMPANY_ADDRESS_LINE}</span>
+              </li>
+              <li>
+                <span class="site-footer-ico" aria-hidden="true">📞</span>
+                <a href="tel:${COMPANY_PHONE}">${COMPANY_PHONE_DISPLAY}</a>
+              </li>
+              <li>
+                <span class="site-footer-ico" aria-hidden="true">✉️</span>
+                <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>
+              </li>
+              <li>
+                <span class="site-footer-ico" aria-hidden="true">🛟</span>
+                <a href="mailto:${SUPPORT_EMAIL_ALT}">${SUPPORT_EMAIL_ALT}</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm font-semibold text-muted sm:grid-cols-3">
-          <a class="hover:text-navy" href="/ozellikler.html" data-i18n="nav.features">Özellikler</a>
-          <a class="hover:text-navy" href="/windows.html" data-i18n="nav.windows">Windows</a>
-          <a class="hover:text-navy" href="/mobil.html" data-i18n="nav.mobile">Mobil</a>
-          <a class="hover:text-navy" href="/indir.html" data-i18n="nav.download">İndir</a>
-          <a class="hover:text-navy" href="/sss.html" data-i18n="nav.faq">SSS</a>
-          <a class="hover:text-navy" href="/basvuru.html" data-i18n="nav.apply">Başvuru</a>
-          <a class="hover:text-navy" href="/iletisim.html" data-i18n="nav.contact">İletişim</a>
-          <a class="hover:text-navy" href="/kvkk.html" data-i18n="footer.kvkk">KVKK Aydınlatma</a>
-          <a class="hover:text-navy" href="https://istiklalyazilim.com" target="_blank" rel="noopener noreferrer" data-i18n="contact.web">Kurumsal</a>
-          <a class="hover:text-navy" href="mailto:info@isgatlasi.com">info@isgatlasi.com</a>
-          <a class="hover:text-navy" href="mailto:destek@isgatlasi.com">destek@isgatlasi.com</a>
+
+        <div class="site-footer-bottom">
+          <p>
+            © <span data-year></span> ${SITE_NAME}
+            · <a href="${COMPANY_URL}" target="_blank" rel="noopener noreferrer">${COMPANY_NAME}</a>
+            · <span data-i18n="footer.rights">Tüm hakları saklıdır.</span>
+          </p>
         </div>
       </div>
     `

@@ -5,9 +5,11 @@ import { initAnalytics } from './analytics.js'
 import './firebase-apply.js'
 import './firebase-downloads.js'
 import './pricing-calculator.js'
+import { mountContactPage } from './contact-page.js'
 
 initAnalytics()
 mountChrome()
+mountContactPage()
 const locale = initI18n()
 
 const body = document.body

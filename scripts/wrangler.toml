@@ -1,0 +1,9 @@
+name = "isgatlasi-proxy"
+main = "cloudflare-isgatlasi-worker.js"
+compatibility_date = "2025-08-01"
+
+# Routes: Cloudflare Dashboard → Workers → isgatlasi-proxy → Triggers
+# isgatlasi.com/* and www.isgatlasi.com/*
+
+# Secret (repoya yazma):
+#   npx wrangler secret put TURNSTILE_SECRET --config scripts/wrangler.toml

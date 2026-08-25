@@ -14,14 +14,14 @@
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fiyatlandırma — İSG Atlası Bireysel Lisans</title>
-    <meta name="description" content="Normal, Pro ve Max bireysel İSG Atlası lisans paketleri ve güncel liste fiyatları." />
+    <title>Fiyatlandırma — İSG Atlası</title>
+    <meta name="description" content="Bireysel lisans paketleri ve kurumsal kademeli kullanıcı modeli — İSG Atlası fiyatlandırma." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://isgatlasi.com/fiyatlar.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="İSG Atlası" />
     <meta property="og:title" content="Fiyatlandırma — İSG Atlası" />
-    <meta property="og:description" content="Bireysel lisans paketleri ve liste fiyatları." />
+    <meta property="og:description" content="Bireysel paketler ve kurumsal OSGB fiyatlandırması." />
     <meta property="og:url" content="https://isgatlasi.com/fiyatlar.html" />
     <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
     <meta name="theme-color" content="#06101f" />
@@ -44,23 +44,106 @@
         </div>
       </section>
 
-      <section class="py-12 sm:py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <section class="pricing-panel" data-reveal>
-            <div class="pricing-panel-head">
-              <h2 class="pricing-panel-title">Bireysel Lisans Paketleri</h2>
-              <span class="pricing-panel-meta">Yıllık liste fiyatları · KDV dahil</span>
-            </div>
-            <div class="packages-grid" id="pricing-packages-grid">
-              <p class="text-slate-500 col-span-full text-center py-8">Paketler yükleniyor…</p>
-            </div>
-          </section>
-
-          <div class="mt-10 text-center">
-            <a href="/basvuru.html" class="btn-amber inline-flex">Üyelik Başvurusu Yap</a>
+      <section class="pricing-tabs-section">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
+          <div class="pricing-tabs" role="tablist" aria-label="Fiyatlandırma türü">
+            <button type="button" class="pricing-tab is-active" role="tab" id="tab-bireysel" aria-selected="true" aria-controls="pricing-panel-bireysel" data-pricing-tab="bireysel">
+              <span class="pricing-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.75"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              Bireysel
+            </button>
+            <button type="button" class="pricing-tab" role="tab" id="tab-kurumsal" aria-selected="false" aria-controls="pricing-panel-kurumsal" data-pricing-tab="kurumsal">
+              <span class="pricing-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              Kurumsal
+            </button>
           </div>
         </div>
       </section>
+
+      <!-- BİREYSEL -->
+      <div id="pricing-panel-bireysel" class="pricing-tab-panel is-active" role="tabpanel" aria-labelledby="tab-bireysel">
+
+        <section class="py-8 sm:py-12">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-packages-grid" class="packages-grid packages-grid--hero"></div>
+            <p class="pricing-footnote mt-6 text-center text-sm text-slate-500">
+              Yıllık liste fiyatları · KDV dahil gösterilir · Tek kullanıcı lisansı
+            </p>
+          </div>
+        </section>
+
+        <section class="pb-12 sm:pb-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="pricing-panel" data-reveal>
+              <div class="pricing-panel-head">
+                <h2 class="pricing-panel-title">Paket Karşılaştırması</h2>
+                <span class="pricing-panel-meta">Satır başlığına tıklayın — açıklama altta</span>
+              </div>
+              <div id="pricing-compare-wrap"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pb-12 sm:pb-16" id="pricing-glossary">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="pricing-section-head" data-reveal>
+              <h2 class="pricing-section-title">Özellikler Nedir?</h2>
+              <p class="pricing-section-sub">Her modülün ne yaptığını kısaca açıklıyoruz. Paket seçmeden önce okuyun.</p>
+            </div>
+            <div id="pricing-glossary-chips" class="pricing-glossary-chips" data-reveal></div>
+            <div id="pricing-glossary-list" class="pricing-glossary-list" data-reveal></div>
+          </div>
+        </section>
+
+        <section class="pb-16 sm:pb-20" id="pricing-faq">
+          <div class="mx-auto max-w-3xl px-4 sm:px-6">
+            <div class="pricing-section-head text-center" data-reveal>
+              <h2 class="pricing-section-title">Fiyatlandırma SSS</h2>
+              <p class="pricing-section-sub">Kota, depolama, geçiş ve faturalama</p>
+            </div>
+            <div id="pricing-faq-list" class="space-y-3 mt-8" data-reveal></div>
+          </div>
+        </section>
+
+        <section class="pb-20">
+          <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <a href="/basvuru.html" class="btn-amber inline-flex">Üyelik Başvurusu Yap</a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- KURUMSAL -->
+      <div id="pricing-panel-kurumsal" class="pricing-tab-panel" role="tabpanel" aria-labelledby="tab-kurumsal" hidden>
+
+        <section class="py-8 sm:py-12">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-hero"></div>
+          </div>
+        </section>
+
+        <section class="pb-12 sm:pb-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-tiers"></div>
+          </div>
+        </section>
+
+        <section class="pb-12 sm:pb-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-benefits"></div>
+          </div>
+        </section>
+
+        <section class="pb-20">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-cta"></div>
+          </div>
+        </section>
+
+      </div>
 
     </main>
     <footer class="site-footer" data-site-footer></footer>

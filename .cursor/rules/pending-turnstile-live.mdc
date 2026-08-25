@@ -1,0 +1,19 @@
+# Turnstile — canlıya alınca
+
+**Şimdi yapma.** Canlı deploy / yayın öncesi bitir.
+
+## Hazır
+- Site key (canlıda): `0x4AAAAAAEa1NWC8kdkzwsHl` → `src/js/site-config.js` `TURNSTILE_SITE_KEY`
+- Şu an site key **boş** (test için kapalı)
+- Secret: Cloudflare Turnstile widget’tan (repoya yazma); Worker env `TURNSTILE_SECRET`
+- Worker kodu: `scripts/cloudflare-isgatlasi-worker.js` (`/api/turnstile`)
+- Wrangler: `scripts/wrangler.toml` (`isgatlasi-proxy`)
+
+## Canlıda yapılacak
+1. Worker’ı güncelle (turnstile endpoint)
+2. `TURNSTILE_SECRET` env (Encrypt)
+3. Tanıtım sitesini deploy (site key canlıya düşsün)
+4. `POST https://isgatlasi.com/api/turnstile` dene
+5. Firestore rules deploy (`uyelik_basvuru_email` / `_tel` get+create)
+
+Lokal: Turnstile verify çalışmaz; beklenen.

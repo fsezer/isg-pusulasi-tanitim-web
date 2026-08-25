@@ -8,8 +8,43 @@ service cloud.firestore {
       ])
       && request.resource.data.kaynak == 'tanitim_web'
       && request.resource.data.email is string
-      && request.resource.data.adSoyad is string;
-      allow read, update, delete: if false;
+      && request.resource.data.email.size() > 4
+      && request.resource.data.email.size() <= 120
+      && request.resource.data.adSoyad is string
+      && request.resource.data.adSoyad.size() >= 3
+      && request.resource.data.adSoyad.size() <= 60
+      && request.resource.data.telefon is string
+      && request.resource.data.telefon.matches('^5[0-9]{9}$')
+      && request.resource.data.sehir is string
+      && request.resource.data.platform in [
+        'windows_android', 'windows_ios', 'macos_android', 'macos_ios', 'linux_android', 'linux_ios',
+        'both', 'windows', 'android'
+      ]
+      && request.resource.data.mesaj is string
+      && request.resource.data.mesaj.size() <= 800;
+      allow read, update: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /uyelik_basvuru_email/{emailId} {
+      // Public get: yalnızca var mı yok mu (tekillik kontrolü); create: yeni kayıt.
+      allow get: if true;
+      allow list: if false;
+      allow create: if request.resource.data.keys().hasOnly(['email', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 4
+        && request.resource.data.email.size() <= 120;
+      allow update, delete: if request.auth != null;
+    }
+
+    match /uyelik_basvuru_tel/{telId} {
+      allow get: if true;
+      allow list: if false;
+      allow create: if request.resource.data.keys().hasOnly(['telefon', 'createdAt'])
+        && request.resource.data.telefon is string
+        && request.resource.data.telefon.matches('^[0-9]{10}$')
+        && telId == request.resource.data.telefon;
+      allow update, delete: if request.auth != null;
     }
 
     match /sistem_ayarlari/indirme_paketleri {

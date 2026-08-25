@@ -53,7 +53,12 @@ function seoPlugin() {
 
 export default defineConfig({
   plugins: [tailwindcss(), seoPlugin()],
-  server: { port: 5710 },
+  server: {
+    port: 5710,
+    proxy: {
+      '/v1': { target: 'http://localhost:8081', changeOrigin: true },
+    },
+  },
   build: {
     rollupOptions: {
       input: Object.fromEntries(

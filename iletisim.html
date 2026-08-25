@@ -14,14 +14,13 @@
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>İletişim — İstiklal Yazılım</title>
-    <meta name="description" content="İSG Atlası iletişim." />
+    <title>İletişim — İSG Atlası</title>
+    <meta name="description" content="İSG Atlası iletişim — İstiklal Yazılım Eskişehir." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://isgatlasi.com/iletisim.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="İSG Atlası" />
-    <meta property="og:title" content="İletişim — İstiklal Yazılım" />
-    <meta property="og:description" content="İSG Atlası iletişim." />
+    <meta property="og:title" content="İletişim — İSG Atlası" />
     <meta property="og:url" content="https://isgatlasi.com/iletisim.html" />
     <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
     <meta name="theme-color" content="#06101f" />
@@ -31,11 +30,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/css/main.css" />
-    
   </head>
   <body class="antialiased" data-page="contact">
     <div data-site-chrome></div>
-    <main>
+    <main id="contact-page">
 
       <section class="page-hero">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -45,34 +43,61 @@
         </div>
       </section>
 
-      <section class="py-16 sm:py-20">
-        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8">
-          <a class="feature-card" href="mailto:info@isgatlasi.com" data-reveal>
-            <h3 class="font-bold text-navy" data-i18n="contact.email"></h3>
-            <p class="mt-2 text-sm text-sky">info@isgatlasi.com</p>
-          </a>
-          <a class="feature-card" href="mailto:destek@isgatlasi.com" data-reveal>
-            <h3 class="font-bold text-navy">Destek</h3>
-            <p class="mt-2 text-sm text-sky">destek@isgatlasi.com</p>
-          </a>
-          <a class="feature-card" href="https://istiklalyazilim.com" target="_blank" rel="noopener" data-reveal>
-            <h3 class="font-bold text-navy" data-i18n="contact.web"></h3>
-            <p class="mt-2 text-sm text-muted">istiklalyazilim.com</p>
-          </a>
-          <a class="feature-card" href="/ozellikler.html" data-reveal>
-            <h3 class="font-bold text-navy" data-i18n="contact.product"></h3>
-            <p class="mt-2 text-sm text-muted" data-i18n="nav.features"></p>
-          </a>
-          <a class="feature-card" href="/kvkk.html" data-reveal>
-            <h3 class="font-bold text-navy" data-i18n="contact.legal"></h3>
-            <p class="mt-2 text-sm text-muted" data-i18n="footer.kvkk"></p>
-          </a>
+      <section class="py-12 sm:py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="contact-layout" data-reveal>
+            <div class="contact-cards">
+              <a class="contact-card" href="mailto:info@isgatlasi.com">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.75"/></svg>
+                </span>
+                <h3 data-i18n="contact.email">E-posta</h3>
+                <p>info@isgatlasi.com</p>
+              </a>
+              <a class="contact-card" href="mailto:destek@isgatlasi.com">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 9-4.6-1.6-8-4.6-8-9V7l8-4z" stroke="currentColor" stroke-width="1.75"/></svg>
+                </span>
+                <h3>Destek</h3>
+                <p>destek@isgatlasi.com</p>
+              </a>
+              <a class="contact-card" href="tel:+905300130326">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M8 3h2l1 4-2 1a12 12 0 005 5l1-2 4 1v2a2 2 0 01-2 2A16 16 0 018 5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+                </span>
+                <h3>Telefon</h3>
+                <p>0530 013 03 26</p>
+              </a>
+              <div class="contact-card contact-card--static">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.2 7-11a7 7 0 10-14 0c0 5.8 7 11 7 11z" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.75"/></svg>
+                </span>
+                <h3>Adres</h3>
+                <p>Büyükdere Mah. Kaplanlı Cad. No:10A<br />Odunpazarı / ESKİŞEHİR</p>
+                <p class="contact-card-hint">Büyükdere ve Göztepe Tramvay Durakları Arasında</p>
+              </div>
+            </div>
+
+            <div class="contact-map-panel">
+              <iframe
+                class="contact-map"
+                data-contact-map
+                title="İstiklal Yazılım — Google Harita"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div class="contact-map-actions">
+                <a href="#" data-contact-google target="_blank" rel="noopener noreferrer" class="btn-amber">Google Harita'da Aç</a>
+                <a href="#" data-contact-phone class="btn-ghost-light">Firmayı Ara</a>
+                <a href="#" data-contact-yandex target="_blank" rel="noopener noreferrer" class="btn-ghost-light">Yandex</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
     </main>
     <footer class="site-footer" data-site-footer></footer>
-    
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
