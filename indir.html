@@ -15,15 +15,16 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>İndir — Windows, Android, iOS</title>
-    <meta name="description" content="İSG Atlası indirme." />
+    <meta name="description" content="İSG Atlası Windows Agent, Android APK ve App Store indirme — lisansla Windows + Mobil birlikte." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://isgatlasi.com/indir.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="İSG Atlası" />
     <meta property="og:title" content="İndir — Windows, Android, iOS" />
-    <meta property="og:description" content="İSG Atlası indirme." />
+    <meta property="og:description" content="Windows Agent, Android APK ve iOS indirme bağlantıları." />
     <meta property="og:url" content="https://isgatlasi.com/indir.html" />
     <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#06101f" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -48,14 +49,20 @@
       <section id="indir" class="bg-navy py-16 text-white sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p id="download-notes" class="text-lg text-slate-300" data-i18n="download.sub"></p>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-7" data-reveal>
+                    <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <div class="dl-platform-card dl-platform-card--win" data-reveal>
+              <div class="dl-platform-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l7.5-1.05V11H3V5.5zm8.5-1.2L21 3v8H11.5V4.3zM3 12.5h7.5V19.6L3 18.5v-6zm8.5 0H21V21l-9.5-1.35V12.5z"/></svg>
+              </div>
               <h3 class="text-lg font-bold" data-i18n="download.winTitle"></h3>
               <p class="mt-2 text-sm text-slate-300" data-i18n="download.winDesc"></p>
               <div id="os-badge-windows" class="mt-3 flex flex-wrap gap-2"></div>
               <button id="download-windows" onclick="openEmailGate('windows')" type="button" class="btn-amber mt-6" data-i18n="download.winBtn"></button>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-7" data-reveal>
+            <div class="dl-platform-card dl-platform-card--and" data-reveal>
+              <div class="dl-platform-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.5.5 0 00-.86-.5l-1.86 3.22A7.9 7.9 0 0012 7.9a7.9 7.9 0 00-4.72 1.12L5.42 5.8a.5.5 0 10-.86.5L6.4 9.48A7.86 7.86 0 004.1 15.5v.6h15.8v-.6a7.86 7.86 0 00-2.3-6.02zM8.2 13.6a.9.9 0 110-1.8.9.9 0 010 1.8zm7.6 0a.9.9 0 110-1.8.9.9 0 010 1.8z"/></svg>
+              </div>
               <h3 class="text-lg font-bold" data-i18n="download.andTitle"></h3>
               <p class="mt-2 text-sm text-slate-300" data-i18n="download.andDesc"></p>
               <div id="os-badge-android" class="mt-3 flex flex-wrap gap-2"></div>
@@ -71,7 +78,10 @@
                 </a>
               </div>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-7" data-reveal>
+            <div class="dl-platform-card dl-platform-card--ios" data-reveal>
+              <div class="dl-platform-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.7 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.7zM15.8 5.5c.6-.8 1.1-1.8.9-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.3z"/></svg>
+              </div>
               <h3 class="text-lg font-bold" data-i18n="download.iosTitle"></h3>
               <p class="mt-2 text-sm text-slate-300" data-i18n="download.iosDesc"></p>
               <div id="os-badge-ios" class="mt-3 flex flex-wrap gap-2"></div>

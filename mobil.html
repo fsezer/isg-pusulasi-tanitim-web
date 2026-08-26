@@ -15,15 +15,16 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mobil — Saha Denetimi</title>
-    <meta name="description" content="Sesli saha, AI foto, FCM." />
+    <meta name="description" content="Sesli saha denetim, AI foto, offline SQLite, FCM ve bulut sync — saha için Android mobil." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://isgatlasi.com/mobil.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="İSG Atlası" />
     <meta property="og:title" content="Mobil — Saha Denetimi" />
-    <meta property="og:description" content="Sesli saha, AI foto, FCM." />
+    <meta property="og:description" content="Sesli saha denetim, AI foto, offline SQLite, FCM ve bulut sync — saha için Android mobil." />
     <meta property="og:url" content="https://isgatlasi.com/mobil.html" />
     <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#06101f" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -31,7 +32,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/css/main.css" />
-    
   </head>
   <body class="antialiased" data-page="mobile">
     <div data-site-chrome></div>
@@ -45,21 +45,123 @@
         </div>
       </section>
 
-      <section class="py-16 sm:py-20">
-        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3 sm:px-6 lg:px-8">
-          <article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="mobile.h1t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="mobile.h1d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="mobile.h2t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="mobile.h2d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="mobile.h3t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="mobile.h3d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="mobile.h4t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="mobile.h4d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="mobile.h5t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="mobile.h5d"></p></article>
-        </div>
-        <div class="mx-auto mt-12 max-w-7xl px-4 sm:px-6 lg:px-8" data-reveal>
-          <div class="cta-band">
-            <h2 class="font-display text-2xl font-extrabold" data-i18n="common.ctaDownload"></h2>
-            <div class="mt-6"><a href="/indir.html" class="btn-amber" data-i18n="common.ctaDownload"></a></div>
+      <section class="py-14">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="showcase-trio">
+
+            <article class="show-card" data-reveal>
+              <img src="/img/marketing/yeni-6.jpg" alt="Mobil saha uygulaması" width="640" height="400" loading="lazy" decoding="async" />
+              <div class="show-card-cap">
+                <h3 data-i18n="mobile.h1t"></h3>
+                <p data-i18n="mobile.h1d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="show-card" data-reveal>
+              <img src="/img/marketing/yeni-7.jpg" alt="AI foto ile saha denetimi" width="640" height="400" loading="lazy" decoding="async" />
+              <div class="show-card-cap">
+                <h3 data-i18n="mobile.h2t"></h3>
+                <p data-i18n="mobile.h2d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="show-card" data-reveal>
+              <img src="/img/marketing/voice-field.jpg" alt="Sesli saha denetim" width="640" height="400" loading="lazy" decoding="async" />
+              <div class="show-card-cap">
+                <h3 data-i18n="mobile.h1t"></h3>
+                <p data-i18n="mobile.h1d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
           </div>
         </div>
       </section>
 
+      <section class="py-10 sm:py-14 bg-soft">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="glow-grid glow-grid--3">
+
+            <article class="glow-card glow-card--mint" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="mobile.h3t"></h3>
+                <p data-i18n="mobile.h3d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--sky" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="mobile.h4t"></h3>
+                <p data-i18n="mobile.h4d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--amber" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="mobile.h5t"></h3>
+                <p data-i18n="mobile.h5d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--violet" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="mobile.h1t"></h3>
+                <p data-i18n="mobile.h1d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--sky" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="mobile.h2t"></h3>
+                <p data-i18n="mobile.h2d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--mint" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="mobile.h4t"></h3>
+                <p data-i18n="mobile.h4d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+          </div>
+          <div class="section-cta" data-reveal>
+            <h2 class="font-display text-2xl font-extrabold">Saha + ofis tek atlas</h2>
+            <p class="mt-3 max-w-2xl text-slate-300">Ses, AI foto, offline — Windows Agent ile aynı veri. İndir veya Satın Al.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="/indir.html" class="btn-buy" data-i18n="common.ctaDownload"></a>
+              <a href="/windows.html" class="btn-ghost-light">Windows’u İncele</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </main>
     <footer class="site-footer" data-site-footer></footer>
-    
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://isgatlasi.com/</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://isgatlasi.com/ozellikler.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://isgatlasi.com/windows.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://isgatlasi.com/mobil.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://isgatlasi.com/indir.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://isgatlasi.com/fiyatlar.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://isgatlasi.com/sss.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://isgatlasi.com/basvuru.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://isgatlasi.com/iletisim.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://isgatlasi.com/kvkk.html</loc><lastmod>2026-08-19</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://isgatlasi.com/</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://isgatlasi.com/ozellikler.html</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://isgatlasi.com/windows.html</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://isgatlasi.com/mobil.html</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://isgatlasi.com/indir.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://isgatlasi.com/fiyatlar.html</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://isgatlasi.com/sss.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://isgatlasi.com/hakkimizda.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://isgatlasi.com/basvuru.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://isgatlasi.com/iletisim.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://isgatlasi.com/gizlilik.html</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://isgatlasi.com/teslimat-ve-iade.html</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://isgatlasi.com/mesafeli-satis-sozlesmesi.html</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://isgatlasi.com/cerez-politikasi.html</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://isgatlasi.com/kvkk.html</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://isgatlasi.com/banka-ve-firma-bilgileri.html</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 </urlset>

@@ -8,7 +8,8 @@ import {
 } from './src/js/site-config.js'
 
 const pages = [
-  'index', 'ozellikler', 'windows', 'mobil', 'indir', 'fiyatlar', 'sss', 'basvuru', 'iletisim', 'kvkk',
+  'index', 'ozellikler', 'windows', 'mobil', 'indir', 'fiyatlar', 'sss', 'basvuru', 'iletisim', 'hakkimizda',
+  'gizlilik', 'teslimat-ve-iade', 'mesafeli-satis-sozlesmesi', 'cerez-politikasi', 'kvkk', 'banka-ve-firma-bilgileri',
 ]
 
 function seoHeadInject(pageName) {
@@ -17,7 +18,7 @@ function seoHeadInject(pageName) {
     '<meta name="application-name" content="İSG Atlası" />',
     '<link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs" />',
     '<meta name="twitter:card" content="summary_large_image" />',
-    `<meta name="twitter:site" content="@${SITE_NAME.replace(/\s/g, '')}" />`,
+    `<meta name="twitter:site" content="@isgatlasi" />`,
     `<meta property="og:locale" content="tr_TR" />`,
   ]
 

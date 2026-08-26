@@ -15,15 +15,16 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Windows Agent — İSG Atlası</title>
-    <meta name="description" content="Windows Agent şablon, e-Devlet, arşiv." />
+    <meta name="description" content="Ofiste güç: tag’li şablon, tek tıkla sertifika/belge, e-Devlet Excel, arşiv, ajanda, sync LED ve bulut senkron." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://isgatlasi.com/windows.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="İSG Atlası" />
     <meta property="og:title" content="Windows Agent — İSG Atlası" />
-    <meta property="og:description" content="Windows Agent şablon, e-Devlet, arşiv." />
+    <meta property="og:description" content="Ofiste güç: tag’li şablon, tek tıkla sertifika/belge, e-Devlet Excel, arşiv, ajanda, sync LED ve bulut senkron." />
     <meta property="og:url" content="https://isgatlasi.com/windows.html" />
     <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#06101f" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -31,7 +32,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/css/main.css" />
-    
   </head>
   <body class="antialiased" data-page="windows">
     <div data-site-chrome></div>
@@ -45,27 +45,138 @@
         </div>
       </section>
 
-      <section class="py-16 sm:py-20">
-        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 sm:px-6 lg:px-8">
-          <article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="windows.h1t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="windows.h1d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="windows.h2t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="windows.h2d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="windows.h3t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="windows.h3d"></p></article><article class="feature-card" data-reveal><h3 class="font-display text-xl font-extrabold text-navy" data-i18n="windows.h4t"></h3><p class="mt-3 text-muted leading-relaxed" data-i18n="windows.h4d"></p></article>
-        </div>
-        <div class="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="rounded-2xl border-2 border-amber-400/30 bg-amber-50 p-6 sm:p-8" data-reveal>
-            <h2 class="text-xl font-bold text-navy sm:text-2xl" data-i18n="windows.officeTitle"></h2>
-            <p class="mt-3 text-muted" data-i18n="windows.officeBody"></p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li class="check-row"><svg class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="windows.officeOk1"></span></li>
-              <li class="check-row"><svg class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="windows.officeOk2"></span></li>
-              <li class="check-row"><svg class="h-4 w-4 text-red-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg><span data-i18n="windows.officeNo1"></span></li>
-              <li class="check-row"><svg class="h-4 w-4 text-red-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg><span data-i18n="windows.officeNo2"></span></li>
-            </ul>
+      <section class="py-14">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="showcase-trio">
+
+            <article class="show-card" data-reveal>
+              <img src="/img/marketing/windows-office.jpg" alt="Windows Agent ofis ekranı" width="640" height="400" loading="lazy" decoding="async" />
+              <div class="show-card-cap">
+                <h3 data-i18n="windows.h1t"></h3>
+                <p data-i18n="windows.h1d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="show-card" data-reveal>
+              <img src="/img/marketing/cert-print.jpg" alt="Tek tıkla sertifika basımı" width="640" height="400" loading="lazy" decoding="async" />
+              <div class="show-card-cap">
+                <h3 data-i18n="windows.h5t"></h3>
+                <p data-i18n="windows.h5d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="show-card" data-reveal>
+              <img src="/img/marketing/excel-import.jpg" alt="Excel’den personel aktarımı" width="640" height="400" loading="lazy" decoding="async" />
+              <div class="show-card-cap">
+                <h3 data-i18n="windows.h2t"></h3>
+                <p data-i18n="windows.h2d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
           </div>
         </div>
       </section>
 
+      <section class="py-10 sm:py-14 bg-soft">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="glow-grid glow-grid--3">
+
+            <article class="glow-card glow-card--sky" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="windows.h1t"></h3>
+                <p data-i18n="windows.h1d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--amber" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="windows.h3t"></h3>
+                <p data-i18n="windows.h3d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--mint" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="windows.h4t"></h3>
+                <p data-i18n="windows.h4d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--violet" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="windows.h6t"></h3>
+                <p data-i18n="windows.h6d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--sky" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="windows.h2t"></h3>
+                <p data-i18n="windows.h2d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+            <article class="glow-card glow-card--amber" data-reveal>
+              <div class="glow-card-visual" aria-hidden="true">
+                <span class="glow-card-orbit"></span>
+                <span class="glow-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></span>
+              </div>
+              <div class="glow-card-body">
+                <h3 data-i18n="windows.h5t"></h3>
+                <p data-i18n="windows.h5d"></p>
+              </div>
+              <span class="glow-card-neon" aria-hidden="true"></span>
+            </article>
+          </div>
+
+          <div class="mt-10 glow-card glow-card--amber" data-reveal style="padding:0">
+            <div class="glow-card-body" style="padding:1.5rem 1.5rem 1.75rem">
+              <h2 class="text-xl font-bold text-navy sm:text-2xl" data-i18n="windows.officeTitle"></h2>
+              <p class="mt-3 text-muted" data-i18n="windows.officeBody"></p>
+              <ul class="mt-4 space-y-2 text-sm">
+                <li class="check-row"><svg class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="windows.officeOk1"></span></li>
+                <li class="check-row"><svg class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="windows.officeOk2"></span></li>
+                <li class="check-row"><svg class="h-4 w-4 text-red-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg><span data-i18n="windows.officeNo1"></span></li>
+                <li class="check-row"><svg class="h-4 w-4 text-red-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg><span data-i18n="windows.officeNo2"></span></li>
+              </ul>
+            </div>
+            <span class="glow-card-neon" aria-hidden="true"></span>
+          </div>
+
+          <div class="section-cta" data-reveal>
+            <h2 class="font-display text-2xl font-extrabold">Windows + Mobil birlikte</h2>
+            <p class="mt-3 max-w-2xl text-slate-300">Ofiste Agent, sahada mobil — aynı lisans, aynı bulut. Satın Al ile hemen başlayın.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="/basvuru.html" class="btn-buy" data-i18n="common.ctaApply"></a>
+              <a href="/mobil.html" class="btn-ghost-light">Mobil’i İncele</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </main>
     <footer class="site-footer" data-site-footer></footer>
-    
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

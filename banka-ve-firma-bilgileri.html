@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const v = localStorage.getItem("isg-lang");
+          if (v && ["tr","en","de","fr","ar","ru"].includes(v)) {
+            document.documentElement.lang = v;
+            if (v === "ar") document.documentElement.dir = "rtl";
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banka ve Firma Bilgileri — İSG Atlası</title>
+    <meta name="description" content="İstiklal Yazılım banka IBAN ve firma bilgileri." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://isgatlasi.com/banka-ve-firma-bilgileri.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İSG Atlası" />
+    <meta property="og:title" content="Banka ve Firma Bilgileri — İSG Atlası" />
+    <meta property="og:description" content="İstiklal Yazılım banka IBAN ve firma bilgileri." />
+    <meta property="og:url" content="https://isgatlasi.com/banka-ve-firma-bilgileri.html" />
+    <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="theme-color" content="#06101f" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+  </head>
+  <body class="antialiased" data-page="banka_ve_firma_bilgileri">
+    <div data-site-chrome></div>
+    <main>
+      <section class="page-hero">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky-soft">Yasal</p>
+          <h1 class="mt-3 font-display text-4xl font-extrabold sm:text-5xl">Banka ve Firma Bilgileri</h1>
+        </div>
+      </section>
+      <section class="py-12 sm:py-16 bg-soft">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article class="legal-card" data-reveal>
+            <div class="legal-body">
+
+              <div class="legal-bank-grid">
+                <div class="legal-bank-card">
+                  <h2>Kurumsal Bilgiler</h2>
+                  <ul class="legal-meta-list">
+                    <li><span>Ticari Unvan</span><strong>İstiklal Yazılım - Fatih SEZER</strong></li>
+                    <li><span>Vergi Dairesi</span><strong>Eskişehir Vergi Dairesi</strong></li>
+                    <li><span>Vergi Numarası</span><strong>7670555006</strong></li>
+                    <li><span>Adres</span><strong>Büyükdere Mah. Kaplanlı Cad. No:10A, Odunpazarı / Eskişehir</strong></li>
+                    <li><span>Telefon</span><strong>0530 013 03 26</strong></li>
+                    <li><span>E-posta</span><strong>destek@isgatlasi.com</strong></li>
+                  </ul>
+                </div>
+                <div class="legal-bank-card">
+                  <h2>Banka Hesap Bilgileri</h2>
+                  <div class="legal-table-wrap">
+                    <table class="legal-table">
+                      <thead><tr><th>Banka</th><th>Alıcı</th><th>IBAN</th><th></th></tr></thead>
+                      <tbody>
+                  <tr>
+                    <td>Ziraat Bankası</td>
+                    <td>Fatih SEZER</td>
+                    <td><code data-iban="TR13 0001 0017 1151 5533 4350 02">TR13 0001 0017 1151 5533 4350 02</code></td>
+                    <td><button type="button" class="legal-copy-btn" data-copy="TR13 0001 0017 1151 5533 4350 02">Kopyala</button></td>
+                  </tr>
+                  <tr>
+                    <td>Enpara</td>
+                    <td>Fatih SEZER</td>
+                    <td><code data-iban="TR09 0015 7000 0000 0203 1572 41">TR09 0015 7000 0000 0203 1572 41</code></td>
+                    <td><button type="button" class="legal-copy-btn" data-copy="TR09 0015 7000 0000 0203 1572 41">Kopyala</button></td>
+                  </tr>
+                  <tr>
+                    <td>İş Bankası</td>
+                    <td>Fatih SEZER</td>
+                    <td><code data-iban="TR88 0006 4000 0011 0571 2281 27">TR88 0006 4000 0011 0571 2281 27</code></td>
+                    <td><button type="button" class="legal-copy-btn" data-copy="TR88 0006 4000 0011 0571 2281 27">Kopyala</button></td>
+                  </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="legal-hint">EFT/Havale açıklamasına fatura veya proje numaranızı yazmayı unutmayınız.</p>
+                </div>
+              </div>
+              <script>
+                document.querySelectorAll('[data-copy]').forEach((btn) => {
+                  btn.addEventListener('click', async () => {
+                    const v = btn.getAttribute('data-copy');
+                    try {
+                      await navigator.clipboard.writeText(v);
+                      const prev = btn.textContent;
+                      btn.textContent = 'Kopyalandı';
+                      setTimeout(() => { btn.textContent = prev; }, 2000);
+                    } catch (_) {}
+                  });
+                });
+              </script>
+
+            </div>
+          </article>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/iletisim.html" class="btn-amber">İletişim</a>
+            <a href="/index.html" class="btn-ghost-light" data-i18n="common.backHome">Ana Sayfaya Dön</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

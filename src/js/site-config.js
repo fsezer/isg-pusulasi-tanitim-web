@@ -13,6 +13,10 @@ export const SUPPORT_EMAIL_ALT = 'destek@isgatlasi.com'
 /** Firma iletişim — istiklalyazilim.com ile aynı */
 export const COMPANY_PHONE = '+905300130326'
 export const COMPANY_PHONE_DISPLAY = '0530 013 03 26'
+export const WHATSAPP_URL = 'https://wa.me/905300130326'
+export const INSTAGRAM_URL = 'https://instagram.com/isgatlasi'
+export const TWITTER_URL = 'https://twitter.com/isgatlasi'
+export const SOCIAL_HANDLE = '@isgatlasi'
 export const COMPANY_ADDRESS_LINE = 'Büyükdere Mah. Kaplanlı Cad. No:10A Odunpazarı / ESKİŞEHİR'
 export const COMPANY_ADDRESS_HINT = 'Büyükdere ve Göztepe Tramvay Durakları Arasında'
 export const COMPANY_MAP_YANDEX = 'https://yandex.com.tr/maps/org/istiklal_yazilim/130911416806/'
@@ -71,7 +75,13 @@ export const SITEMAP_PATHS = [
   '/indir.html',
   '/fiyatlar.html',
   '/sss.html',
+  '/hakkimizda.html',
   '/basvuru.html',
   '/iletisim.html',
+  '/gizlilik.html',
+  '/teslimat-ve-iade.html',
+  '/mesafeli-satis-sozlesmesi.html',
+  '/cerez-politikasi.html',
   '/kvkk.html',
+  '/banka-ve-firma-bilgileri.html',
 ]
