@@ -33,8 +33,8 @@ export const COMPANY_MAP_EMBED =
 export const SHOW_MONTHLY_PRICE = false
 
 /**
- * API tabanı — lokal geliştirme localhost; canlı Cloud Run.
- * Canlıya deploy edilmeden production’a yazılmaz.
+ * API tabanı — Vite lokalde aynı origin + proxy (`/v1` → :8081).
+ * Canlı: Cloud Run.
  */
 const h = typeof location !== 'undefined' ? location.hostname : ''
 const p = typeof location !== 'undefined' ? location.port : ''
@@ -50,8 +50,11 @@ const isLocalHost =
   p === '8080' ||
   p === '8082' ||
   p === '3010'
+// Vite: boş = aynı origin (proxy). Düz lokal preview: 127.0.0.1:8081
 export const API_BASE = isLocalHost
-  ? 'http://localhost:8081'
+  ? isViteDev
+    ? ''
+    : 'http://127.0.0.1:8081'
   : 'https://isg-pusulasi-api-kvfsvqx7na-ew.a.run.app'
 
 /**

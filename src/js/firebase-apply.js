@@ -2,6 +2,7 @@ import { TR_CITIES } from './tr-cities.js'
 import { API_BASE, TURNSTILE_SITE_KEY, TURNSTILE_VERIFY_URL } from './site-config.js'
 import { detectLocale, t } from './i18n.js'
 import { showSiteFeedback } from './site-feedback.js'
+import { DEFAULT_PACKAGES } from './pricing-calculator.js'
 
 const PLATFORMS = new Set([
   'windows_android',
@@ -11,6 +12,8 @@ const PLATFORMS = new Set([
   'linux_android',
   'linux_ios',
 ])
+
+const PACKAGES = new Set(['deneme', 'normal', 'pro', 'max'])
 
 const NAME_MAX_WORDS = 4
 const NAME_MAX_CHARS = 60
@@ -36,6 +39,19 @@ function wordCount(text) {
     .filter(Boolean).length
 }
 
+/** TC format + checksum (NVI kişi sorgusu yok). */
+function validTCKN(s) {
+  if (!/^[1-9][0-9]{10}$/.test(s)) return false
+  const d = [...s].map((c) => c.charCodeAt(0) - 48)
+  const odd = d[0] + d[2] + d[4] + d[6] + d[8]
+  const even = d[1] + d[3] + d[5] + d[7]
+  let d10 = ((odd * 7) - even) % 10
+  if (d10 < 0) d10 += 10
+  if (d10 !== d[9]) return false
+  const sum = d.slice(0, 10).reduce((a, b) => a + b, 0)
+  return sum % 10 === d[10]
+}
+
 function normalizePhone(raw) {
   let d = String(raw || '').replace(/\D/g, '')
   if (d.startsWith('90') && d.length >= 12) d = d.slice(2)
@@ -45,6 +61,10 @@ function normalizePhone(raw) {
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) && email.length <= 120
+}
+
+function formatTL(n) {
+  return new Intl.NumberFormat('tr-TR').format(Number(n) || 0) + ' TL'
 }
 
 function fillCitySelect(select) {
@@ -108,8 +128,37 @@ async function verifyTurnstile(token) {
   }
 }
 
+function queryPaket() {
+  try {
+    const p = new URLSearchParams(window.location.search).get('paket')
+    return PACKAGES.has(String(p || '').toLowerCase()) ? String(p).toLowerCase() : ''
+  } catch {
+    return ''
+  }
+}
+
+function syncPaketSummary(form) {
+  const sel = form.querySelector('[name="paket"]')
+  const box = form.querySelector('[data-paket-summary]')
+  if (!sel || !box) return
+  const key = sel.value
+  const pkg = DEFAULT_PACKAGES[key]
+  if (!pkg) {
+    box.hidden = true
+    return
+  }
+  box.hidden = false
+  box.querySelector('[data-paket-title]').textContent = `İSG Atlası ${pkg.title}`
+  box.querySelector('[data-paket-price]').textContent = formatTL(pkg.priceIncVat) + ' / yıl'
+  box.querySelector('[data-paket-scope]').textContent = pkg.scope || pkg.subtitle || ''
+}
+
 function validate(payload, honeypot) {
   if (honeypot) return msg('apply.errBot', 'Doğrulama başarısız.')
+
+  if (!PACKAGES.has(payload.paket)) {
+    return msg('apply.errPackage', 'Lütfen bir paket seçin.')
+  }
 
   const nameWords = wordCount(payload.adSoyad)
   if (!payload.adSoyad || nameWords < 2) {
@@ -136,6 +185,10 @@ function validate(payload, honeypot) {
     return msg('apply.errPlatform', 'Platform seçin.')
   }
 
+  if (!validTCKN(payload.kimlikNo)) {
+    return msg('apply.errIdentity', 'Geçerli bir TC kimlik numarası girin.')
+  }
+
   const mw = wordCount(payload.mesaj)
   if (mw > MSG_MAX_WORDS || payload.mesaj.length > MSG_MAX_CHARS) {
     return msg('apply.errMsgLimit', `Mesaj en fazla ${MSG_MAX_WORDS} kelime olabilir.`)
@@ -151,12 +204,25 @@ function bindApplyForm() {
 
   fillCitySelect(form.querySelector('[name="sehir"]'))
 
+  const paketSel = form.querySelector('[name="paket"]')
+  const qPaket = queryPaket()
+  if (paketSel) {
+    if (qPaket) paketSel.value = qPaket
+    paketSel.addEventListener('change', () => syncPaketSummary(form))
+    syncPaketSummary(form)
+  }
+
   const phoneInput = form.querySelector('[name="telefon"]')
   phoneInput?.addEventListener('input', () => {
     let v = phoneInput.value.replace(/\D/g, '')
     if (v.startsWith('0')) v = v.slice(1)
     if (v.startsWith('90') && v.length > 10) v = v.slice(2)
     phoneInput.value = v.slice(0, 10)
+  })
+
+  const kimlikInput = form.querySelector('[name="kimlikNo"]')
+  kimlikInput?.addEventListener('input', () => {
+    kimlikInput.value = kimlikInput.value.replace(/\D/g, '').slice(0, 11)
   })
 
   form.querySelector('[name="adSoyad"]')?.addEventListener('input', () => updateCounters(form))
@@ -185,6 +251,7 @@ function bindApplyForm() {
     e.preventDefault()
     const fd = new FormData(form)
     const honeypot = String(fd.get('website') || '').trim()
+    const kimlikRaw = String(fd.get('kimlikNo') || '').replace(/\D/g, '')
     const payload = {
       adSoyad: String(fd.get('adSoyad') || '').trim().replace(/\s+/g, ' '),
       email: String(fd.get('email') || '').trim().toLowerCase(),
@@ -192,6 +259,8 @@ function bindApplyForm() {
       sehir: String(fd.get('sehir') || '').trim(),
       mesaj: String(fd.get('mesaj') || '').trim(),
       platform: String(fd.get('platform') || 'windows_android'),
+      paket: String(fd.get('paket') || '').toLowerCase(),
+      kimlikNo: kimlikRaw,
       kaynak: 'tanitim_web',
     }
 
@@ -211,13 +280,21 @@ function bindApplyForm() {
     }
 
     const btn = form.querySelector('[type="submit"]')
-    if (btn) btn.disabled = true
+    const prevLabel = btn?.textContent
+    if (btn) {
+      btn.disabled = true
+      btn.textContent = msg('apply.paying', 'Ödemeye yönlendiriliyor…')
+    }
 
     try {
       const res = await fetch(`${API_BASE}/v1/uyelik/basvuru`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...payload, website: honeypot }),
+        body: JSON.stringify({
+          ...payload,
+          kimlikNo: kimlikRaw,
+          website: honeypot,
+        }),
       })
       let data = null
       try {
@@ -225,25 +302,48 @@ function bindApplyForm() {
       } catch (_) {}
 
       if (res.status === 409 || data?.error === 'duplicate') {
-        notify(msg('apply.errDuplicate', 'Bu e-posta veya telefon ile daha önce başvuru yapılmış.'), 'warn')
+        notify(msg('apply.errDuplicate', 'Bu e-posta ile daha önce ödenmiş bir kayıt var.'), 'warn')
+        return
+      }
+      if (data?.error === 'invalid_package') {
+        notify(msg('apply.errPackage', 'Lütfen bir paket seçin.'), 'error')
+        return
+      }
+      if (data?.error === 'invalid_identity') {
+        notify(msg('apply.errIdentity', 'Geçerli bir TC kimlik numarası girin.'), 'error')
+        return
+      }
+      if (data?.error === 'payment_init_failed') {
+        const detail = data?.detail ? ` (${String(data.detail).slice(0, 120)})` : ''
+        notify(msg('apply.errPay', 'Ödeme başlatılamadı. Lütfen tekrar deneyin.') + detail, 'error')
         return
       }
       if (!res.ok || !data?.ok) {
-        notify(msg('apply.errSend', 'Başvuru gönderilemedi. Tekrar deneyin.'), 'error')
+        const code = data?.error ? ` [${data.error}]` : ` [HTTP ${res.status}]`
+        notify(msg('apply.errSend', 'Başvuru gönderilemedi. Tekrar deneyin.') + code, 'error')
+        return
+      }
+
+      if (data.pay && data.paymentPageUrl) {
+        window.location.href = data.paymentPageUrl
         return
       }
 
       form.reset()
       updateCounters(form)
+      syncPaketSummary(form)
       try {
         window.turnstile?.reset?.()
       } catch (_) {}
       notify(msg('apply.ok', 'Başvurunuz alındı. En kısa sürede sizinle iletişime geçeceğiz.'), 'success')
     } catch (err) {
       console.error(err)
-      notify(msg('apply.errSend', 'Başvuru gönderilemedi. Tekrar deneyin.'), 'error')
+      notify(msg('apply.errApiDown', 'API’ye ulaşılamıyor. Lokal API (8081) çalışıyor mu?'), 'error')
     } finally {
-      if (btn) btn.disabled = false
+      if (btn) {
+        btn.disabled = false
+        if (prevLabel) btn.textContent = prevLabel
+      }
     }
   })
 }

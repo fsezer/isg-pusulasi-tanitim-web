@@ -30,6 +30,18 @@ const ICONS = {
 }
 
 export const DEFAULT_PACKAGES = {
+  deneme: {
+    key: 'deneme',
+    title: 'Deneme',
+    subtitle: 'Geçici ödeme testi — 10 TL',
+    priceIncVat: 10,
+    priceExVat: 10,
+    monthlyIncVat: 10,
+    tag: 'Test',
+    featured: false,
+    accent: 'sky',
+    scope: 'Sadece iyzico test — canlıdan kaldırılacak',
+  },
   normal: {
     key: 'normal',
     title: 'Normal',
@@ -178,7 +190,7 @@ function esc(s) {
 }
 
 function mergePackages(raw) {
-  return ['normal', 'pro', 'max']
+  return ['deneme', 'normal', 'pro', 'max']
     .map((key) => {
       const base = { ...DEFAULT_PACKAGES[key], key, enabled: true }
       const over = raw?.packages?.[key] || raw?.[key] || {}
@@ -207,7 +219,12 @@ function renderPackageCard(pkg) {
   const monthLine = showMonthlyPrice
     ? `<div class="pkg-price-month">≈ ${fmtMoneyInt(pkg.monthlyIncVat)} TL/ay (KDV dahil)</div>`
     : ''
-  const ctaLabel = pkg.key === 'max' ? 'Max İle Başla' : 'Başvur'
+  const ctaLabel = pkg.key === 'max' ? 'Max İle Başla' : pkg.key === 'deneme' ? '10 TL Test Öde' : 'Başvur'
+  const priceUnit = pkg.key === 'deneme' ? 'TL' : 'TL/yıl'
+  const priceEx =
+    pkg.key === 'deneme'
+      ? `<div class="pkg-price-ex">Geçici iyzico test paketi</div>`
+      : `<div class="pkg-price-ex">${fmtMoneyInt(pkg.priceExVat)} TL + KDV</div>`
 
   return `
     <article class="package-card is-static package-card--v2 package-card--${esc(pkg.key)}${featured}" data-pkg="${esc(pkg.key)}">
@@ -223,12 +240,14 @@ function renderPackageCard(pkg) {
         <div class="pkg-subtitle">${esc(pkg.subtitle)}</div>
       </div>
       <div class="pkg-price-box">
-        <div class="pkg-price${featured ? ' pkg-price-amber' : ''}">${fmtMoneyInt(pkg.priceIncVat)} <small>TL/yıl</small></div>
-        <div class="pkg-price-ex">${fmtMoneyInt(pkg.priceExVat)} TL + KDV</div>
+        <div class="pkg-price${featured ? ' pkg-price-amber' : ''}">${fmtMoneyInt(pkg.priceIncVat)} <small>${priceUnit}</small></div>
+        ${priceEx}
+        ${monthLine}
+      </div>
         ${monthLine}
       </div>
       <p class="pkg-scope-line">${esc(pkg.scope)}</p>
-      <a href="/basvuru.html" class="pkg-cta${featured ? ' pkg-cta--featured' : ''}">${esc(ctaLabel)}</a>
+      <a href="/basvuru.html?paket=${encodeURIComponent(pkg.key)}" class="pkg-cta${featured ? ' pkg-cta--featured' : ''}">${esc(ctaLabel)}</a>
     </article>
   `
 }
@@ -241,8 +260,9 @@ function cellClass(val) {
 }
 
 function renderCompareTable(packages) {
-  const cols = packages.map((p) => p.key)
-  const head = packages
+  const colsPkgs = packages.filter((p) => p.key !== 'deneme')
+  const cols = colsPkgs.map((p) => p.key)
+  const head = colsPkgs
     .map(
       (p) =>
         `<th class="pricing-compare-th${p.featured ? ' is-featured-col' : ''}"><span class="pricing-compare-pkg">${esc(p.title)}</span></th>`,

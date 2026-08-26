@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ödeme Sonucu — İSG Atlası</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#06101f" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+  </head>
+  <body class="antialiased" data-page="pay-result">
+    <div data-site-chrome></div>
+    <main>
+      <section class="pay-result" data-reveal>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky-soft">Ödeme</p>
+        <h1 id="pay-title">Ödeme sonucu</h1>
+        <p id="pay-body">Durum kontrol ediliyor…</p>
+        <div class="pay-result-actions">
+          <a class="btn-amber" href="/basvuru.html">Tekrar Dene</a>
+          <a class="btn-ghost" href="/fiyatlar.html">Paketler</a>
+          <a class="btn-ghost" href="/iletisim.html">İletişim</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    <script type="module">
+      import '/src/js/main.js'
+      const q = new URLSearchParams(location.search)
+      const status = q.get('status') || ''
+      const paket = (q.get('paket') || '').toUpperCase()
+      const title = document.getElementById('pay-title')
+      const body = document.getElementById('pay-body')
+      if (status === 'success') {
+        title.textContent = 'Ödeme Başarılı'
+        body.textContent = (paket ? paket + ' paketi' : 'Paketiniz') + ' için ödemeniz alındı. Ekibimiz başvurunuzu inceler ve hesabınızı açar.'
+      } else {
+        title.textContent = 'Ödeme Tamamlanamadı'
+        body.textContent = 'Ödeme alınamadı veya iptal edildi. Tekrar deneyebilir veya bizimle iletişime geçebilirsiniz.'
+      }
+    </script>
+  </body>
+</html>

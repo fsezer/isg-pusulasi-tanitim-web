@@ -71,7 +71,24 @@
               <h2 class="apply-form-title" data-i18n="apply.formTitle">Başvuru Formu</h2>
             </div>
 
+            <div class="apply-paket-summary" data-paket-summary hidden>
+              <div class="apply-paket-summary-label" data-i18n="apply.selectedPackage">Seçilen Paket</div>
+              <div class="apply-paket-summary-title" data-paket-title>—</div>
+              <div class="apply-paket-summary-price" data-paket-price>—</div>
+              <div class="apply-paket-summary-scope" data-paket-scope></div>
+            </div>
+
             <div class="apply-form-grid">
+              <label class="apply-field apply-field--full">
+                <span class="apply-label" data-i18n="apply.package">Paket</span>
+                <select class="apply-input" name="paket" required>
+                  <option value="" data-i18n="apply.phPackage">Paket seçin…</option>
+                  <option value="deneme">Deneme (test) — 10 TL</option>
+                  <option value="normal">Normal — 17.400 TL / yıl</option>
+                  <option value="pro">Pro — 27.000 TL / yıl</option>
+                  <option value="max">Max — 37.200 TL / yıl</option>
+                </select>
+              </label>
               <label class="apply-field apply-field--full">
                 <span class="apply-label">
                   <span data-i18n="apply.name"></span>
@@ -90,6 +107,10 @@
               <label class="apply-field">
                 <span class="apply-label" data-i18n="apply.city"></span>
                 <select class="apply-input" name="sehir" required></select>
+              </label>
+              <label class="apply-field">
+                <span class="apply-label" data-i18n="apply.identity">TC Kimlik</span>
+                <input class="apply-input" name="kimlikNo" type="text" inputmode="numeric" autocomplete="off" required maxlength="11" pattern="[1-9][0-9]{10}" data-i18n-placeholder="apply.phIdentity" placeholder="11 haneli TC" />
               </label>
               <label class="apply-field">
                 <span class="apply-label" data-i18n="apply.platform"></span>
@@ -118,8 +139,9 @@
 
             <div class="apply-turnstile" data-turnstile-slot></div>
 
+            <p class="apply-pay-hint" data-i18n="apply.payHint">Devam’da güvenli iyzico ödeme sayfasına yönlendirilirsiniz.</p>
             <div class="apply-form-actions">
-              <button type="submit" class="btn-amber apply-submit" data-i18n="apply.submit"></button>
+              <button type="submit" class="btn-amber apply-submit" data-i18n="apply.submitPay">Ödemeye Geç</button>
             </div>
           </form>
         </div>
