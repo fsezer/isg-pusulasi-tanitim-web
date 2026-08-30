@@ -12,6 +12,10 @@ import {
   INSTAGRAM_URL,
   TWITTER_URL,
   SOCIAL_HANDLE,
+  LEGAL_PRIVACY_URL,
+  LEGAL_TERMS_URL,
+  LEGAL_SUPPORT_URL,
+  LEGAL_DELETE_ACCOUNT_URL,
 } from './site-config.js'
 
 const PAGES = [
@@ -210,12 +214,10 @@ export function mountChrome() {
         </div>
 
         <nav class="site-footer-legal" aria-label="Yasal sayfalar">
-          <a href="/gizlilik.html" data-i18n="footer.legalPrivacy">Gizlilik Politikası</a>
-          <a href="/teslimat-ve-iade.html" data-i18n="footer.legalReturn">İptal, İade ve Teslimat</a>
-          <a href="/mesafeli-satis-sozlesmesi.html" data-i18n="footer.legalDistance">Mesafeli Satış Sözleşmesi</a>
-          <a href="/cerez-politikasi.html" data-i18n="footer.legalCookies">Çerez Kullanımı</a>
-          <a href="/kvkk.html" data-i18n="footer.legalKvkk">KVKK</a>
-          <a href="/banka-ve-firma-bilgileri.html" data-i18n="footer.legalBank">Banka ve Firma Bilgileri</a>
+          <a href="${LEGAL_PRIVACY_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalPrivacy">Gizlilik Politikası</a>
+          <a href="${LEGAL_TERMS_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalTerms">Kullanım Koşulları</a>
+          <a href="${LEGAL_SUPPORT_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalSupport">Destek</a>
+          <a href="${LEGAL_DELETE_ACCOUNT_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalDelete">Hesap Silme</a>
         </nav>
 
         <div class="site-footer-bottom">

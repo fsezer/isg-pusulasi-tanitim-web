@@ -29,6 +29,16 @@ export const COMPANY_MAP_GOOGLE =
 export const COMPANY_MAP_EMBED =
   'https://maps.google.com/maps?q=39.7578926,30.502264+(İstiklal+Yazılım)&z=17&hl=tr&output=embed'
 
+/** Yasal sayfalar — tek kaynak (istiklalyazilim.com) */
+export const LEGAL_PRIVACY_URL =
+  'https://www.istiklalyazilim.com/app/isg-atlasi/privacy-policy'
+export const LEGAL_TERMS_URL =
+  'https://www.istiklalyazilim.com/app/isg-atlasi/terms-of-service'
+export const LEGAL_SUPPORT_URL =
+  'https://www.istiklalyazilim.com/app/isg-atlasi/support'
+export const LEGAL_DELETE_ACCOUNT_URL =
+  'https://www.istiklalyazilim.com/app/isg-atlasi/delete-account'
+
 /** Fiyat kartları — aylık gösterim (admin/feature flag) */
 export const SHOW_MONTHLY_PRICE = false
 
@@ -81,10 +91,4 @@ export const SITEMAP_PATHS = [
   '/hakkimizda.html',
   '/basvuru.html',
   '/iletisim.html',
-  '/gizlilik.html',
-  '/teslimat-ve-iade.html',
-  '/mesafeli-satis-sozlesmesi.html',
-  '/cerez-politikasi.html',
-  '/kvkk.html',
-  '/banka-ve-firma-bilgileri.html',
 ]

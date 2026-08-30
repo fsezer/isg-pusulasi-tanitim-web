@@ -396,11 +396,9 @@ export const MESSAGES = {
       "tag": "Türkiye'nin İSG yazılımı",
       "rights": "Tüm hakları saklıdır.",
       "legalPrivacy": "Gizlilik Politikası",
-      "legalReturn": "İptal, İade ve Teslimat",
-      "legalDistance": "Mesafeli Satış Sözleşmesi",
-      "legalCookies": "Çerez Kullanımı",
-      "legalKvkk": "KVKK",
-      "legalBank": "Banka ve Firma Bilgileri",
+      "legalTerms": "Kullanım Koşulları",
+      "legalSupport": "Destek",
+      "legalDelete": "Hesap Silme",
       "kvkk": "KVKK Aydınlatma"
     }
   },
@@ -786,11 +784,9 @@ export const MESSAGES = {
       "tag": "Türkiye's OHS software",
       "rights": "All rights reserved.",
       "legalPrivacy": "Privacy Policy",
-      "legalReturn": "Cancel, Return & Delivery",
-      "legalDistance": "Distance Sales Agreement",
-      "legalCookies": "Cookie Policy",
-      "legalKvkk": "KVKK / PDPL",
-      "legalBank": "Bank & Company Info",
+      "legalTerms": "Terms of Service",
+      "legalSupport": "Support",
+      "legalDelete": "Delete Account",
       "kvkk": "Privacy Notice"
     }
   },
@@ -1132,11 +1128,9 @@ export const MESSAGES = {
       "tag": "OHS-Software aus Türkiye",
       "rights": "Alle Rechte vorbehalten.",
       "legalPrivacy": "Datenschutz",
-      "legalReturn": "Storno, Rückgabe & Lieferung",
-      "legalDistance": "Fernabsatzvertrag",
-      "legalCookies": "Cookie-Richtlinie",
-      "legalKvkk": "KVKK",
-      "legalBank": "Bank- & Firmendaten",
+      "legalTerms": "Nutzungsbedingungen",
+      "legalSupport": "Support",
+      "legalDelete": "Konto löschen",
       "kvkk": "Datenschutz"
     }
   },
@@ -1478,11 +1472,9 @@ export const MESSAGES = {
       "tag": "Logiciel OHS de Türkiye",
       "rights": "Tous droits réservés.",
       "legalPrivacy": "Politique de confidentialité",
-      "legalReturn": "Annulation, retour et livraison",
-      "legalDistance": "Contrat de vente à distance",
-      "legalCookies": "Cookies",
-      "legalKvkk": "KVKK",
-      "legalBank": "Infos bancaires et société",
+      "legalTerms": "Conditions d'utilisation",
+      "legalSupport": "Support",
+      "legalDelete": "Suppression du compte",
       "kvkk": "Confidentialité"
     }
   },
@@ -1824,11 +1816,9 @@ export const MESSAGES = {
       "tag": "برمجية السلامة المهنية",
       "rights": "جميع الحقوق محفوظة.",
       "legalPrivacy": "سياسة الخصوصية",
-      "legalReturn": "الإلغاء والإرجاع والتسليم",
-      "legalDistance": "عقد البيع عن بعد",
-      "legalCookies": "ملفات تعريف الارتباط",
-      "legalKvkk": "KVKK",
-      "legalBank": "معلومات البنك والشركة",
+      "legalTerms": "شروط الاستخدام",
+      "legalSupport": "الدعم",
+      "legalDelete": "حذف الحساب",
       "kvkk": "الخصوصية"
     }
   },
@@ -2170,11 +2160,9 @@ export const MESSAGES = {
       "tag": "ПО охраны труда",
       "rights": "Все права защищены.",
       "legalPrivacy": "Политика конфиденциальности",
-      "legalReturn": "Отмена, возврат и доставка",
-      "legalDistance": "Договор дистанционной продажи",
-      "legalCookies": "Файлы cookie",
-      "legalKvkk": "KVKK",
-      "legalBank": "Банк и реквизиты",
+      "legalTerms": "Условия использования",
+      "legalSupport": "Поддержка",
+      "legalDelete": "Удаление аккаунта",
       "kvkk": "Конфиденциальность"
     }
   }
