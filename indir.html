@@ -32,7 +32,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/css/main.css" />
-    
   </head>
   <body class="antialiased" data-page="download">
     <div data-site-chrome></div>
@@ -46,68 +45,80 @@
         </div>
       </section>
 
-      <section id="indir" class="bg-navy py-16 text-white sm:py-20">
+      <section id="indir" class="sect-band sect-band--navy py-16 text-white sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p id="download-notes" class="text-lg text-slate-300" data-i18n="download.sub"></p>
-                    <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="dl-highlights" id="download-highlights" data-reveal>
+            <article class="dl-highlight-card">
+              <span class="dl-highlight-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M5 15v2a2 2 0 002 2h10a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              <h3>Mağazadan veya Doğrudan</h3>
+              <p>Google Play, App Store veya bu sayfadaki doğrudan paketlerle indirebilirsiniz.</p>
+            </article>
+            <article class="dl-highlight-card">
+              <span class="dl-highlight-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0113.5-5.7M20 12a8 8 0 01-13.5 5.7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M16 4h4v4M8 20H4v-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              <h3>Windows + Mobil Aynı Lisans</h3>
+              <p>Tek hesap — ofiste Agent, sahada Android veya iOS. Kurulum sonrası giriş yapın; sync otomatik başlar.</p>
+            </article>
+            <article class="dl-highlight-card">
+              <span class="dl-highlight-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 9-4.6-1.6-8-4.6-8-9V7l8-4z" stroke="currentColor" stroke-width="1.75"/></svg>
+              </span>
+              <h3>Güncel Sürüm, Güvenli Paket</h3>
+              <p>Her platformun sürüm bilgisi ve indirme linki canlı yayın paneline bağlıdır — her zaman son kararlı paket.</p>
+            </article>
+          </div>
+
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
             <div class="dl-platform-card dl-platform-card--win" data-reveal>
-              <div class="dl-platform-ico" aria-hidden="true">
+              <div class="dl-platform-logo dl-platform-logo--win" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l7.5-1.05V11H3V5.5zm8.5-1.2L21 3v8H11.5V4.3zM3 12.5h7.5V19.6L3 18.5v-6zm8.5 0H21V21l-9.5-1.35V12.5z"/></svg>
               </div>
               <h3 class="text-lg font-bold" data-i18n="download.winTitle"></h3>
               <p class="mt-2 text-sm text-slate-300" data-i18n="download.winDesc"></p>
               <div id="os-badge-windows" class="mt-3 flex flex-wrap gap-2"></div>
-              <button id="download-windows" onclick="openEmailGate('windows')" type="button" class="btn-amber mt-6" data-i18n="download.winBtn"></button>
+              <button id="download-windows" type="button" class="btn-amber mt-6" data-i18n="download.winBtn"></button>
             </div>
+
             <div class="dl-platform-card dl-platform-card--and" data-reveal>
-              <div class="dl-platform-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.5.5 0 00-.86-.5l-1.86 3.22A7.9 7.9 0 0012 7.9a7.9 7.9 0 00-4.72 1.12L5.42 5.8a.5.5 0 10-.86.5L6.4 9.48A7.86 7.86 0 004.1 15.5v.6h15.8v-.6a7.86 7.86 0 00-2.3-6.02zM8.2 13.6a.9.9 0 110-1.8.9.9 0 010 1.8zm7.6 0a.9.9 0 110-1.8.9.9 0 010 1.8z"/></svg>
+              <div class="dl-platform-logo dl-platform-logo--play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.4.2-.6.6-.6 1.1v17.2c0 .5.2.9.6 1.1l.1.1 9.6-9.6v-.3L3.7 2.2l-.1.1zm12.1 7L12.5 12l3.2 2.7 3.8-2.2c.7-.4.7-1.1 0-1.5l-3.8-2.7zM12.1 12.5l-9.7 9.7c.2.1.4.1.6.1.3 0 .6-.1.9-.3l10.7-6.2-2.5-3.3zm2.5-5.1L4 2.2C3.7 2 3.4 2 3.1 2c-.2 0-.4 0-.6.1l9.6 9.6 2.5-2.3z"/></svg>
               </div>
               <h3 class="text-lg font-bold" data-i18n="download.andTitle"></h3>
               <p class="mt-2 text-sm text-slate-300" data-i18n="download.andDesc"></p>
               <div id="os-badge-android" class="mt-3 flex flex-wrap gap-2"></div>
-              <button id="download-android" onclick="openEmailGate('android')" type="button" class="btn-ghost-light mt-6" data-i18n="download.andBtn"></button>
+              <button id="download-android" type="button" class="btn-amber mt-6" data-i18n="download.andBtn"></button>
               <div class="mt-5 flex flex-wrap gap-3">
                 <a id="store-play" href="#" class="store-btn" aria-label="Google Play">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.4.2-.6.6-.6 1.1v17.2c0 .5.2.9.6 1.1l.1.1 9.6-9.6v-.3L3.7 2.2l-.1.1zm12.1 7L12.5 12l3.2 2.7 3.8-2.2c.7-.4.7-1.1 0-1.5l-3.8-2.7zM12.1 12.5l-9.7 9.7c.2.1.4.1.6.1.3 0 .6-.1.9-.3l10.7-6.2-2.5-3.3zm2.5-5.1L4 2.2C3.7 2 3.4 2 3.1 2c-.2 0-.4 0-.6.1l9.6 9.6 2.5-2.3z"/></svg>
-                  <span class="text-left leading-tight"><span class="block text-[10px] uppercase opacity-70" data-i18n="download.play"></span><span class="block text-sm font-semibold" data-store-label data-i18n="download.soon"></span></span>
-                </a>
-                <a id="store-apple" href="#" class="store-btn" aria-label="App Store">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.7 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.7zM15.8 5.5c.6-.8 1.1-1.8.9-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.3z"/></svg>
-                  <span class="text-left leading-tight"><span class="block text-[10px] uppercase opacity-70" data-i18n="download.appstore"></span><span class="block text-sm font-semibold" data-store-label data-i18n="download.soon"></span></span>
+                  <span class="text-sm font-semibold" data-store-label data-i18n="download.play">Google Play</span>
                 </a>
               </div>
             </div>
+
             <div class="dl-platform-card dl-platform-card--ios" data-reveal>
-              <div class="dl-platform-ico" aria-hidden="true">
+              <div class="dl-platform-logo dl-platform-logo--apple" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.7 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.7zM15.8 5.5c.6-.8 1.1-1.8.9-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.3z"/></svg>
               </div>
               <h3 class="text-lg font-bold" data-i18n="download.iosTitle"></h3>
               <p class="mt-2 text-sm text-slate-300" data-i18n="download.iosDesc"></p>
               <div id="os-badge-ios" class="mt-3 flex flex-wrap gap-2"></div>
-              <button id="download-ios" onclick="openEmailGate('ios')" type="button" class="btn-ghost-light mt-6" data-i18n="download.iosBtn"></button>
+              <button id="download-ios" type="button" class="btn-amber mt-6" data-i18n="download.iosBtn"></button>
+              <div class="mt-5 flex flex-wrap gap-3">
+                <a id="store-apple" href="#" class="store-btn" aria-label="App Store">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.7 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.7zM15.8 5.5c.6-.8 1.1-1.8.9-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.3z"/></svg>
+                  <span class="text-sm font-semibold" data-store-label data-i18n="download.appstore">App Store</span>
+                </a>
+              </div>
             </div>
           </div>
-          <p class="mt-8 text-center text-sm text-slate-400" data-i18n="download.limitNote"></p>
         </div>
       </section>
 
     </main>
     <footer class="site-footer" data-site-footer></footer>
-    
-    <div id="email-gate-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;" role="dialog" aria-modal="true">
-      <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:32px;width:min(420px,92vw);">
-        <h2 style="font-size:20px;font-weight:800;color:#f8fafc;margin-bottom:8px;" data-i18n="download.gateTitle"></h2>
-        <p style="font-size:14px;color:#94a3b8;margin-bottom:20px;" data-i18n="download.gateText"></p>
-        <input type="email" id="gate-email" data-i18n-placeholder="apply.phEmail" style="width:100%;padding:12px 14px;background:#1e293b;border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#f8fafc;font-size:14px;box-sizing:border-box;margin-bottom:12px;" autocomplete="email" />
-        <div id="gate-msg" style="font-size:13px;color:#f59e0b;min-height:20px;margin-bottom:12px;"></div>
-        <div style="display:flex;gap:10px;justify-content:flex-end;">
-          <button onclick="closeEmailGate()" type="button" style="padding:10px 18px;border-radius:10px;background:#1e293b;border:1px solid rgba(255,255,255,0.12);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;" data-i18n="download.gateCancel"></button>
-          <button id="gate-btn" onclick="submitEmailGate()" type="button" style="padding:10px 20px;border-radius:10px;background:#f59e0b;border:none;color:#0a0e1a;font-size:13px;font-weight:700;cursor:pointer;" data-i18n="download.gateSubmit"></button>
-        </div>
-      </div>
-    </div>
-
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

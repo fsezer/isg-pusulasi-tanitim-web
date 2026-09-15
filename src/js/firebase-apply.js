@@ -2,7 +2,11 @@ import { TR_CITIES } from './tr-cities.js'
 import { API_BASE, TURNSTILE_SITE_KEY, TURNSTILE_VERIFY_URL } from './site-config.js'
 import { detectLocale, t } from './i18n.js'
 import { showSiteFeedback } from './site-feedback.js'
-import { DEFAULT_PACKAGES } from './pricing-calculator.js'
+import {
+  DEFAULT_PACKAGES,
+  DEFAULT_CORPORATE,
+  mergeCorporate,
+} from './pricing-calculator.js'
 
 const PLATFORMS = new Set([
   'windows_android',
@@ -13,12 +17,17 @@ const PLATFORMS = new Set([
   'linux_ios',
 ])
 
-const PACKAGES = new Set(['deneme', 'normal', 'pro', 'max'])
+const PACKAGES = new Set(['max', 'kurumsal', 'deneme'])
 
 const NAME_MAX_WORDS = 4
 const NAME_MAX_CHARS = 60
-const MSG_MAX_WORDS = 80
-const MSG_MAX_CHARS = 800
+const MSG_MAX_WORDS = 40
+const MSG_MAX_CHARS = 280
+const ADDRESS_MIN = 8
+const ADDRESS_MAX = 200
+
+let livePackages = { ...DEFAULT_PACKAGES }
+let liveCorporate = { ...DEFAULT_CORPORATE }
 
 function msg(key, fallback) {
   try {
@@ -39,7 +48,6 @@ function wordCount(text) {
     .filter(Boolean).length
 }
 
-/** TC format + checksum (NVI kişi sorgusu yok). */
 function validTCKN(s) {
   if (!/^[1-9][0-9]{10}$/.test(s)) return false
   const d = [...s].map((c) => c.charCodeAt(0) - 48)
@@ -89,12 +97,10 @@ function updateCounters(form) {
   const nameHint = form.querySelector('[data-name-words]')
   const msgHint = form.querySelector('[data-msg-words]')
   if (nameHint && nameEl) {
-    const w = wordCount(nameEl.value)
-    nameHint.textContent = `${w}/${NAME_MAX_WORDS}`
+    nameHint.textContent = `${wordCount(nameEl.value)}/${NAME_MAX_WORDS}`
   }
   if (msgHint && msgEl) {
-    const w = wordCount(msgEl.value)
-    msgHint.textContent = `${w}/${MSG_MAX_WORDS}`
+    msgHint.textContent = `${wordCount(msgEl.value)}/${MSG_MAX_WORDS}`
   }
 }
 
@@ -137,20 +143,67 @@ function queryPaket() {
   }
 }
 
+function querySeats() {
+  try {
+    const n = parseInt(new URLSearchParams(window.location.search).get('seats') || '', 10)
+    return Number.isFinite(n) ? n : null
+  } catch {
+    return null
+  }
+}
+
 function syncPaketSummary(form) {
   const sel = form.querySelector('[name="paket"]')
   const box = form.querySelector('[data-paket-summary]')
+  const seatsWrap = form.querySelector('[data-seats-wrap]')
+  const seatsInput = form.querySelector('[name="kullaniciSayisi"]')
+  const seatsHint = form.querySelector('[data-seats-hint]')
   if (!sel || !box) return
+
   const key = sel.value
-  const pkg = DEFAULT_PACKAGES[key]
-  if (!pkg) {
-    box.hidden = true
+  const isCorp = key === 'kurumsal'
+  if (seatsWrap) seatsWrap.hidden = !isCorp
+  if (seatsInput) {
+    seatsInput.required = isCorp
+    seatsInput.min = String(liveCorporate.minSeats)
+    if (!seatsInput.value || Number(seatsInput.value) < liveCorporate.minSeats) {
+      seatsInput.value = String(liveCorporate.minSeats)
+    }
+  }
+
+  if (key === 'max') {
+    const pkg = livePackages.max || DEFAULT_PACKAGES.max
+    box.hidden = false
+    box.querySelector('[data-paket-title]').textContent = `İSG Atlası ${pkg.title}`
+    box.querySelector('[data-paket-price]').textContent = formatTL(pkg.priceIncVat) + ' / yıl'
+    box.querySelector('[data-paket-scope]').textContent = pkg.scope || pkg.subtitle || ''
     return
   }
-  box.hidden = false
-  box.querySelector('[data-paket-title]').textContent = `İSG Atlası ${pkg.title}`
-  box.querySelector('[data-paket-price]').textContent = formatTL(pkg.priceIncVat) + ' / yıl'
-  box.querySelector('[data-paket-scope]').textContent = pkg.scope || pkg.subtitle || ''
+
+  if (isCorp) {
+    const seats = Math.max(liveCorporate.minSeats, parseInt(seatsInput?.value || '0', 10) || liveCorporate.minSeats)
+    const total = liveCorporate.unitPriceIncVat * seats
+    box.hidden = false
+    box.querySelector('[data-paket-title]').textContent = `İSG Atlası Kurumsal · ${seats} kullanıcı`
+    box.querySelector('[data-paket-price]').textContent = formatTL(total) + ' / yıl'
+    box.querySelector('[data-paket-scope]').textContent =
+      `${formatTL(liveCorporate.unitPriceIncVat)} × ${seats} (min ${liveCorporate.minSeats})`
+    if (seatsHint) {
+      seatsHint.textContent = `Minimum ${liveCorporate.minSeats} kullanıcı · ${formatTL(liveCorporate.unitPriceIncVat)} × adet`
+    }
+    return
+  }
+
+  if (key === 'deneme' && livePackages.deneme?.enabled !== false) {
+    const pkg = livePackages.deneme
+    box.hidden = false
+    box.querySelector('[data-paket-title]').textContent = `İSG Atlası ${pkg.title}`
+    box.querySelector('[data-paket-price]').textContent = formatTL(pkg.priceIncVat)
+    box.querySelector('[data-paket-scope]').textContent = pkg.scope || ''
+    return
+  }
+
+  box.hidden = true
 }
 
 function validate(payload, honeypot) {
@@ -158,6 +211,13 @@ function validate(payload, honeypot) {
 
   if (!PACKAGES.has(payload.paket)) {
     return msg('apply.errPackage', 'Lütfen bir paket seçin.')
+  }
+
+  if (payload.paket === 'kurumsal') {
+    const seats = Number(payload.kullaniciSayisi)
+    if (!Number.isFinite(seats) || seats < liveCorporate.minSeats) {
+      return msg('apply.errSeats', `Kurumsal için en az ${liveCorporate.minSeats} kullanıcı seçin.`)
+    }
   }
 
   const nameWords = wordCount(payload.adSoyad)
@@ -189,12 +249,76 @@ function validate(payload, honeypot) {
     return msg('apply.errIdentity', 'Geçerli bir TC kimlik numarası girin.')
   }
 
+  const adres = payload.adres || ''
+  if (adres.length < ADDRESS_MIN || adres.length > ADDRESS_MAX) {
+    return msg('apply.errAddress', 'Lütfen geçerli bir adres girin.')
+  }
+
   const mw = wordCount(payload.mesaj)
   if (mw > MSG_MAX_WORDS || payload.mesaj.length > MSG_MAX_CHARS) {
     return msg('apply.errMsgLimit', `Mesaj en fazla ${MSG_MAX_WORDS} kelime olabilir.`)
   }
 
   return null
+}
+
+async function loadLivePricing() {
+  try {
+    const res = await fetch(`${API_BASE}/v1/site-settings/fiyatlandirma_paketleri`)
+    if (!res.ok) return
+    const data = await res.json()
+    if (!data || typeof data !== 'object') return
+
+    const maxOver = data.packages?.max || data.max || {}
+    const proOver = data.packages?.pro || data.pro || {}
+    livePackages = {
+      max: {
+        ...DEFAULT_PACKAGES.max,
+        ...(maxOver.priceIncVat
+          ? {
+              priceIncVat: Number(maxOver.priceIncVat),
+              priceExVat: Number(maxOver.priceExVat) || Math.round(Number(maxOver.priceIncVat) / 1.2),
+            }
+          : proOver.priceIncVat
+            ? {
+                priceIncVat: Number(proOver.priceIncVat),
+                priceExVat: Number(proOver.priceExVat) || Math.round(Number(proOver.priceIncVat) / 1.2),
+              }
+            : {}),
+      },
+      deneme: {
+        ...DEFAULT_PACKAGES.deneme,
+        enabled: data.packages?.deneme?.enabled === true,
+      },
+    }
+    liveCorporate = mergeCorporate(data)
+    if (!data.corporate && !data.kurumsal && proOver.priceIncVat) {
+      liveCorporate.unitPriceIncVat = Number(proOver.priceIncVat)
+      liveCorporate.unitPriceExVat =
+        Number(proOver.priceExVat) || Math.round(liveCorporate.unitPriceIncVat / 1.2)
+    }
+  } catch (err) {
+    console.warn('fiyat ayarları okunamadı', err)
+  }
+}
+
+function refreshPaketOptions(form) {
+  const sel = form.querySelector('[name="paket"]')
+  if (!sel) return
+  const current = sel.value
+  const max = livePackages.max || DEFAULT_PACKAGES.max
+  sel.innerHTML = `
+    <option value="">${msg('apply.phPackage', 'Paket seçin…')}</option>
+    <option value="max">Max — ${formatTL(max.priceIncVat)} / yıl</option>
+    <option value="kurumsal">Kurumsal — ${liveCorporate.minSeats}+ kullanıcı</option>
+  `
+  if (livePackages.deneme?.enabled) {
+    const opt = document.createElement('option')
+    opt.value = 'deneme'
+    opt.textContent = 'Deneme (test) — 10 TL'
+    sel.appendChild(opt)
+  }
+  if (current && [...sel.options].some((o) => o.value === current)) sel.value = current
 }
 
 function bindApplyForm() {
@@ -204,13 +328,25 @@ function bindApplyForm() {
 
   fillCitySelect(form.querySelector('[name="sehir"]'))
 
-  const paketSel = form.querySelector('[name="paket"]')
-  const qPaket = queryPaket()
-  if (paketSel) {
-    if (qPaket) paketSel.value = qPaket
-    paketSel.addEventListener('change', () => syncPaketSummary(form))
+  void loadLivePricing().then(() => {
+    refreshPaketOptions(form)
+    const qPaket = queryPaket()
+    const qSeats = querySeats()
+    const paketSel = form.querySelector('[name="paket"]')
+    const seatsInput = form.querySelector('[name="kullaniciSayisi"]')
+    if (paketSel && qPaket) paketSel.value = qPaket
+    if (seatsInput && qSeats != null) {
+      seatsInput.value = String(Math.max(liveCorporate.minSeats, qSeats))
+    }
     syncPaketSummary(form)
+  })
+
+  const paketSel = form.querySelector('[name="paket"]')
+  if (paketSel) {
+    paketSel.addEventListener('change', () => syncPaketSummary(form))
   }
+  form.querySelector('[name="kullaniciSayisi"]')?.addEventListener('input', () => syncPaketSummary(form))
+  form.querySelector('[name="kullaniciSayisi"]')?.addEventListener('change', () => syncPaketSummary(form))
 
   const phoneInput = form.querySelector('[name="telefon"]')
   phoneInput?.addEventListener('input', () => {
@@ -252,14 +388,18 @@ function bindApplyForm() {
     const fd = new FormData(form)
     const honeypot = String(fd.get('website') || '').trim()
     const kimlikRaw = String(fd.get('kimlikNo') || '').replace(/\D/g, '')
+    const paket = String(fd.get('paket') || '').toLowerCase()
+    const seats = parseInt(String(fd.get('kullaniciSayisi') || '0'), 10)
     const payload = {
       adSoyad: String(fd.get('adSoyad') || '').trim().replace(/\s+/g, ' '),
       email: String(fd.get('email') || '').trim().toLowerCase(),
       telefon: normalizePhone(fd.get('telefon')),
       sehir: String(fd.get('sehir') || '').trim(),
+      adres: String(fd.get('adres') || '').trim().replace(/\s+/g, ' '),
       mesaj: String(fd.get('mesaj') || '').trim(),
       platform: String(fd.get('platform') || 'windows_android'),
-      paket: String(fd.get('paket') || '').toLowerCase(),
+      paket,
+      kullaniciSayisi: paket === 'kurumsal' ? seats : undefined,
       kimlikNo: kimlikRaw,
       kaynak: 'tanitim_web',
     }

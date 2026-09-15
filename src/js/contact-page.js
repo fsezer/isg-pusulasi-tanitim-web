@@ -5,6 +5,7 @@ import {
   COMPANY_PHONE,
   INSTAGRAM_URL,
   TWITTER_URL,
+  YOUTUBE_URL,
 } from './site-config.js'
 
 export function mountContactPage() {
@@ -19,4 +20,18 @@ export function mountContactPage() {
   root.querySelector('[data-contact-phone]')?.setAttribute('href', `tel:${COMPANY_PHONE}`)
   root.querySelector('[data-contact-instagram]')?.setAttribute('href', INSTAGRAM_URL)
   root.querySelector('[data-contact-twitter]')?.setAttribute('href', TWITTER_URL)
+
+  const yt = root.querySelector('[data-contact-youtube]')
+  if (yt) {
+    if (YOUTUBE_URL) {
+      yt.setAttribute('href', YOUTUBE_URL)
+      yt.setAttribute('target', '_blank')
+      yt.setAttribute('rel', 'noopener noreferrer')
+      yt.removeAttribute('aria-disabled')
+    } else {
+      yt.setAttribute('href', '#')
+      yt.setAttribute('aria-disabled', 'true')
+      yt.addEventListener('click', (e) => e.preventDefault())
+    }
+  }
 }

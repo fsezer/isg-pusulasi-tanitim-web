@@ -15,13 +15,13 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Satın Al — İSG Atlası</title>
-    <meta name="description" content="İSG Atlası satın alın — Windows Agent + Android mobil birlikte. 3 PC kurulum hakkı dahil." />
+    <meta name="description" content="İSG Atlası satın alın — Windows Agent + Mobil birlikte. 3 PC kurulum hakkı dahil." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://isgatlasi.com/basvuru.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="İSG Atlası" />
     <meta property="og:title" content="Satın Al — İSG Atlası" />
-    <meta property="og:description" content="İSG Atlası satın alın — Windows Agent + Android mobil birlikte." />
+    <meta property="og:description" content="İSG Atlası satın alın — Windows Agent + Mobil birlikte." />
     <meta property="og:url" content="https://isgatlasi.com/basvuru.html" />
     <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,12 +83,17 @@
                 <span class="apply-label" data-i18n="apply.package">Paket</span>
                 <select class="apply-input" name="paket" required>
                   <option value="" data-i18n="apply.phPackage">Paket seçin…</option>
-                  <option value="deneme">Deneme (test) — 10 TL</option>
-                  <option value="normal">Normal — 17.400 TL / yıl</option>
-                  <option value="pro">Pro — 27.000 TL / yıl</option>
-                  <option value="max">Max — 37.200 TL / yıl</option>
+                  <option value="max">Max — 27.000 TL / yıl</option>
+                  <option value="kurumsal">Kurumsal — 5+ kullanıcı</option>
                 </select>
               </label>
+              <div class="apply-field apply-field--full" data-seats-wrap hidden>
+                <label class="apply-field">
+                  <span class="apply-label" data-i18n="apply.seats">Kullanıcı Sayısı</span>
+                  <input class="apply-input" name="kullaniciSayisi" type="number" min="5" step="1" value="5" />
+                </label>
+                <p class="apply-seats-hint" data-seats-hint>Minimum 5 kullanıcı · birim fiyat × adet</p>
+              </div>
               <label class="apply-field apply-field--full">
                 <span class="apply-label">
                   <span data-i18n="apply.name"></span>
@@ -112,23 +117,17 @@
                 <span class="apply-label" data-i18n="apply.identity">TC Kimlik</span>
                 <input class="apply-input" name="kimlikNo" type="text" inputmode="numeric" autocomplete="off" required maxlength="11" pattern="[1-9][0-9]{10}" data-i18n-placeholder="apply.phIdentity" placeholder="11 haneli TC" />
               </label>
-              <label class="apply-field">
-                <span class="apply-label" data-i18n="apply.platform"></span>
-                <select class="apply-input" name="platform" required>
-                  <option value="windows_android" data-i18n="apply.platformWinAnd"></option>
-                  <option value="windows_ios" data-i18n="apply.platformWinIos"></option>
-                  <option value="macos_android" data-i18n="apply.platformMacAnd"></option>
-                  <option value="macos_ios" data-i18n="apply.platformMacIos"></option>
-                  <option value="linux_android" data-i18n="apply.platformLinAnd"></option>
-                  <option value="linux_ios" data-i18n="apply.platformLinIos"></option>
-                </select>
+              <input type="hidden" name="platform" value="windows_android" />
+              <label class="apply-field apply-field--full">
+                <span class="apply-label" data-i18n="apply.address">Adres</span>
+                <input class="apply-input" name="adres" type="text" autocomplete="street-address" required maxlength="200" data-i18n-placeholder="apply.phAddress" />
               </label>
               <label class="apply-field apply-field--full">
                 <span class="apply-label">
                   <span data-i18n="apply.message"></span>
-                  <span class="apply-counter" data-msg-words>0/80</span>
+                  <span class="apply-counter" data-msg-words>0/40</span>
                 </span>
-                <textarea class="apply-input apply-textarea" name="mesaj" rows="4" maxlength="800" data-i18n-placeholder="apply.phMessage"></textarea>
+                <textarea class="apply-input apply-textarea" name="mesaj" rows="2" maxlength="280" data-i18n-placeholder="apply.phMessage"></textarea>
               </label>
             </div>
 

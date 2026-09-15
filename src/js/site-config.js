@@ -16,6 +16,8 @@ export const COMPANY_PHONE_DISPLAY = '0530 013 03 26'
 export const WHATSAPP_URL = 'https://wa.me/905300130326'
 export const INSTAGRAM_URL = 'https://instagram.com/isgatlasi'
 export const TWITTER_URL = 'https://twitter.com/isgatlasi'
+/** YouTube — link sonra doldurulacak */
+export const YOUTUBE_URL = ''
 export const SOCIAL_HANDLE = '@isgatlasi'
 export const COMPANY_ADDRESS_LINE = 'Büyükdere Mah. Kaplanlı Cad. No:10A Odunpazarı / ESKİŞEHİR'
 export const COMPANY_ADDRESS_HINT = 'Büyükdere ve Göztepe Tramvay Durakları Arasında'

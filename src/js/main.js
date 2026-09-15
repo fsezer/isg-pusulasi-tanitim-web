@@ -6,10 +6,12 @@ import './firebase-apply.js'
 import './firebase-downloads.js'
 import './pricing-calculator.js'
 import { mountContactPage } from './contact-page.js'
+import { initTawk } from './tawk.js'
 
 initAnalytics()
 mountChrome()
 mountContactPage()
+initTawk()
 const locale = initI18n()
 
 const body = document.body
@@ -157,98 +159,5 @@ document.addEventListener('isg:locale', (event) => {
 document.querySelectorAll('[data-year]').forEach((el) => {
   el.textContent = String(new Date().getFullYear())
 })
-
-/* Email gate (download page) */
-;(function setupEmailGate() {
-  const API = 'https://isg-pusulasi-api-kvfsvqx7na-ew.a.run.app'
-  let gatePlatform = 'windows'
-  let gateUrls = {}
-
-  window._setDownloadUrls = (urls) => {
-    gateUrls = urls || {}
-  }
-
-  window.openEmailGate = (platform) => {
-    gatePlatform = platform
-    const overlay = document.getElementById('email-gate-overlay')
-    if (!overlay) return
-    overlay.style.display = 'flex'
-    const msg = document.getElementById('gate-msg')
-    if (msg) msg.textContent = ''
-    const input = document.getElementById('gate-email')
-    if (input) input.value = ''
-    setTimeout(() => input?.focus(), 50)
-  }
-
-  window.closeEmailGate = () => {
-    const overlay = document.getElementById('email-gate-overlay')
-    if (overlay) overlay.style.display = 'none'
-  }
-
-  window.submitEmailGate = async () => {
-    const email = (document.getElementById('gate-email')?.value || '').trim()
-    const msg = document.getElementById('gate-msg')
-    const btn = document.getElementById('gate-btn')
-    const lang = detectLocale()
-    if (!email || !email.includes('@')) {
-      if (msg) {
-        msg.textContent = t(lang, 'download.gateInvalid')
-        msg.style.color = '#ef4444'
-      }
-      return
-    }
-    if (btn) {
-      btn.disabled = true
-      btn.textContent = '...'
-    }
-    try {
-      const resp = await fetch(`${API}/v1/downloads/claim`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, platform: gatePlatform }),
-      })
-      const data = await resp.json().catch(() => ({}))
-      if (resp.status === 429) {
-        if (msg) {
-          msg.textContent = t(lang, 'download.gateLimit')
-          msg.style.color = '#ef4444'
-        }
-        return
-      }
-      if (!resp.ok) throw new Error(data.error || 'Error')
-      window.closeEmailGate()
-      const urlKey = gatePlatform === 'windows' ? 'windowsUrl' : gatePlatform === 'ios' ? 'iosUrl' : 'androidUrl'
-      const url = gateUrls[urlKey] || ''
-      if (url && url !== '#' && !String(url).includes('ornek')) {
-        const a = document.createElement('a')
-        a.href = url
-        a.download = ''
-        a.target = '_blank'
-        document.body.appendChild(a)
-        a.click()
-        document.body.removeChild(a)
-      } else {
-        alert(t(lang, 'download.gateNotReady'))
-      }
-    } catch (e) {
-      if (msg) {
-        msg.textContent = e.message || 'Error'
-        msg.style.color = '#ef4444'
-      }
-    } finally {
-      if (btn) {
-        btn.disabled = false
-        btn.textContent = t(detectLocale(), 'download.gateSubmit')
-      }
-    }
-  }
-
-  document.getElementById('gate-email')?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') window.submitEmailGate()
-  })
-  document.getElementById('email-gate-overlay')?.addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) window.closeEmailGate()
-  })
-})()
 
 void locale
