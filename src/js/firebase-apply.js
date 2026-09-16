@@ -139,8 +139,9 @@ function getTurnstileToken() {
   if (input?.value) return input.value
   try {
     if (window.turnstile && TURNSTILE_SITE_KEY) {
-      const w = document.querySelector('.cf-turnstile')
-      if (w) return window.turnstile.getResponse(w) || ''
+      // Widget id veya argümansız (ilk widget) — DOM elemanı geçme
+      const fromApi = window.turnstile.getResponse?.() || ''
+      if (fromApi) return fromApi
     }
   } catch (_) {}
   return ''
