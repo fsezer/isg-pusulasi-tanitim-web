@@ -93,10 +93,9 @@ const server = http.createServer(async (req, res) => {
       const ip =
         String(req.headers['x-forwarded-for'] || '')
           .split(',')[0]
-          .trim() ||
-        req.socket.remoteAddress ||
-        ''
-      const result = await verifyTurnstile(token, ip)
+          .trim() || ''
+      // remoteip gönderme — proxy arkasında yanlış IP siteverify'i bozabiliyor
+      const result = await verifyTurnstile(token, '')
       return sendJson(res, 200, {
         success: !!result.success,
         codes: result['error-codes'] || [],

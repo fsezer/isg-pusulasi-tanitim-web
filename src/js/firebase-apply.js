@@ -1,5 +1,5 @@
 import { TR_CITIES, districtsForCity } from './tr-geo.js'
-import { API_BASE, TURNSTILE_SITE_KEY, TURNSTILE_VERIFY_URL } from './site-config.js'
+import { API_BASE, TURNSTILE_SITE_KEY } from './site-config.js'
 import { detectLocale, t } from './i18n.js'
 import { showSiteFeedback } from './site-feedback.js'
 import { isDisposableEmail } from './disposable-email.js'
@@ -139,7 +139,6 @@ function getTurnstileToken() {
   if (input?.value) return input.value
   try {
     if (window.turnstile && TURNSTILE_SITE_KEY) {
-      // Widget id veya argümansız (ilk widget) — DOM elemanı geçme
       const fromApi = window.turnstile.getResponse?.() || ''
       if (fromApi) return fromApi
     }
@@ -147,22 +146,10 @@ function getTurnstileToken() {
   return ''
 }
 
-async function verifyTurnstile(token) {
-  if (!TURNSTILE_SITE_KEY) return true
-  if (!token) return false
+function resetTurnstile() {
   try {
-    const res = await fetch(TURNSTILE_VERIFY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token }),
-    })
-    if (!res.ok) return false
-    const data = await res.json()
-    return !!data?.success
-  } catch (err) {
-    console.warn('turnstile verify failed', err)
-    return false
-  }
+    window.turnstile?.reset?.()
+  } catch (_) {}
 }
 
 function queryPaket() {
@@ -510,11 +497,13 @@ function bindApplyForm() {
 
     if (TURNSTILE_SITE_KEY) {
       const token = getTurnstileToken()
-      const ok = await verifyTurnstile(token)
-      if (!ok) {
+      if (!token) {
         notify(msg('apply.errCaptcha', 'Robot doğrulamasını tamamlayın.'), 'warn')
         return
       }
+      // Token tek kullanımlık: siteverify'i ödeme öncesi ÇAĞIRMA.
+      // Aksi halde iyzico/API hata verince yeşil kutu kalır, 2. tıklamada timeout-or-duplicate olur.
+      // Widget başarısı + dolu token yeterli; sunucu /api/turnstile ile ayrıca doğrulanabilir.
     }
 
     const btn = form.querySelector('[type="submit"]')
@@ -540,35 +529,43 @@ function bindApplyForm() {
       } catch (_) {}
 
       if (data?.error === 'duplicate_phone') {
+        resetTurnstile()
         notify(msg('apply.errDuplicatePhone', 'Bu telefon sistemde kayıtlı.'), 'warn')
         return
       }
       if (data?.error === 'duplicate_identity') {
+        resetTurnstile()
         notify(msg('apply.errDuplicateIdentity', 'Bu TC kimlik sistemde kayıtlı.'), 'warn')
         return
       }
       if (data?.error === 'duplicate_email' || data?.error === 'duplicate') {
+        resetTurnstile()
         notify(msg('apply.errDuplicateEmail', 'Bu e-posta sistemde kayıtlı.'), 'warn')
         return
       }
       if (data?.error === 'invalid_package') {
+        resetTurnstile()
         notify(msg('apply.errPackage', 'Lütfen bir paket seçin.'), 'error')
         return
       }
       if (data?.error === 'invalid_identity') {
+        resetTurnstile()
         notify(msg('apply.errIdentity', 'TC kimlik numarası 11 haneli olmalı.'), 'error')
         return
       }
       if (data?.error === 'invalid_district') {
+        resetTurnstile()
         notify(msg('apply.errDistrict', 'İlçe seçin.'), 'error')
         return
       }
       if (data?.error === 'payment_init_failed') {
+        resetTurnstile()
         const detail = data?.detail ? ` (${String(data.detail).slice(0, 120)})` : ''
         notify(msg('apply.errPay', 'Ödeme başlatılamadı. Lütfen tekrar deneyin.') + detail, 'error')
         return
       }
       if (!res.ok || !data?.ok) {
+        resetTurnstile()
         const code = data?.error ? ` [${data.error}]` : ` [HTTP ${res.status}]`
         notify(msg('apply.errSend', 'Başvuru gönderilemedi. Tekrar deneyin.') + code, 'error')
         return
@@ -582,12 +579,11 @@ function bindApplyForm() {
       form.reset()
       updateCounters(form)
       syncPaketSummary(form)
-      try {
-        window.turnstile?.reset?.()
-      } catch (_) {}
+      resetTurnstile()
       notify(msg('apply.ok', 'Başvurunuz alındı. En kısa sürede sizinle iletişime geçeceğiz.'), 'success')
     } catch (err) {
       console.error(err)
+      resetTurnstile()
       notify(msg('apply.errApiDown', 'API’ye ulaşılamıyor. Lokal API (8081) çalışıyor mu?'), 'error')
     } finally {
       if (btn) {
