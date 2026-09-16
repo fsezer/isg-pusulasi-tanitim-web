@@ -1,9 +1,8 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'node:path'
 import {
   SITE_ORIGIN,
-  SITE_NAME,
   SEO_VERIFICATION,
 } from './src/js/site-config.js'
 
@@ -53,20 +52,73 @@ function seoPlugin() {
   }
 }
 
-export default defineConfig({
-  plugins: [tailwindcss(), seoPlugin()],
-  server: {
-    host: true,
-    port: 5710,
-    proxy: {
-      '/v1': { target: 'http://127.0.0.1:8081', changeOrigin: true },
+/** Lokal: POST /api/turnstile → Cloudflare siteverify */
+function turnstileDevPlugin(secret) {
+  return {
+    name: 'isg-turnstile-dev',
+    configureServer(server) {
+      server.middlewares.use('/api/turnstile', async (req, res, next) => {
+        if (req.method === 'OPTIONS') {
+          res.statusCode = 204
+          res.end()
+          return
+        }
+        if (req.method !== 'POST') {
+          next()
+          return
+        }
+        try {
+          const chunks = []
+          for await (const c of req) chunks.push(c)
+          const raw = Buffer.concat(chunks).toString('utf8')
+          const payload = raw ? JSON.parse(raw) : {}
+          const token = String(payload?.token || '')
+          if (!secret || !token) {
+            res.statusCode = 200
+            res.setHeader('content-type', 'application/json')
+            res.end(JSON.stringify({ success: false, codes: ['missing-input'] }))
+            return
+          }
+          const body = new URLSearchParams()
+          body.set('secret', secret)
+          body.set('response', token)
+          const cf = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+            method: 'POST',
+            body,
+          })
+          const data = await cf.json()
+          res.statusCode = 200
+          res.setHeader('content-type', 'application/json')
+          res.end(JSON.stringify({ success: !!data.success, codes: data['error-codes'] || [] }))
+        } catch (e) {
+          res.statusCode = 400
+          res.setHeader('content-type', 'application/json')
+          res.end(JSON.stringify({ success: false, error: String(e?.message || e) }))
+        }
+      })
     },
-  },
-  build: {
-    rollupOptions: {
-      input: Object.fromEntries(
-        pages.map((name) => [name, resolve(__dirname, `${name}.html`)]),
-      ),
+  }
+}
+
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  const turnstileSecret = env.TURNSTILE_SECRET || ''
+
+  return {
+    plugins: [tailwindcss(), seoPlugin(), turnstileDevPlugin(turnstileSecret)],
+    server: {
+      host: true,
+      port: 5710,
+      proxy: {
+        '/v1': { target: 'http://127.0.0.1:8081', changeOrigin: true },
+      },
     },
-  },
+    build: {
+      rollupOptions: {
+        input: Object.fromEntries(
+          pages.map((name) => [name, resolve(__dirname, `${name}.html`)]),
+        ),
+      },
+    },
+  }
 })

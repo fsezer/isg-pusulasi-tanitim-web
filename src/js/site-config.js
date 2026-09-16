@@ -71,10 +71,12 @@ export const API_BASE = isLocalHost
 
 /**
  * Cloudflare Turnstile (başvuru formu bot engeli).
- * Site key public; secret yalnız Worker env `TURNSTILE_SECRET`.
- * Boş = widget kapalı (honeypot + e-posta/tel tekillik). Canlıda tekrar doldur.
+ * Site key public. Secret yalnız Worker env `TURNSTILE_SECRET` / lokal `.env`.
+ * Widget: isgatlasi-basvuru (isgatlasi.com + localhost).
  */
-export const TURNSTILE_SITE_KEY = ''
+export const TURNSTILE_SITE_KEY =
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_TURNSTILE_SITE_KEY) ||
+  '0x4AAAAAAEa1NWC8kdkzwsHl'
 export const TURNSTILE_VERIFY_URL = '/api/turnstile'
 
 export const SEO_VERIFICATION = {
@@ -93,4 +95,10 @@ export const SITEMAP_PATHS = [
   '/hakkimizda.html',
   '/basvuru.html',
   '/iletisim.html',
+  '/kvkk.html',
+  '/gizlilik.html',
+  '/mesafeli-satis-sozlesmesi.html',
+  '/teslimat-ve-iade.html',
+  '/cerez-politikasi.html',
+  '/banka-ve-firma-bilgileri.html',
 ]

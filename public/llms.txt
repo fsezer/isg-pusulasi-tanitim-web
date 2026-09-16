@@ -2,7 +2,7 @@
 > Türkiye'nin İSG (İş Sağlığı ve Güvenliği) yazılımı — Windows masaüstü Agent + Android mobil uygulama.
 
 İSG Atlası; firma/personel yönetimi, saha denetimi, şablon/evrak çıktısı, eğitim takibi ve bulut senkronizasyonu sunar.
-Geliştirici: İstiklal Yazılım.
+Geliştirici: İstiklal Yazılım (Eskişehir).
 
 ## Ana sayfalar
 - https://isgatlasi.com/
@@ -10,19 +10,34 @@ Geliştirici: İstiklal Yazılım.
 - https://isgatlasi.com/windows.html
 - https://isgatlasi.com/mobil.html
 - https://isgatlasi.com/indir.html
+- https://isgatlasi.com/fiyatlar.html
 - https://isgatlasi.com/basvuru.html
+- https://isgatlasi.com/hakkimizda.html
 - https://isgatlasi.com/sss.html
 - https://isgatlasi.com/iletisim.html
+
+## Yasal
 - https://isgatlasi.com/kvkk.html
+- https://isgatlasi.com/gizlilik.html
+- https://isgatlasi.com/mesafeli-satis-sozlesmesi.html
+- https://isgatlasi.com/teslimat-ve-iade.html
+- https://isgatlasi.com/cerez-politikasi.html
+- https://isgatlasi.com/banka-ve-firma-bilgileri.html
 
 ## İndirme
 - Windows Agent ve Android APK: https://isgatlasi.com/indir.html
 
+## Satın alma
+- Paketler / fiyat: https://isgatlasi.com/fiyatlar.html
+- Ödeme formu: https://isgatlasi.com/basvuru.html
+
 ## İletişim
 - E-posta: info@isgatlasi.com
 - Destek: destek@isgatlasi.com
+- Telefon: +90 530 013 03 26
 - Kurumsal: https://istiklalyazilim.com
 
 ## Teknik
 - Site haritası: https://isgatlasi.com/sitemap.xml
 - Robots: https://isgatlasi.com/robots.txt
+- Bu dosya: https://isgatlasi.com/llms.txt

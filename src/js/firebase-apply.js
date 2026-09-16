@@ -1,7 +1,8 @@
-import { TR_CITIES } from './tr-cities.js'
+import { TR_CITIES, districtsForCity } from './tr-geo.js'
 import { API_BASE, TURNSTILE_SITE_KEY, TURNSTILE_VERIFY_URL } from './site-config.js'
 import { detectLocale, t } from './i18n.js'
 import { showSiteFeedback } from './site-feedback.js'
+import { isDisposableEmail } from './disposable-email.js'
 import {
   DEFAULT_PACKAGES,
   DEFAULT_CORPORATE,
@@ -20,11 +21,16 @@ const PLATFORMS = new Set([
 const PACKAGES = new Set(['max', 'kurumsal', 'deneme'])
 
 const NAME_MAX_WORDS = 4
-const NAME_MAX_CHARS = 60
+const NAME_MAX_CHARS = 40
 const MSG_MAX_WORDS = 40
 const MSG_MAX_CHARS = 280
 const ADDRESS_MIN = 8
 const ADDRESS_MAX = 200
+const PKG_IMG = {
+  max: '/img/apply/isg-uzman-tek.png',
+  kurumsal: '/img/apply/isg-uzman-ekip.png',
+  deneme: '/img/apply/isg-uzman-tek.png',
+}
 
 let livePackages = { ...DEFAULT_PACKAGES }
 let liveCorporate = { ...DEFAULT_CORPORATE }
@@ -48,16 +54,9 @@ function wordCount(text) {
     .filter(Boolean).length
 }
 
+/** Superadmin test için yalnız 11 hane — checksum yok. */
 function validTCKN(s) {
-  if (!/^[1-9][0-9]{10}$/.test(s)) return false
-  const d = [...s].map((c) => c.charCodeAt(0) - 48)
-  const odd = d[0] + d[2] + d[4] + d[6] + d[8]
-  const even = d[1] + d[3] + d[5] + d[7]
-  let d10 = ((odd * 7) - even) % 10
-  if (d10 < 0) d10 += 10
-  if (d10 !== d[9]) return false
-  const sum = d.slice(0, 10).reduce((a, b) => a + b, 0)
-  return sum % 10 === d[10]
+  return /^[1-9][0-9]{10}$/.test(s)
 }
 
 function normalizePhone(raw) {
@@ -71,8 +70,8 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) && email.length <= 120
 }
 
-function formatTL(n) {
-  return new Intl.NumberFormat('tr-TR').format(Number(n) || 0) + ' TL'
+function formatMoney(n) {
+  return '₺' + new Intl.NumberFormat('tr-TR').format(Number(n) || 0)
 }
 
 function fillCitySelect(select) {
@@ -91,16 +90,47 @@ function fillCitySelect(select) {
   }
 }
 
+function fillDistrictSelect(select, city, keepValue) {
+  if (!select) return
+  const prev = keepValue || select.value
+  select.innerHTML = ''
+  const first = document.createElement('option')
+  first.value = ''
+  first.setAttribute('data-i18n', 'apply.phDistrict')
+  first.textContent = msg('apply.phDistrict', 'İlçe seçin…')
+  select.appendChild(first)
+  if (!city) {
+    select.disabled = true
+    select.value = ''
+    return
+  }
+  select.disabled = false
+  for (const d of districtsForCity(city)) {
+    const opt = document.createElement('option')
+    opt.value = d
+    opt.textContent = d
+    select.appendChild(opt)
+  }
+  if (prev && [...select.options].some((o) => o.value === prev)) {
+    select.value = prev
+  }
+}
+
 function updateCounters(form) {
   const nameEl = form.querySelector('[name="adSoyad"]')
   const msgEl = form.querySelector('[name="mesaj"]')
-  const nameHint = form.querySelector('[data-name-words]')
+  const phoneEl = form.querySelector('[name="telefon"]')
+  const nameHint = form.querySelector('[data-name-chars]')
   const msgHint = form.querySelector('[data-msg-words]')
+  const phoneHint = form.querySelector('[data-phone-chars]')
   if (nameHint && nameEl) {
-    nameHint.textContent = `${wordCount(nameEl.value)}/${NAME_MAX_WORDS}`
+    nameHint.textContent = `${nameEl.value.length}/${NAME_MAX_CHARS}`
   }
   if (msgHint && msgEl) {
     msgHint.textContent = `${wordCount(msgEl.value)}/${MSG_MAX_WORDS}`
+  }
+  if (phoneHint && phoneEl) {
+    phoneHint.textContent = `${phoneEl.value.length}/10`
   }
 }
 
@@ -158,6 +188,7 @@ function syncPaketSummary(form) {
   const seatsWrap = form.querySelector('[data-seats-wrap]')
   const seatsInput = form.querySelector('[name="kullaniciSayisi"]')
   const seatsHint = form.querySelector('[data-seats-hint]')
+  const img = box?.querySelector('[data-paket-img]')
   if (!sel || !box) return
 
   const key = sel.value
@@ -171,11 +202,20 @@ function syncPaketSummary(form) {
     }
   }
 
+  const setMedia = (pkgKey) => {
+    box.dataset.paket = pkgKey
+    if (img) {
+      img.src = PKG_IMG[pkgKey] || PKG_IMG.max
+      img.alt = pkgKey === 'kurumsal' ? 'Kurumsal İSG ekibi' : 'İSG uzmanı'
+    }
+  }
+
   if (key === 'max') {
     const pkg = livePackages.max || DEFAULT_PACKAGES.max
     box.hidden = false
+    setMedia('max')
     box.querySelector('[data-paket-title]').textContent = `İSG Atlası ${pkg.title}`
-    box.querySelector('[data-paket-price]').textContent = formatTL(pkg.priceIncVat) + ' / yıl'
+    box.querySelector('[data-paket-price]').textContent = `${formatMoney(pkg.priceIncVat)} / yıl`
     box.querySelector('[data-paket-scope]').textContent = pkg.scope || pkg.subtitle || ''
     return
   }
@@ -184,12 +224,13 @@ function syncPaketSummary(form) {
     const seats = Math.max(liveCorporate.minSeats, parseInt(seatsInput?.value || '0', 10) || liveCorporate.minSeats)
     const total = liveCorporate.unitPriceIncVat * seats
     box.hidden = false
+    setMedia('kurumsal')
     box.querySelector('[data-paket-title]').textContent = `İSG Atlası Kurumsal · ${seats} kullanıcı`
-    box.querySelector('[data-paket-price]').textContent = formatTL(total) + ' / yıl'
+    box.querySelector('[data-paket-price]').textContent = `${formatMoney(total)} / yıl`
     box.querySelector('[data-paket-scope]').textContent =
-      `${formatTL(liveCorporate.unitPriceIncVat)} × ${seats} (min ${liveCorporate.minSeats})`
+      `${formatMoney(liveCorporate.unitPriceIncVat)} × ${seats} (min ${liveCorporate.minSeats})`
     if (seatsHint) {
-      seatsHint.textContent = `Minimum ${liveCorporate.minSeats} kullanıcı · ${formatTL(liveCorporate.unitPriceIncVat)} × adet`
+      seatsHint.textContent = `Minimum ${liveCorporate.minSeats} kullanıcı · ${formatMoney(liveCorporate.unitPriceIncVat)} × adet · KDV dahil`
     }
     return
   }
@@ -197,13 +238,15 @@ function syncPaketSummary(form) {
   if (key === 'deneme' && livePackages.deneme?.enabled !== false) {
     const pkg = livePackages.deneme
     box.hidden = false
+    setMedia('deneme')
     box.querySelector('[data-paket-title]').textContent = `İSG Atlası ${pkg.title}`
-    box.querySelector('[data-paket-price]').textContent = formatTL(pkg.priceIncVat)
+    box.querySelector('[data-paket-price]').textContent = formatMoney(pkg.priceIncVat)
     box.querySelector('[data-paket-scope]').textContent = pkg.scope || ''
     return
   }
 
   box.hidden = true
+  delete box.dataset.paket
 }
 
 function validate(payload, honeypot) {
@@ -231,14 +274,22 @@ function validate(payload, honeypot) {
   if (!isValidEmail(payload.email)) {
     return msg('apply.errEmail', 'Geçerli bir e-posta girin.')
   }
+  if (isDisposableEmail(payload.email)) {
+    return msg('apply.errTempEmail', 'Geçici e-posta adresleri kabul edilmez.')
+  }
 
   const phone = payload.telefon
-  if (!/^\d{10}$/.test(phone) || !phone.startsWith('5')) {
-    return msg('apply.errPhone', 'Telefon: başında 0 olmadan 10 hane (5xxxxxxxxx).')
+  if (!/^5\d{9}$/.test(phone)) {
+    return msg('apply.errPhone', 'Telefon: 5 ile başlayan 10 hane (5xxxxxxxxx).')
   }
 
   if (!payload.sehir || !TR_CITIES.includes(payload.sehir)) {
     return msg('apply.errCity', 'Şehir seçin.')
+  }
+
+  const districts = districtsForCity(payload.sehir)
+  if (!payload.ilce || !districts.includes(payload.ilce)) {
+    return msg('apply.errDistrict', 'İlçe seçin.')
   }
 
   if (!PLATFORMS.has(payload.platform)) {
@@ -246,7 +297,7 @@ function validate(payload, honeypot) {
   }
 
   if (!validTCKN(payload.kimlikNo)) {
-    return msg('apply.errIdentity', 'Geçerli bir TC kimlik numarası girin.')
+    return msg('apply.errIdentity', 'TC kimlik numarası 11 haneli olmalı.')
   }
 
   const adres = payload.adres || ''
@@ -309,24 +360,57 @@ function refreshPaketOptions(form) {
   const max = livePackages.max || DEFAULT_PACKAGES.max
   sel.innerHTML = `
     <option value="">${msg('apply.phPackage', 'Paket seçin…')}</option>
-    <option value="max">Max — ${formatTL(max.priceIncVat)} / yıl</option>
-    <option value="kurumsal">Kurumsal — ${liveCorporate.minSeats}+ kullanıcı</option>
+    <option value="max">Max — ${formatMoney(max.priceIncVat)} / yıl · KDV dahil</option>
+    <option value="kurumsal">Kurumsal — ${liveCorporate.minSeats}+ kullanıcı · KDV dahil</option>
   `
   if (livePackages.deneme?.enabled) {
     const opt = document.createElement('option')
     opt.value = 'deneme'
-    opt.textContent = 'Deneme (test) — 10 TL'
+    opt.textContent = `Deneme (test) — ${formatMoney(10)} · KDV dahil`
     sel.appendChild(opt)
   }
   if (current && [...sel.options].some((o) => o.value === current)) sel.value = current
+}
+
+function disableAutofill(form) {
+  form.setAttribute('autocomplete', 'off')
+  form.querySelectorAll('input, textarea, select').forEach((el, i) => {
+    el.setAttribute('autocomplete', 'off')
+    el.setAttribute('autocapitalize', 'off')
+    el.setAttribute('autocorrect', 'off')
+    el.setAttribute('spellcheck', 'false')
+    el.setAttribute('data-lpignore', 'true')
+    el.setAttribute('data-1p-ignore', 'true')
+    el.setAttribute('data-form-type', 'other')
+    // Chrome çoğu zaman "off" yoksayar — alana özel sahte token
+    const name = el.getAttribute('name') || `f${i}`
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.setAttribute('autocomplete', `isg-${name}-off`)
+    }
+    if (el.tagName === 'INPUT' && (el.type === 'text' || el.type === 'email' || el.type === 'tel')) {
+      el.setAttribute('readonly', 'readonly')
+      const unlock = () => {
+        el.removeAttribute('readonly')
+        el.removeEventListener('focus', unlock)
+      }
+      el.addEventListener('focus', unlock)
+    }
+  })
 }
 
 function bindApplyForm() {
   const form = document.querySelector('#apply-form')
   if (!form || form.dataset.bound === '1') return
   form.dataset.bound = '1'
+  disableAutofill(form)
 
-  fillCitySelect(form.querySelector('[name="sehir"]'))
+  const citySel = form.querySelector('[name="sehir"]')
+  const districtSel = form.querySelector('[name="ilce"]')
+  fillCitySelect(citySel)
+  fillDistrictSelect(districtSel, citySel?.value || '')
+  citySel?.addEventListener('change', () => {
+    fillDistrictSelect(districtSel, citySel.value)
+  })
 
   void loadLivePricing().then(() => {
     refreshPaketOptions(form)
@@ -354,6 +438,7 @@ function bindApplyForm() {
     if (v.startsWith('0')) v = v.slice(1)
     if (v.startsWith('90') && v.length > 10) v = v.slice(2)
     phoneInput.value = v.slice(0, 10)
+    updateCounters(form)
   })
 
   const kimlikInput = form.querySelector('[name="kimlikNo"]')
@@ -361,15 +446,23 @@ function bindApplyForm() {
     kimlikInput.value = kimlikInput.value.replace(/\D/g, '').slice(0, 11)
   })
 
-  form.querySelector('[name="adSoyad"]')?.addEventListener('input', () => updateCounters(form))
+  const nameInput = form.querySelector('[name="adSoyad"]')
+  nameInput?.addEventListener('input', () => {
+    if (nameInput.value.length > NAME_MAX_CHARS) {
+      nameInput.value = nameInput.value.slice(0, NAME_MAX_CHARS)
+    }
+    updateCounters(form)
+  })
   form.querySelector('[name="mesaj"]')?.addEventListener('input', () => updateCounters(form))
   updateCounters(form)
 
-  if (TURNSTILE_SITE_KEY) {
-    const slot = form.querySelector('[data-turnstile-slot]')
-    if (slot && !slot.dataset.ready) {
-      slot.dataset.ready = '1'
-      slot.innerHTML = `<div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}" data-theme="dark"></div>`
+  const slot = form.querySelector('[data-turnstile-slot]')
+  const hint = form.querySelector('[data-turnstile-hint]')
+  if (slot && !slot.dataset.ready) {
+    slot.dataset.ready = '1'
+    if (TURNSTILE_SITE_KEY) {
+      slot.innerHTML = `<div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}" data-theme="dark" data-size="normal"></div>`
+      if (hint) hint.textContent = msg('apply.captchaHint', 'Robot olmadığınızı doğrulayın.')
       if (!document.querySelector('script[data-turnstile]')) {
         const s = document.createElement('script')
         s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
@@ -380,6 +473,9 @@ function bindApplyForm() {
       } else if (window.turnstile) {
         window.turnstile.render(slot.querySelector('.cf-turnstile'))
       }
+    } else {
+      slot.innerHTML = `<div class="apply-turnstile-placeholder" aria-hidden="true"><span class="apply-turnstile-placeholder-box"></span><span>${msg('apply.captchaSoon', 'Cloudflare doğrulaması canlıda aktif.')}</span></div>`
+      if (hint) hint.textContent = msg('apply.captchaSoonHint', 'Yapı hazır — site key eklenince widget açılır.')
     }
   }
 
@@ -395,6 +491,7 @@ function bindApplyForm() {
       email: String(fd.get('email') || '').trim().toLowerCase(),
       telefon: normalizePhone(fd.get('telefon')),
       sehir: String(fd.get('sehir') || '').trim(),
+      ilce: String(fd.get('ilce') || '').trim(),
       adres: String(fd.get('adres') || '').trim().replace(/\s+/g, ' '),
       mesaj: String(fd.get('mesaj') || '').trim(),
       platform: String(fd.get('platform') || 'windows_android'),
@@ -441,8 +538,16 @@ function bindApplyForm() {
         data = await res.json()
       } catch (_) {}
 
-      if (res.status === 409 || data?.error === 'duplicate') {
-        notify(msg('apply.errDuplicate', 'Bu e-posta ile daha önce ödenmiş bir kayıt var.'), 'warn')
+      if (data?.error === 'duplicate_phone') {
+        notify(msg('apply.errDuplicatePhone', 'Bu telefon sistemde kayıtlı.'), 'warn')
+        return
+      }
+      if (data?.error === 'duplicate_identity') {
+        notify(msg('apply.errDuplicateIdentity', 'Bu TC kimlik sistemde kayıtlı.'), 'warn')
+        return
+      }
+      if (data?.error === 'duplicate_email' || data?.error === 'duplicate') {
+        notify(msg('apply.errDuplicateEmail', 'Bu e-posta sistemde kayıtlı.'), 'warn')
         return
       }
       if (data?.error === 'invalid_package') {
@@ -450,7 +555,11 @@ function bindApplyForm() {
         return
       }
       if (data?.error === 'invalid_identity') {
-        notify(msg('apply.errIdentity', 'Geçerli bir TC kimlik numarası girin.'), 'error')
+        notify(msg('apply.errIdentity', 'TC kimlik numarası 11 haneli olmalı.'), 'error')
+        return
+      }
+      if (data?.error === 'invalid_district') {
+        notify(msg('apply.errDistrict', 'İlçe seçin.'), 'error')
         return
       }
       if (data?.error === 'payment_init_failed') {
