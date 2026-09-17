@@ -11,11 +11,8 @@ import {
 
 const PLATFORMS = new Set([
   'windows_android',
-  'windows_ios',
   'macos_android',
-  'macos_ios',
   'linux_android',
-  'linux_ios',
 ])
 
 const PACKAGES = new Set(['max', 'kurumsal', 'deneme'])

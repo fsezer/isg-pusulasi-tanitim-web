@@ -68,9 +68,9 @@ const FEATURES = [
     key: 'scope',
     label: 'Kapsam',
     icon: 'scope',
-    value: 'Tam erişim — Windows Agent + Mobil (Android & iOS)',
+    value: 'Tam erişim — Windows Agent + Mobil (Android)',
     teaser: 'Ofis + saha tek lisans',
-    body: 'Tek kullanıcı lisansı Windows Agent ve mobil uygulamayı (Android & iOS) birlikte kapsar. Aynı hesap, aynı veri, 3 PC kurulum hakkı standarttır.',
+    body: 'Tek kullanıcı lisansı Windows Agent ve mobil uygulamayı (Android) birlikte kapsar. Aynı hesap, aynı veri, 3 PC kurulum hakkı standarttır.',
   },
   {
     key: 'ai-chat',
@@ -152,7 +152,7 @@ const PRICING_FAQ = [
   {
     cat: 'paket',
     q: 'Tek kullanıcı lisansı ne demek?',
-    a: 'Lisans bir İSG uzmanına aittir; Windows Agent + Mobil (Android & iOS) aynı hesapta çalışır. Ek uzman için ek lisans veya kurumsal koltuk gerekir. Windows kurulumu için 3 PC slot hakkı standarttır.',
+    a: 'Lisans bir İSG uzmanına aittir; Windows Agent + Mobil (Android) aynı hesapta çalışır. Ek uzman için ek lisans veya kurumsal koltuk gerekir. Windows kurulumu için 3 PC slot hakkı standarttır.',
   },
   {
     cat: 'odeme',
@@ -200,7 +200,7 @@ const CORP_BENEFITS = [
   {
     icon: 'sync',
     title: 'Aynı Ekosistem',
-    text: 'Windows Agent + Mobil (Android & iOS) + bulut sync. Kurumsal ekipte de bireysel deneyim aynı kalır.',
+    text: 'Windows Agent + Mobil (Android) + bulut sync. Kurumsal ekipte de bireysel deneyim aynı kalır.',
   },
   {
     icon: 'shield',

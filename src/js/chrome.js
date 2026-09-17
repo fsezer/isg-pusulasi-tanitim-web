@@ -155,7 +155,7 @@ export function mountChrome() {
               <span class="site-footer-product-name" data-i18n="common.brand">${SITE_NAME}</span>
             </a>
             <p class="site-footer-tagline" data-i18n="footer.tag">Türkiye'nin İSG yazılımı</p>
-            <p class="site-footer-blurb">Windows Agent + Mobil (Android &amp; iOS) — saha denetimi, şablon motoru ve bulut sync tek platformda.</p>
+            <p class="site-footer-blurb">Windows Agent + Mobil (Android) — saha denetimi, şablon motoru ve bulut sync tek platformda.</p>
             <div class="site-footer-social" aria-label="@isgatlasi">
               <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer" class="site-footer-social-chip site-footer-social-chip--ig" aria-label="Instagram ${SOCIAL_HANDLE}">
                 <span class="site-footer-social-ico" aria-hidden="true">${SOCIAL_SVG.instagram}</span>
@@ -229,6 +229,7 @@ export function mountChrome() {
         <nav class="site-footer-legal" aria-label="Yasal sayfalar">
           <a href="${LEGAL_PRIVACY_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalPrivacy">Gizlilik Politikası</a>
           <a href="${LEGAL_TERMS_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalTerms">Kullanım Koşulları</a>
+          <a href="/cerez-politikasi.html" data-i18n="footer.legalCookies">Çerez Politikası</a>
           <a href="${LEGAL_SUPPORT_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalSupport">Destek</a>
           <a href="${LEGAL_DELETE_ACCOUNT_URL}" target="_blank" rel="noopener noreferrer" data-i18n="footer.legalDelete">Hesap Silme</a>
         </nav>

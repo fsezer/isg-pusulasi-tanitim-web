@@ -84,6 +84,7 @@ export const SEO_VERIFICATION = {
   yandex: '93273c723dc8716c',
 }
 
+/** Yalnız gerçek içerik sayfaları — redirect stub’lar (kvkk/gizlilik/çerez…) sitemap’te yok */
 export const SITEMAP_PATHS = [
   '/',
   '/ozellikler.html',
@@ -95,10 +96,4 @@ export const SITEMAP_PATHS = [
   '/hakkimizda.html',
   '/basvuru.html',
   '/iletisim.html',
-  '/kvkk.html',
-  '/gizlilik.html',
-  '/mesafeli-satis-sozlesmesi.html',
-  '/teslimat-ve-iade.html',
-  '/cerez-politikasi.html',
-  '/banka-ve-firma-bilgileri.html',
 ]

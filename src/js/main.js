@@ -7,12 +7,18 @@ import './firebase-downloads.js'
 import './pricing-calculator.js'
 import { mountContactPage } from './contact-page.js'
 import { initTawk } from './tawk.js'
+import { initCookieConsent } from './cookie-consent.js'
 
-initAnalytics()
 mountChrome()
 mountContactPage()
-initTawk()
 const locale = initI18n()
+
+function enableThirdParty() {
+  initAnalytics()
+  initTawk()
+}
+
+initCookieConsent({ onAccept: enableThirdParty })
 
 const body = document.body
 const navToggle = document.querySelector('[data-nav-toggle]')

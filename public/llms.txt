@@ -17,12 +17,10 @@ Geliştirici: İstiklal Yazılım (Eskişehir).
 - https://isgatlasi.com/iletisim.html
 
 ## Yasal
-- https://isgatlasi.com/kvkk.html
-- https://isgatlasi.com/gizlilik.html
-- https://isgatlasi.com/mesafeli-satis-sozlesmesi.html
-- https://isgatlasi.com/teslimat-ve-iade.html
-- https://isgatlasi.com/cerez-politikasi.html
-- https://isgatlasi.com/banka-ve-firma-bilgileri.html
+- Gizlilik: https://www.istiklalyazilim.com/app/isg-atlasi/privacy-policy
+- Kullanım: https://www.istiklalyazilim.com/app/isg-atlasi/terms-of-service
+- Destek: https://www.istiklalyazilim.com/app/isg-atlasi/support
+- Hesap silme: https://www.istiklalyazilim.com/app/isg-atlasi/delete-account
 
 ## İndirme
 - Windows Agent ve Android APK: https://isgatlasi.com/indir.html

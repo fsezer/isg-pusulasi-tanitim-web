@@ -45,8 +45,28 @@ function seoPlugin() {
       handler(html, ctx) {
         const pageName = ctx.filename ? ctx.filename.replace(/\\/g, '/').split('/').pop()?.replace('.html', '') : 'index'
         if (!html.includes('</head>')) return html
-        if (html.includes('name="twitter:card"')) return html
-        return html.replace('</head>', `${seoHeadInject(pageName)}</head>`)
+
+        const inject = seoHeadInject(pageName)
+          .split('\n')
+          .map((l) => l.trim())
+          .filter(Boolean)
+          .filter((line) => {
+            // Zaten varsa tekrar ekleme (twitter:card olan sayfalar da diğer meta’ları alsın)
+            if (line.includes('name="author"') && html.includes('name="author"')) return false
+            if (line.includes('name="application-name"') && html.includes('name="application-name"')) return false
+            if (line.includes('href="/llms.txt"') && html.includes('href="/llms.txt"')) return false
+            if (line.includes('name="twitter:card"') && html.includes('name="twitter:card"')) return false
+            if (line.includes('name="twitter:site"') && html.includes('name="twitter:site"')) return false
+            if (line.includes('property="og:locale"') && html.includes('property="og:locale"')) return false
+            if (line.includes('name="msvalidate.01"') && html.includes('name="msvalidate.01"')) return false
+            if (line.includes('name="yandex-verification"') && html.includes('name="yandex-verification"')) return false
+            if (line.includes('hreflang="x-default"') && html.includes('hreflang="x-default"')) return false
+            if (line.includes('hreflang="tr"') && html.includes('hreflang="tr"')) return false
+            return true
+          })
+
+        if (!inject.length) return html
+        return html.replace('</head>', `\n    ${inject.join('\n    ')}\n  </head>`)
       },
     },
   }

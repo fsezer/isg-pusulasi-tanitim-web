@@ -57,7 +57,7 @@ Ayrı kayıt gerekmez; tarayıcılar siteyi buldukça indeksler.
 
 - **Google Business Profile** — fiziksel ofis varsa
 - **LinkedIn Company Page** — kurumsal güven
-- **Apple App Store Connect** — iOS çıkınca
+- **Apple Google Play Connect** — çıkınca
 
 ## Deploy sonrası kontrol listesi
 

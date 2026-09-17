@@ -3622,7 +3622,7 @@ main {
   right: 1rem;
 }
 
-/* Canlı görüşme FAB — WhatsApp ile aynı kalıp, sağda */
+/* Canlı görüşme FAB — WhatsApp ile aynı kalıp, sağda; çerez kabulünden sonra */
 .chat-fab {
   position: fixed;
   top: 78%;
@@ -3631,7 +3631,7 @@ main {
   left: auto;
   z-index: 90;
   transform: translateY(-50%);
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.45rem;
   padding: 0.7rem 0.85rem;
@@ -3643,6 +3643,9 @@ main {
   cursor: pointer;
   box-shadow: 0 10px 28px rgba(14, 165, 233, 0.42);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+html.has-cookie-consent .chat-fab {
+  display: inline-flex;
 }
 .chat-fab svg {
   width: 1.35rem;
@@ -4169,10 +4172,6 @@ body.is-introing .chat-fab {
   color: #34d399;
 }
 
-.dl-platform-card--ios .dl-platform-ico {
-  background: rgba(148, 163, 184, 0.2);
-  color: #e2e8f0;
-}
 
 @keyframes icoFloat {
   0%, 100% { transform: translateY(0); }
@@ -4225,7 +4224,6 @@ body.is-introing .chat-fab {
 }
 .platform-duo-ico svg { width: 1.85rem; height: 1.85rem; }
 .platform-duo-ico--android { background: #3ddc84; color: #052e16; }
-.platform-duo-ico--ios { background: #0f172a; color: #fff; }
 .platform-duo-plus {
   font-size: 1.35rem;
   font-weight: 800;
@@ -5191,10 +5189,6 @@ body.is-introing .chat-fab {
   color: #e2e8f0;
 }
 .dl-platform-card--and .btn-amber,
-.dl-platform-card--ios .btn-amber {
-  width: 100%;
-  justify-content: center;
-}
 #indir.sect-band {
   padding-bottom: 5.5rem;
 }
@@ -5258,6 +5252,93 @@ body.is-introing .chat-fab {
   background:
     radial-gradient(ellipse 55% 45% at 90% 10%, rgba(14, 165, 233, 0.1), transparent 55%),
     linear-gradient(160deg, #f4f7fb 0%, #e8eef6 50%, #f8fafc 100%);
+}
+
+/* Cookie consent — İstiklal kalıbı */
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(92vw, 800px);
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.cookie-consent-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+}
+
+@media (min-width: 768px) {
+  .cookie-consent-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.15rem 1.35rem;
+  }
+}
+
+.cookie-consent-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cookie-consent-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cookie-consent-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cookie-consent-accept {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  background: #0ea5e9;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cookie-consent-accept:hover {
+  background: #0284c7;
+}
+
+body.is-introing .cookie-consent-banner {
+  opacity: 0;
+  pointer-events: none;
 }
 
 
