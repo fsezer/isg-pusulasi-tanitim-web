@@ -492,15 +492,13 @@ function bindApplyForm() {
       return
     }
 
+    let turnstileToken = ''
     if (TURNSTILE_SITE_KEY) {
-      const token = getTurnstileToken()
-      if (!token) {
+      turnstileToken = getTurnstileToken()
+      if (!turnstileToken) {
         notify(msg('apply.errCaptcha', 'Robot doğrulamasını tamamlayın.'), 'warn')
         return
       }
-      // Token tek kullanımlık: siteverify'i ödeme öncesi ÇAĞIRMA.
-      // Aksi halde iyzico/API hata verince yeşil kutu kalır, 2. tıklamada timeout-or-duplicate olur.
-      // Widget başarısı + dolu token yeterli; sunucu /api/turnstile ile ayrıca doğrulanabilir.
     }
 
     const btn = form.querySelector('[type="submit"]')
@@ -517,6 +515,7 @@ function bindApplyForm() {
         body: JSON.stringify({
           ...payload,
           kimlikNo: kimlikRaw,
+          turnstileToken,
           website: honeypot,
         }),
       })
@@ -548,6 +547,11 @@ function bindApplyForm() {
       if (data?.error === 'invalid_identity') {
         resetTurnstile()
         notify(msg('apply.errIdentity', 'TC kimlik numarası 11 haneli olmalı.'), 'error')
+        return
+      }
+      if (data?.error === 'captcha_required' || data?.error === 'captcha_failed') {
+        resetTurnstile()
+        notify(msg('apply.errCaptcha', 'Robot doğrulamasını tamamlayın.'), 'warn')
         return
       }
       if (data?.error === 'invalid_district') {
