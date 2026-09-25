@@ -1,0 +1,45 @@
+[debug] [2026-08-02T19:29:24.941Z] ----------------------------------------------------------------------
+[debug] [2026-08-02T19:29:24.942Z] Command:       /usr/local/bin/node /Users/fatihmac/.npm-global/bin/firebase projects:list
+[debug] [2026-08-02T19:29:24.943Z] CLI Version:   15.25.1
+[debug] [2026-08-02T19:29:24.943Z] Platform:      darwin
+[debug] [2026-08-02T19:29:24.943Z] Node Version:  v24.13.1
+[debug] [2026-08-02T19:29:24.943Z] Detected Agent: cursor
+[debug] [2026-08-02T19:29:24.943Z] Time:          Sun Aug 02 2026 22:29:24 GMT+0300 (Türkiye Standard Time)
+[debug] [2026-08-02T19:29:24.943Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-08-02T19:29:24.947Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-08-02T19:29:24.956Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-08-02T19:29:24.956Z] > authorizing via signed-in user (admin@istiklalyazilim.com)
+[debug] [2026-08-02T19:29:24.957Z] Checked if tokens are valid: false, expires at: 1785616036436
+[debug] [2026-08-02T19:29:24.957Z] Checked if tokens are valid: false, expires at: 1785616036436
+[debug] [2026-08-02T19:29:24.957Z] > refreshing access token with scopes: []
+[debug] [2026-08-02T19:29:24.957Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-08-02T19:29:24.957Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-08-02T19:29:25.171Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2026-08-02T19:29:25.171Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2026-08-02T19:29:25.171Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2026-08-02T19:29:25.439Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/auth.js:176:12)
+    at refreshTokens (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/auth.js:589:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async getAccessToken (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/apiv2.js:53:18)
+    at async Client.addAuthHeader (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/apiv2.js:209:21)
+    at async Client.request (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/apiv2.js:156:34)
+    at async getProjectPage (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/management/projects.js:287:17)
+    at async getFirebaseProjectPage (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/management/projects.js:304:23)
+    at async listFirebaseProjects (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/management/projects.js:333:29)
+    at async Command.actionFn (/Users/fatihmac/.npm-global/lib/node_modules/firebase-tools/lib/commands/projects-list.js:51:20)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2026-08-02T19:29:25.474Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-08-02T19:29:25.475Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

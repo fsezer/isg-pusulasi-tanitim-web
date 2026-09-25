@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const v = localStorage.getItem("isg-lang");
+          if (v && ["tr","en","de","fr","ar","ru"].includes(v)) {
+            document.documentElement.lang = v;
+            if (v === "ar") document.documentElement.dir = "rtl";
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İletişim — İSG Atlası</title>
+    <meta name="description" content="İSG Atlası iletişim — Instagram @isgatlasi, WhatsApp ve İstiklal Yazılım Eskişehir." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://isgatlasi.com/iletisim.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İSG Atlası" />
+    <meta property="og:title" content="İletişim — İSG Atlası" />
+    <meta property="og:url" content="https://isgatlasi.com/iletisim.html" />
+    <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="theme-color" content="#06101f" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+  </head>
+  <body class="antialiased" data-page="contact">
+    <div data-site-chrome></div>
+    <main id="contact-page">
+
+      <section class="page-hero">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky-soft" data-i18n="contact.eyebrow"></p>
+          <h1 class="mt-3 font-display text-4xl font-extrabold sm:text-5xl" data-i18n="contact.title"></h1>
+          <p class="mt-4 max-w-2xl text-lg text-slate-300" data-i18n="contact.sub"></p>
+        </div>
+      </section>
+
+      <section class="contact-section-band py-12 sm:py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="contact-layout" data-reveal>
+            <div class="contact-cards">
+              <a class="contact-card" href="mailto:info@isgatlasi.com">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.75"/></svg>
+                </span>
+                <h3 data-i18n="contact.email">E-posta</h3>
+                <p>info@isgatlasi.com</p>
+              </a>
+              <a class="contact-card" href="mailto:destek@isgatlasi.com">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 9-4.6-1.6-8-4.6-8-9V7l8-4z" stroke="currentColor" stroke-width="1.75"/></svg>
+                </span>
+                <h3>Destek</h3>
+                <p>destek@isgatlasi.com</p>
+              </a>
+              <a class="contact-card" href="tel:+905300130326">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M8 3h2l1 4-2 1a12 12 0 005 5l1-2 4 1v2a2 2 0 01-2 2A16 16 0 018 5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+                </span>
+                <h3>Telefon</h3>
+                <p>0530 013 03 26</p>
+              </a>
+              <div class="contact-card contact-card--static">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.2 7-11a7 7 0 10-14 0c0 5.8 7 11 7 11z" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.75"/></svg>
+                </span>
+                <h3>Adres</h3>
+                <p>Büyükdere Mah. Kaplanlı Cad. No:10A<br />Odunpazarı / ESKİŞEHİR</p>
+                <p class="contact-card-hint">Büyükdere ve Göztepe Tramvay Durakları Arasında</p>
+              </div>
+              <a class="contact-card contact-card--ig" href="https://instagram.com/isgatlasi" target="_blank" rel="noopener noreferrer" data-contact-instagram>
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.75"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                </span>
+                <h3 data-i18n="contact.instagram">Instagram</h3>
+                <p>İSG Atlası</p>
+                <span class="contact-handle">@isgatlasi</span>
+              </a>
+              <a class="contact-card contact-card--x" href="https://twitter.com/isgatlasi" target="_blank" rel="noopener noreferrer" data-contact-twitter>
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+                </span>
+                <h3 data-i18n="contact.twitter">X / Twitter</h3>
+                <p>İSG Atlası</p>
+                <span class="contact-handle">@isgatlasi</span>
+              </a>
+              <a class="contact-card contact-card--yt" href="#" data-contact-youtube aria-disabled="true">
+                <span class="contact-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.05 3.05 0 00-2.15-2.16C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.35.54A3.05 3.05 0 00.5 6.2 31.9 31.9 0 000 12a31.9 31.9 0 00.5 5.8 3.05 3.05 0 002.15 2.16C4.5 20.5 12 20.5 12 20.5s7.5 0 9.35-.54a3.05 3.05 0 002.15-2.16A31.9 31.9 0 0024 12a31.9 31.9 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+                </span>
+                <h3 data-i18n="contact.youtube">YouTube</h3>
+                <p>İSG Atlası</p>
+                <span class="contact-handle">@isgatlasi</span>
+              </a>
+            </div>
+
+            <div class="contact-map-panel">
+              <iframe
+                class="contact-map"
+                data-contact-map
+                title="İstiklal Yazılım — Google Harita"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div class="contact-map-actions">
+                <a href="#" data-contact-google target="_blank" rel="noopener noreferrer" class="btn-amber">Google Harita'da Aç</a>
+                <a href="#" data-contact-phone class="btn-ghost-light">Firmayı Ara</a>
+                <a href="#" data-contact-yandex target="_blank" rel="noopener noreferrer" class="btn-ghost-light">Yandex</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

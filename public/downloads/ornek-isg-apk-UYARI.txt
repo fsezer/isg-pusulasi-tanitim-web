@@ -1,0 +1,3 @@
+UYARI: ornek-isg.apk gerçek bir Android uygulama paketi değildir.
+Tanıtım sitesinde indirme bağlantısının çalışması için konulmuş küçük bir yer tutucu dosyadır.
+Gerçek APK, Admin paneli (Sürüm & Güncelleme) üzerinden yayınlanacaktır.

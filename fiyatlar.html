@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const v = localStorage.getItem("isg-lang");
+          if (v && ["tr","en","de","fr","ar","ru"].includes(v)) {
+            document.documentElement.lang = v;
+            if (v === "ar") document.documentElement.dir = "rtl";
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paketler — İSG Atlası</title>
+    <meta name="description" content="Max paket — Windows + Mobil birlikte. Bireysel ve kurumsal (5+) lisans." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://isgatlasi.com/fiyatlar.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İSG Atlası" />
+    <meta property="og:title" content="Paketler — İSG Atlası" />
+    <meta property="og:description" content="Tek Max paket ve kurumsal 5+ kullanıcı fiyatlandırması." />
+    <meta property="og:url" content="https://isgatlasi.com/fiyatlar.html" />
+    <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#06101f" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+  </head>
+  <body class="antialiased" data-page="pricing">
+    <div data-site-chrome></div>
+    <main id="pricing-page">
+
+      <section class="page-hero">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky-soft" data-i18n="pricing.eyebrow"></p>
+          <h1 class="mt-3 font-display text-4xl font-extrabold sm:text-5xl" data-i18n="pricing.title"></h1>
+          <p class="mt-4 max-w-2xl text-lg text-slate-300" data-i18n="pricing.sub"></p>
+        </div>
+      </section>
+
+      <section class="pricing-tabs-section">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
+          <div class="pricing-tabs" role="tablist" aria-label="Fiyatlandırma türü">
+            <button type="button" class="pricing-tab is-active" role="tab" id="tab-bireysel" aria-selected="true" aria-controls="pricing-panel-bireysel" data-pricing-tab="bireysel">
+              <span class="pricing-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.75"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              Bireysel
+            </button>
+            <button type="button" class="pricing-tab" role="tab" id="tab-kurumsal" aria-selected="false" aria-controls="pricing-panel-kurumsal" data-pricing-tab="kurumsal">
+              <span class="pricing-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              Kurumsal
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BİREYSEL -->
+      <div id="pricing-panel-bireysel" class="pricing-tab-panel is-active" role="tabpanel" aria-labelledby="tab-bireysel">
+
+        <section class="sect-band sect-band--mist py-8 sm:py-12">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-packages-grid" class="packages-grid packages-grid--hero"></div>
+            <div id="pricing-installment" class="mt-8"></div>
+            <p class="pricing-footnote mt-6 text-center text-sm text-slate-500">
+              Yıllık liste fiyatı · KDV dahil · Tek kullanıcı lisansı · Windows + Mobil
+            </p>
+          </div>
+        </section>
+
+        <section class="sect-band sect-band--sky pb-12 sm:pb-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="pricing-panel" data-reveal>
+              <div class="pricing-panel-head">
+                <h2 class="pricing-panel-title">Özellikler</h2>
+                <span class="pricing-panel-meta">Max paket kapsamı</span>
+              </div>
+              <div id="pricing-compare-wrap"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sect-band sect-band--amber pb-12 sm:pb-16" id="pricing-glossary">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="pricing-section-head" data-reveal>
+              <h2 class="pricing-section-title">Özellikler Nedir?</h2>
+              <p class="pricing-section-sub">Max paketteki her modülün ne yaptığını kısaca açıklıyoruz.</p>
+            </div>
+            <div id="pricing-glossary-chips" class="pricing-glossary-chips" data-reveal></div>
+            <div id="pricing-glossary-list" class="pricing-glossary-list" data-reveal></div>
+          </div>
+        </section>
+
+        <section class="sect-band sect-band--mint pb-16 sm:pb-20" id="pricing-faq">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="pricing-section-head" data-reveal>
+              <h2 class="pricing-section-title">Fiyatlandırma SSS</h2>
+              <p class="pricing-section-sub">Paket, ödeme, taksit ve teknik sorular</p>
+            </div>
+            <div id="pricing-faq-list" class="mt-8" data-reveal></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- KURUMSAL -->
+      <div id="pricing-panel-kurumsal" class="pricing-tab-panel" role="tabpanel" aria-labelledby="tab-kurumsal" hidden>
+
+        <section class="sect-band sect-band--mist py-8 sm:py-12">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-hero"></div>
+          </div>
+        </section>
+
+        <section class="sect-band sect-band--sky pb-12 sm:pb-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-tiers"></div>
+          </div>
+        </section>
+
+        <section class="sect-band sect-band--violet pb-12 sm:pb-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-benefits"></div>
+          </div>
+        </section>
+
+        <section class="sect-band sect-band--navy pb-20">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div id="pricing-corp-cta"></div>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

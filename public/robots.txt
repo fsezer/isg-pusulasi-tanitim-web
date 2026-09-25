@@ -1,0 +1,78 @@
+# isgatlasi.com — arama motorları + yapay zeka tarayıcıları
+User-agent: *
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing (+ Yahoo sonuçları Bing üzerinden gelir)
+User-agent: Bingbot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Yapay zeka / LLM keşfi (görünürlük için açık)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+Sitemap: https://isgatlasi.com/sitemap.xml
+
+# LLM özeti
+# https://isgatlasi.com/llms.txt
+
+# IndexNow anahtar dosyası (Bing / Yandex hızlı indeks)
+# https://isgatlasi.com/isgatlasi-indexnow-2026.txt
