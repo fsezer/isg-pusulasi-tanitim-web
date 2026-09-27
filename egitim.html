@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const v = localStorage.getItem("isg-lang");
+          if (v && ["tr","en","de","fr","ar","ru"].includes(v)) {
+            document.documentElement.lang = v;
+            if (v === "ar") document.documentElement.dir = "rtl";
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eğitim — İSG Atlası</title>
+    <meta name="description" content="Telefon ve Windows için kısa anlatımlar. Sesli asistan, sertifika ve saha kaydı." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://isgatlasi.com/egitim.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İSG Atlası" />
+    <meta property="og:title" content="Eğitim — İSG Atlası" />
+    <meta property="og:description" content="Telefon ve Windows için kısa anlatımlar." />
+    <meta property="og:url" content="https://isgatlasi.com/egitim.html" />
+    <meta property="og:image" content="https://isgatlasi.com/img/app_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#06101f" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+  </head>
+  <body class="antialiased" data-page="learn">
+    <div data-site-chrome></div>
+    <main>
+      <section class="page-hero">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky-soft" data-i18n="learn.eyebrow"></p>
+          <h1 class="learn-hero-title mt-3 font-display text-4xl font-extrabold sm:text-5xl">
+            <span class="learn-hero-ico" aria-hidden="true"><svg viewBox="0 0 36 36"><rect x="4" y="7" width="28" height="18" rx="3" fill="#cffafe" stroke="#67e8f9" stroke-width="1.4"/><path d="M15 12.5l8 3.5-8 3.5z" fill="#fbbf24"/></svg></span>
+            <span data-i18n="learn.title"></span>
+          </h1>
+          <p class="mt-4 max-w-2xl text-lg text-slate-300" data-i18n="learn.sub"></p>
+        </div>
+      </section>
+
+      <section class="sect-band sect-band--mist py-14 sm:py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="learn-stage soft-card" data-learn-stage>
+            <div class="learn-frame" data-learn-frame>
+              <div class="learn-placeholder" data-learn-placeholder>
+                <span class="learn-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 7.5v9l7-4.5-7-4.5z"/></svg>
+                </span>
+              </div>
+            </div>
+            <h2 class="learn-now">
+              <span class="learn-now-ico" data-learn-ico="phone" aria-hidden="true"><svg viewBox="0 0 36 36"><rect x="12" y="4" width="12" height="28" rx="3" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5"/><circle cx="18" cy="27" r="1.4" fill="#0f766e"/></svg></span>
+              <span class="learn-now-ico" data-learn-ico="windows" hidden aria-hidden="true"><svg viewBox="0 0 36 36"><rect x="4" y="6" width="28" height="18" rx="2" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/><path d="M12 30h12" stroke="#0f766e" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span data-learn-now data-i18n="learn.pick"></span>
+            </h2>
+          </div>
+
+          <div class="learn-tools">
+            <label class="learn-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path stroke-linecap="round" d="M16 16l4 4"/></svg>
+              <input type="search" data-learn-search data-i18n-placeholder="learn.search" placeholder="Anlatım Ara" autocomplete="off" />
+            </label>
+            <div class="learn-filters" role="tablist" data-i18n-aria="learn.all" aria-label="Tümü">
+              <button type="button" class="learn-filter is-active" data-learn-filter="all">
+                <span class="learn-filter-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6" fill="#38bdf8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6" fill="#fbbf24"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6" fill="#34d399"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6" fill="#818cf8"/></svg></span>
+                <span data-i18n="learn.all"></span>
+              </button>
+              <button type="button" class="learn-filter" data-learn-filter="phone">
+                <span class="learn-filter-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.4"/><circle cx="12" cy="18.5" r="1" fill="#0f766e"/></svg></span>
+                <span data-i18n="learn.phone"></span>
+              </button>
+              <button type="button" class="learn-filter" data-learn-filter="windows">
+                <span class="learn-filter-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/><path d="M8 21h8" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                <span data-i18n="learn.windows"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="learn-grid" data-learn-grid>
+            <button type="button" class="learn-card is-active" data-side="phone" data-yt="">
+              <span class="learn-card-visual learn-card-visual--phone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="8" y="3" width="8" height="18" rx="2"/><path stroke-linecap="round" d="M11 18h2"/></svg>
+              </span>
+              <span class="learn-card-body">
+                <span class="learn-card-kicker" data-i18n="learn.phone"></span>
+                <span class="learn-card-title" data-i18n="learn.v1"></span>
+                <span class="learn-card-meta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.4"/><path d="M12 8v5l3 2" fill="none" stroke="#0f766e" stroke-width="1.5" stroke-linecap="round"/></svg><span>1:20</span></span>
+              </span>
+            </button>
+
+            <button type="button" class="learn-card" data-side="windows" data-yt="">
+              <span class="learn-card-visual learn-card-visual--win" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="12" rx="2"/><path stroke-linecap="round" d="M8 20h8"/></svg>
+              </span>
+              <span class="learn-card-body">
+                <span class="learn-card-kicker" data-i18n="learn.windows"></span>
+                <span class="learn-card-title" data-i18n="learn.v2"></span>
+                <span class="learn-card-meta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/><path d="M12 8v5l3 2" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-linecap="round"/></svg><span>2:05</span></span>
+              </span>
+            </button>
+
+            <button type="button" class="learn-card" data-side="phone" data-yt="">
+              <span class="learn-card-visual learn-card-visual--phone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h4l2-3h4l2 3h4v11H4z"/><circle cx="12" cy="13" r="3"/></svg>
+              </span>
+              <span class="learn-card-body">
+                <span class="learn-card-kicker" data-i18n="learn.phone"></span>
+                <span class="learn-card-title" data-i18n="learn.v3"></span>
+                <span class="learn-card-meta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/><path d="M12 8v5l3 2" fill="none" stroke="#b45309" stroke-width="1.5" stroke-linecap="round"/></svg><span>1:45</span></span>
+              </span>
+            </button>
+          </div>
+
+          <p class="learn-empty" data-learn-empty hidden data-i18n="learn.empty"></p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/egitim.js"></script>
+  </body>
+</html>

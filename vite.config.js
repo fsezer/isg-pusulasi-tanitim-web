@@ -7,7 +7,7 @@ import {
 } from './src/js/site-config.js'
 
 const pages = [
-  'index', 'ozellikler', 'windows', 'mobil', 'indir', 'fiyatlar', 'sss', 'basvuru', 'iletisim', 'hakkimizda',
+  'index', 'ozellikler', 'windows', 'mobil', 'egitim', 'indir', 'fiyatlar', 'sss', 'basvuru', 'iletisim', 'hakkimizda',
   'gizlilik', 'teslimat-ve-iade', 'mesafeli-satis-sozlesmesi', 'cerez-politikasi', 'kvkk', 'banka-ve-firma-bilgileri',
   'odeme-sonuc',
 ]

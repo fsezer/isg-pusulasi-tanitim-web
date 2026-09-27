@@ -90,6 +90,7 @@ export const SITEMAP_PATHS = [
   '/ozellikler.html',
   '/windows.html',
   '/mobil.html',
+  '/egitim.html',
   '/indir.html',
   '/fiyatlar.html',
   '/sss.html',

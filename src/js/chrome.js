@@ -25,6 +25,7 @@ const PAGES = [
   { id: 'features', href: '/ozellikler.html', key: 'nav.features' },
   { id: 'windows', href: '/windows.html', key: 'nav.windows' },
   { id: 'mobile', href: '/mobil.html', key: 'nav.mobile' },
+  { id: 'learn', href: '/egitim.html', key: 'nav.learn' },
   { id: 'download', href: '/indir.html', key: 'nav.download' },
   { id: 'pricing', href: '/fiyatlar.html', key: 'nav.pricing' },
   { id: 'faq', href: '/sss.html', key: 'nav.faq' },
@@ -195,6 +196,7 @@ export function mountChrome() {
               <a href="/ozellikler.html" data-i18n="nav.features">Özellikler</a>
               <a href="/windows.html" data-i18n="nav.windows">Windows</a>
               <a href="/mobil.html" data-i18n="nav.mobile">Mobil</a>
+              <a href="/egitim.html" data-i18n="nav.learn">Eğitim</a>
               <a href="/indir.html" data-i18n="nav.download">İndir</a>
               <a href="/fiyatlar.html" data-i18n="nav.pricing">Fiyatlar</a>
               <a href="/sss.html" data-i18n="nav.faq">SSS</a>
