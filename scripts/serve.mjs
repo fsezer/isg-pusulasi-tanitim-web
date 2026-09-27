@@ -11,6 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = process.env.STATIC_ROOT || path.join(__dirname, '..', 'dist')
 const PORT = Number(process.env.PORT || 8080)
 const SECRET = process.env.TURNSTILE_SECRET || ''
+const SUNUM_ORIGIN = (process.env.SUNUM_ORIGIN || 'https://isg-sunum-kvfsvqx7na-ew.a.run.app').replace(/\/$/, '')
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -69,6 +70,30 @@ function safeJoin(root, urlPath) {
   return full
 }
 
+async function proxySunum(req, res, url) {
+  const target = SUNUM_ORIGIN + url.pathname + url.search
+  const upstream = await fetch(target, { method: req.method, redirect: 'manual' })
+  const headers = {
+    'content-type': upstream.headers.get('content-type') || 'application/octet-stream',
+  }
+  const cache = upstream.headers.get('cache-control')
+  if (cache) headers['cache-control'] = cache
+  const location = upstream.headers.get('location')
+  if (location) headers.location = location
+  res.writeHead(upstream.status, headers)
+  if (req.method === 'HEAD' || !upstream.body) {
+    res.end()
+    return
+  }
+  const reader = upstream.body.getReader()
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+    res.write(value)
+  }
+  res.end()
+}
+
 function sendFile(res, filePath) {
   const ext = path.extname(filePath).toLowerCase()
   const type = MIME[ext] || 'application/octet-stream'
@@ -82,6 +107,15 @@ function sendFile(res, filePath) {
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`)
+
+  if (url.pathname === '/sunum' || url.pathname.startsWith('/sunum/')) {
+    try {
+      await proxySunum(req, res, url)
+    } catch (e) {
+      sendJson(res, 502, { error: 'sunum', detail: String(e?.message || e) })
+    }
+    return
+  }
 
   if (url.pathname === '/api/turnstile') {
     if (req.method === 'OPTIONS') return sendJson(res, 200, { ok: true })
