@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = process.env.STATIC_ROOT || path.join(__dirname, '..', 'dist')
 const PORT = Number(process.env.PORT || 8080)
 const SECRET = process.env.TURNSTILE_SECRET || ''
-const SUNUM_ORIGIN = (process.env.SUNUM_ORIGIN || 'https://isg-sunum-kvfsvqx7na-ew.a.run.app').replace(/\/$/, '')
+const SUNUM_ORIGIN = (process.env.SUNUM_ORIGIN || 'https://isg-sunum-585271991526.europe-west1.run.app').replace(/\/$/, '')
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
