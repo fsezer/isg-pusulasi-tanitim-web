@@ -14,6 +14,21 @@ const FALLBACK = {
 
 let downloadCfg = { ...FALLBACK }
 
+function bindPlaySoon() {
+  const el = document.getElementById('store-play')
+  if (!el || el.dataset.playBound === '1') return
+  el.dataset.playBound = '1'
+  el.href = '#'
+  el.addEventListener('click', (e) => {
+    e.preventDefault()
+    showSiteFeedback(
+      t(detectLocale(), 'download.playSoon'),
+      'info',
+      { title: t(detectLocale(), 'download.play') },
+    )
+  })
+}
+
 function applyLink(id, url, labelWhenReady) {
   const el = document.getElementById(id)
   if (!el) return
@@ -73,6 +88,7 @@ async function fetchPlatformRelease(platform) {
 
 async function loadDownloads() {
   if (!document.getElementById('download-windows') && !document.getElementById('store-play')) return
+  bindPlaySoon()
 
   let cfg = { ...FALLBACK }
   try {
@@ -94,7 +110,7 @@ async function loadDownloads() {
 
   downloadCfg = cfg
 
-  applyLink('store-play', cfg.playStoreUrl || cfg.androidUrl, 'Google Play')
+  bindPlaySoon()
 
   const bindBtn = (id, platform) => {
     const btn = document.getElementById(id)

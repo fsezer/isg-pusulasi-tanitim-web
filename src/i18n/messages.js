@@ -250,6 +250,7 @@ export const MESSAGES = {
       "gateLimit": "İndirme limitinize ulaştınız (3/3).",
       "gateNotReady": "İndirme linki henüz hazır değil.",
       "play": "Google Play",
+      "playSoon": "Şimdilik Yok.",
       "appstore": "Google Play",
       "soon": "Yakında"
     },
@@ -694,6 +695,7 @@ export const MESSAGES = {
       "gateLimit": "Download limit reached (3/3).",
       "gateNotReady": "Download link is not ready yet.",
       "play": "Google Play",
+      "playSoon": "Not Available Yet.",
       "appstore": "Google Play",
       "soon": "Coming Soon"
     },
@@ -1078,6 +1080,7 @@ export const MESSAGES = {
       "gateLimit": "Limit erreicht (3/3).",
       "gateNotReady": "Link noch nicht bereit.",
       "play": "Google Play",
+      "playSoon": "Noch Nicht Verfügbar.",
       "appstore": "Google Play",
       "soon": "Demnächst"
     },
@@ -1447,6 +1450,7 @@ export const MESSAGES = {
       "gateLimit": "Download limit reached (3/3).",
       "gateNotReady": "Download link is not ready yet.",
       "play": "Google Play",
+      "playSoon": "Pas Encore Disponible.",
       "appstore": "Google Play",
       "soon": "Bientôt"
     },
@@ -1816,6 +1820,7 @@ export const MESSAGES = {
       "gateLimit": "Download limit reached (3/3).",
       "gateNotReady": "Download link is not ready yet.",
       "play": "Google Play",
+      "playSoon": "غير متاح حالياً.",
       "appstore": "Google Play",
       "soon": "قريباً"
     },
@@ -2185,6 +2190,7 @@ export const MESSAGES = {
       "gateLimit": "Download limit reached (3/3).",
       "gateNotReady": "Download link is not ready yet.",
       "play": "Google Play",
+      "playSoon": "Пока Нет.",
       "appstore": "Google Play",
       "soon": "Скоро"
     },

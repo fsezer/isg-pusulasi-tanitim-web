@@ -1,0 +1,19 @@
+---
+description: Tanıtım sitesi değişince canlıya alınır
+alwaysApply: true
+---
+
+# Tanıtım canlı
+
+`tanitim_web` anlamlı değişince sormadan canlıya al:
+
+```bash
+cd "/Users/fatihmac/Desktop/PROJECT/İsg Pusulası/tanitim_web"
+gcloud run deploy isg-tanitim-web --source . --project=isg-pusulasi --region=europe-west1 --allow-unauthenticated
+```
+
+Hesap: `admin@istiklalyazilim.com`. Oturum düşmüşse tarayıcı auth aç, Chrome linkini ver, girişi bekle, deploy’a devam et.
+
+Canlı: `https://isgatlasi.com`
+
+Commit yalnız kullanıcı isteyince. İsteyince mesaj sürüm (`package.json` → `version`), tag aynı numara, `git push` ve `git push origin <sürüm>`.
