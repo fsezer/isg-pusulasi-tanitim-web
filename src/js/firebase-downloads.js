@@ -2,7 +2,10 @@ import { API_BASE } from './site-config.js'
 import { detectLocale, t } from './i18n.js'
 import { showSiteFeedback } from './site-feedback.js'
 
-/** İndirme linkleri — Admin Sürüm & Güncelleme (app_releases / updates/check). */
+/** İndirme linkleri — Admin Sürüm & Güncelleme (app_releases / updates/check).
+ * Windows düğmesi zip değil, kurulum exe’si. Zip’i programın güncellemesi kullanır.
+ */
+const WINDOWS_INSTALLER_URL = 'https://firebasestorage.googleapis.com/v0/b/isg-pusulasi.firebasestorage.app/o/releases%2Fwindows%2Fisg_atlasi_windows.exe?alt=media&token=6e54cb91-66af-45a7-acfd-4964c62938f6'
 const FALLBACK = {
   windowsUrl: '',
   androidUrl: '',
@@ -96,8 +99,8 @@ async function loadDownloads() {
       fetchPlatformRelease('windows'),
       fetchPlatformRelease('android'),
     ])
+    cfg.windowsUrl = WINDOWS_INSTALLER_URL
     if (win) {
-      cfg.windowsUrl = win.download_url || ''
       cfg.windowsVersion = win.version_name || ''
     }
     if (and) {
