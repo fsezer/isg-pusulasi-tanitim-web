@@ -17,6 +17,21 @@ const FALLBACK = {
 
 let downloadCfg = { ...FALLBACK }
 
+function bindAppStoreSoon() {
+  const el = document.getElementById('store-apple')
+  if (!el || el.dataset.appleBound === '1') return
+  el.dataset.appleBound = '1'
+  el.href = '#'
+  el.addEventListener('click', (e) => {
+    e.preventDefault()
+    showSiteFeedback(
+      t(detectLocale(), 'download.appStoreSoon'),
+      'info',
+      { title: t(detectLocale(), 'download.appStore') },
+    )
+  })
+}
+
 function bindPlay() {
   const el = document.getElementById('store-play')
   if (!el) return
@@ -86,6 +101,7 @@ async function fetchPlatformRelease(platform) {
 async function loadDownloads() {
   if (!document.getElementById('download-windows') && !document.getElementById('store-play')) return
   bindPlay()
+  bindAppStoreSoon()
 
   let cfg = { ...FALLBACK }
   try {
