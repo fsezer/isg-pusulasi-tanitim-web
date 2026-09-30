@@ -1,4 +1,4 @@
-import { API_BASE } from './site-config.js'
+import { API_BASE, PLAY_STORE_URL } from './site-config.js'
 import { detectLocale, t } from './i18n.js'
 import { showSiteFeedback } from './site-feedback.js'
 
@@ -17,19 +17,13 @@ const FALLBACK = {
 
 let downloadCfg = { ...FALLBACK }
 
-function bindPlaySoon() {
+function bindPlay() {
   const el = document.getElementById('store-play')
-  if (!el || el.dataset.playBound === '1') return
-  el.dataset.playBound = '1'
-  el.href = '#'
-  el.addEventListener('click', (e) => {
-    e.preventDefault()
-    showSiteFeedback(
-      t(detectLocale(), 'download.playSoon'),
-      'info',
-      { title: t(detectLocale(), 'download.play') },
-    )
-  })
+  if (!el) return
+  el.href = PLAY_STORE_URL
+  el.target = '_blank'
+  el.rel = 'noopener noreferrer'
+  el.removeAttribute('aria-disabled')
 }
 
 function applyLink(id, url, labelWhenReady) {
@@ -91,7 +85,7 @@ async function fetchPlatformRelease(platform) {
 
 async function loadDownloads() {
   if (!document.getElementById('download-windows') && !document.getElementById('store-play')) return
-  bindPlaySoon()
+  bindPlay()
 
   let cfg = { ...FALLBACK }
   try {
@@ -113,7 +107,7 @@ async function loadDownloads() {
 
   downloadCfg = cfg
 
-  bindPlaySoon()
+  bindPlay()
 
   const bindBtn = (id, platform) => {
     const btn = document.getElementById(id)
